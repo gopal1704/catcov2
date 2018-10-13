@@ -11,26 +11,22 @@
 |
 */
 
-Route::get('/', 'homecontroller@index');
+Route::get('/', 'homeController@index');
 
-Route::get('/logout', 'homecontroller@logout');
+Route::get('/logout', 'homeController@logout');
 
 
 Route::get('/holdings', function () {
     return view('holdings');
 });
 
-Route::get('/order', function () {
-    return view('order');
-});
+Route::get('/placeorder', 'placeorderController@index');
 
 Route::get('/referrals', function () {
     return view('referrals');
 });
 
-Route::get('/transactions', function () {
-    return view('transactions');
-});
+Route::get('/transactions', 'transactionsController@index');
 
 Route::get('/wallettransfer', function () {
     return view('wallettransfer');

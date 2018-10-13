@@ -26,6 +26,7 @@ class calculatebalance {
             'mainWallet' => 0,
             'pendingWallet' => 0,
             'withdrawalPendingBalance'=> 0,
+            ''
         ];
     }
 

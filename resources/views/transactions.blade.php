@@ -49,34 +49,43 @@ Export
 
 <thead>
     <tr>
+        <th>Id</th>
 <th>Date</th>
-<th>Id</th>
+
 <th>Narration</th>
-<th>Amount</th>
+<th>Credit</th>
+<th>Debit</th>
 <th>From</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+    @foreach ($transactions as $transaction)
+    <tr>
+        <td>{{ $transaction->id}}</td>
+      <td>    {{ Carbon\Carbon::parse($transaction->timestamp)->format('d-m-Y')}}
+      </td>
+      <td>    {{ $transaction->narration}}
+        </td>
+        <td> 
+        @if ($transaction->TYPE == 'Cr.')
+          {{ $transaction->amount}}
+          @endif
+          </td>
+          <td> 
+              @if ($transaction->TYPE == 'Dr.')
+                {{ $transaction->amount}}
+                @endif
+                </td>
 
-    <td>20/12/2019</td>
-    <td>2000</td>
-    <td>Credit wallet transfer</td>
-    <td>100</td>
-    <td>ggg</td>
-</tr>
-<tr>
+                <td>{{ $transaction->from}}</td>
 
-        <td>20/12/2019</td>
-        <td>2000</td>
-        <td>Credit wallet transfer</td>
-        <td>100</td>
-        <td>ggg</td>
     </tr>
-</tbody>
-<tr>
 
-</tr>
+@endforeach
+
+  
+</tbody>
+
 
         </table>
     </div>
@@ -85,17 +94,8 @@ Export
     <div class="row">
         <div class="col">
                 <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-end">
-                          <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1">Previous</a>
-                          </li>
-                          <li class="page-item"><a class="page-link" href="#">1</a></li>
-                          <li class="page-item"><a class="page-link" href="#">2</a></li>
-                          <li class="page-item"><a class="page-link" href="#">3</a></li>
-                          <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                          </li>
-                        </ul>
+                    {{ $transactions->links() }}
+ 
                       </nav>
         </div>
     </div>

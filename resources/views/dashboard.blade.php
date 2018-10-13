@@ -23,13 +23,13 @@
                 <nav class="navbar">
 
                     <div class="navbar-nav nav-link-side">
-                        <a class="nav-item nav-link" href="">DASHBOARD</a>
-                        <a class="nav-item nav-link" href="">GOLD WALLET</a>
-                        <a class="nav-item nav-link" href="">PLACE BUY ORDER</a>
-                        <a class="nav-item nav-link" href="">MY REFERRALS</a>
-                        <a class="nav-item nav-link" href="">TRANSACTIONS</a>
-                        <a class="nav-item nav-link" href="">WALLET TRANSFER</a>
-                        <a class="nav-item nav-link" href="">BUSINESS PLAN</a>
+                        <a class="nav-item nav-link" href="/">DASHBOARD</a>
+                        <a class="nav-item nav-link" href="/holdings">GOLD WALLET</a>
+                        <a class="nav-item nav-link" href="/placeorder">PLACE BUY ORDER</a>
+                        <a class="nav-item nav-link" href="/referrals">MY REFERRALS</a>
+                        <a class="nav-item nav-link" href="/transactions">TRANSACTIONS</a>
+                        <a class="nav-item nav-link" href="/wallettransfer">WALLET TRANSFER</a>
+                        <a class="nav-item nav-link" href="/">BUSINESS PLAN</a>
 
                     </div>
 
