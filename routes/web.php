@@ -40,6 +40,8 @@ Route::get('/withdraw', function () {
     return view('withdraw');
 });
 
+Route::get('/test', 'homecontroller@test1');
+
 Route::get('/createprofile', 'createprofile@index');
 
 

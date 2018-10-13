@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\profile;
 use Illuminate\Support\Facades\Auth;
-
+use AWS;
+use App\calculatebalance;
 class HomeController extends Controller
 {
     /**
@@ -26,6 +27,9 @@ class HomeController extends Controller
     public function index()
     {   
         $profile =  profile::where('userId',auth()->user()->id)->first();
+        
+       // $profile =  profile::where('userId',calculatebalance::getWalletBalance())->first();
+
         if($profile->profileUpdated==false){
             return view('createprofile');
         }
@@ -35,7 +39,26 @@ class HomeController extends Controller
     public function logout(){
 
 Auth::logout();
+// $sms = AWS::createClient('sns');
+    
+// $sms->publish([
+//         'Message' => 'Hello, catco',
+//         'PhoneNumber' => '+919176454024',    
+//         'MessageAttributes' => [
+//             'AWS.SNS.SMS.SMSType'  => [
+//                 'DataType'    => 'String',
+//                 'StringValue' => 'Transactional',
+//              ]
+//          ],
+//       ]);
 return redirect('/');
 
     }
+
+
+  public function  test1(){
+
+    return calculatebalance::getWalletBalance();
+    }
 }
+ 
