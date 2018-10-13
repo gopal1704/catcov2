@@ -1,0 +1,69 @@
+
+@font-face {
+    font-family: gotham;
+    src: url(fonts/GothamBook.ttf);
+    }
+    body{
+        background-color:#2e3851; color:#FFF;
+        font-family:gotham;
+        font-size: 14px;
+    }
+    a{
+      color:   #8ea3b9;
+      font-size: 15px;
+    }
+
+    .form-control{
+        background-color: #40495F;
+color: #FFF;   
+    }
+    .page-link{
+        background-color: #40495F;
+        color: #FFF;
+    }
+
+    right-nav a{
+      font-size: 25px;
+    }
+
+.main-col{
+    padding: 25px;
+         }
+
+.catco-pannel{
+    background-color: #40495F;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+}
+.cur-pannel{
+
+}
+.c-text{
+    font-size: 13px;
+}
+.cur-item-dollar{
+    height: 40px;
+}
+.table{
+    font-size: 13px;
+}
+.table td, .table th{
+    border-color:   #4e566b;
+    word-wrap: break-word;
+
+
+}
+._green{
+    color:  #28a745;
+
+}
+._red{
+
+    color:	#D5AD6D; /*if no support for background-clip*/
+background: -webkit-linear-gradient(transparent, transparent),
+-webkit-linear-gradient(top, rgba(213,173,109,1) 0%, rgba(213,173,109,1) 26%, rgba(226,186,120,1) 35%, rgba(163,126,67,1) 45%, rgba(145,112,59,1) 61%, rgba(213,173,109,1) 100%);
+background: -o-linear-gradient(transparent, transparent);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
