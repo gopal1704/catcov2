@@ -53,8 +53,8 @@
 
         <th class="col-2">Gold Wallet</th>
         <th class="col-2">Maturity date</th>
-        <th class="col-2">Maturity status</th>
         <th class="col-2">Maturity value</th>
+        <th class="col-2">Maturity status</th>
 
     </tr>
 </thead>
@@ -65,13 +65,13 @@
 
 <tr class="d-flex holding">
 
-<td class="col-2 " >{{App\operations::displayTime($holding->TIMESTAMP)}}</td>
+<td class="col-2 fromDate" >{{App\operations::displayTime($holding->TIMESTAMP)}}</td>
 <td class="col-2">{{$holding->schemes->schemeName}}</td> 
 
-<td class="col-2">{{$holding->amount}}</td> 
+<td class="col-2 amount">{{$holding->amount}}</td> 
 <td class="col-2 date">{{ App\operations::calculateMaturity($holding->TIMESTAMP,$holding->schemes->duration)}}</td>
 
-
+<td class="col-2 maturityAmount">1000</td>
 
 <td class="col-2 rt">
 
@@ -86,6 +86,8 @@
                 </div>
                 </div>
         </td>
+        <td class="d-none returnRate">{{$holding->schemes->maturityRate}}</td>
+
 </tr>
 
 
@@ -154,23 +156,22 @@
 </div>
 <script>
 
-    function remainingTime(date,element){
-console.log(date);
-console.log(element);
+    function remainingTime(date,fromdate,element,amt,rtRate){
+
           // Set the date we're counting down to
 
           var countDownDate = Date.parse(date);
+          var amount =parseFloat(amt);
+          var returnRate = parseFloat(rtRate);
+          var fromdate = Date.parse(fromdate);
 
-
-        console.log('count',countDownDate);
         // Update the count down every 1 second
         var x = setInterval(function() {
-        console.log('interval');
           // Get todays date and time
           var now = new Date().getTime();
-          console.log('now',now);
           // Find the distance between now and the count down date
           var distance = countDownDate - now;
+          var amountDistance= now - fromdate;
         
           // Time calculations for days, hours, minutes and seconds
           var days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -178,13 +179,34 @@ console.log(element);
           var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
           var seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
+
+        if(distance/1000>0){
+        //calculate 1second value
+        var maturityAmount =  parseFloat(amount*(returnRate/100).toFixed(2));
+
+    var     maturityPeriodSeconds = (countDownDate - fromdate)/1000;
+    var     incrementPerSecond = (maturityAmount/maturityPeriodSeconds).toFixed(5);
+
+        console.log('incsec',incrementPerSecond);
+        ////calculate maturity amount .
+//console.log('maturity',maturityAmount);
+var s = Math.floor(amountDistance/1000);
+var m= Math.floor(maturityAmount/s);
+console.log(s,m);
+
+element.find('td.maturityAmount').html(amount+(s*incrementPerSecond));
+        }
+        /////
+
+
+
           // Display the result in the element with id="demo"
           element.find('.rt .rtt').html( days + "d " + hours + "h "
           + minutes + "m " + seconds + "s ");
           // If the count down is finished, write some text 
           if (distance < 0) {
             clearInterval(x);
-            element.innerHTML = "EXPIRED";
+            element.find('.rt .rtt').html("MATURED");
           }
         }, 1000);
 
@@ -193,8 +215,11 @@ console.log(element);
         $("tr.holding").each(function() {
           var  $this= $(this);
            var dt = $(this).find("td.date").html();
-           console.log(dt);
-           remainingTime(dt,$(this))
+           var amount =$(this).find("td.amount").html();
+           var returnRate = $(this).find("td.returnRate").html();
+           var fromDate = $(this).find("td.fromDate").html();
+           console.log(amount,returnRate);
+           remainingTime(dt,fromDate,$(this),amount,returnRate);
             });
 
 
