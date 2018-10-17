@@ -12,13 +12,11 @@
 */
 
 Route::get('/', 'homeController@index');
-
+Route::get('/home', 'homeController@index');
 Route::get('/logout', 'homeController@logout');
 
 
-Route::get('/holdings', function () {
-    return view('holdings');
-});
+Route::get('/holdings','holdingsController@index');
 
 Route::get('/placeorder', 'placeorderController@index');
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\transaction;
+use App\User;
 class transactionsController extends Controller
 {
     //
@@ -14,8 +15,11 @@ class transactionsController extends Controller
     }
 
     public function index(){
-        $user = auth()->user()->id;
-        $transactions = transaction::where('userId',$user)->paginate(2);
+        $user = User::find(auth()->user()->id);
+//return $user;
+        $transactions = $user->transactions()->paginate(2);
+      //  return $transactions;
+        //->paginate(2);
 
 return view('transactions',compact('transactions'));
     }

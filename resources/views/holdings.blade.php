@@ -49,14 +49,49 @@
 <thead >
     <tr class="d-flex">
         <th class="col-2">Date</th>
+        <th class="col-2">Scheme</th>
+
         <th class="col-2">Gold Wallet</th>
         <th class="col-2">Maturity date</th>
-        <th class="col-4">Maturity status</th>
+        <th class="col-2">Maturity status</th>
         <th class="col-2">Maturity value</th>
 
     </tr>
 </thead>
 <tbody>
+
+
+@foreach ($holdings as $holding)
+
+<tr class="d-flex holding">
+
+<td class="col-2 date" >{{ Carbon\Carbon::parse($holding->timestamp)->format('d/m/Y')}}</td>
+<td class="col-2">{{$holding->schemes->schemeName}}</td> 
+
+<td class="col-2">{{$holding->amount}}</td> 
+<td class="col-2">{{ App\operations::calculateMaturity($holding->timestamp,$holding->schemes->duration)}}</td>
+
+
+
+<td class="col-2">
+
+            <div class="d-flex justify-content-around">
+                <div class="fa-2x align-self-center" >
+
+                <i class="fas fa-sync fa-spin _red"></i>
+                </div>
+                <div class="align-self-center">
+                <p class="m-0 remainingTime">                90 d 0 h 0s remaining
+                    </p>
+                </div>
+                </div>
+        </td>
+</tr>
+
+
+@endforeach
+
+
 
     <tr class="d-flex">
         <td class="col-2">9/12/2018</td>
@@ -166,4 +201,49 @@
 
 </div>
 </div>
+<script>
+
+    function remainingTime(date,element){
+
+console.log(element);
+          // Set the date we're counting down to
+          var countDownDate = new moment('25/10/2018','DD/MM/YYYY').valueOf();
+        console.log(countDownDate);
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+        
+          // Get todays date and time
+          var now = new Date().getTime();
+        
+          // Find the distance between now and the count down date
+          var distance = countDownDate - now;
+        
+          // Time calculations for days, hours, minutes and seconds
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+          // Display the result in the element with id="demo"
+          element.innerHTML = days + "d " + hours + "h "
+          + minutes + "m " + seconds + "s ";
+        
+          // If the count down is finished, write some text 
+          if (distance < 0) {
+            clearInterval(x);
+            element.innerHTML = "EXPIRED";
+          }
+        }, 1000);
+
+    }
+      
+        $("tr.holding").each(function() {
+          var  $this= $(this);
+           var dt = $(this).find("td.date").html();
+           console.log(dt);
+           remainingTime(dt,$(this).find("td.date"))
+            });
+
+
+        </script>
 @endsection
