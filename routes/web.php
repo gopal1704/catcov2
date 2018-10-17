@@ -19,6 +19,11 @@ Route::get('/logout', 'homeController@logout');
 Route::get('/holdings','holdingsController@index');
 
 Route::get('/placeorder', 'placeorderController@index');
+Route::get('/walletpayment', 'walletPaymentController@index');
+
+Route::post('/createinvestment/{type}', 'createInvestment@fromWallet');
+Route::post('/gotopayment','placeorderController@selectPayment');
+
 
 Route::get('/referrals', function () {
     return view('referrals');

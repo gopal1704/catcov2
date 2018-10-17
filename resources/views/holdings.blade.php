@@ -75,16 +75,40 @@
 
 <td class="col-2 rt">
 
-            <div class="d-flex justify-content-around">
-                <div class="fa-2x align-self-center" >
+     @if( App\operations::maturityStatus($holding->TIMESTAMP,$holding->schemes->duration))
 
-                <i class="fas fa-sync fa-spin _red"></i>
-                </div>
-                <div class="align-self-center">
-                <p class="m-0 rtt" id="rt">
-                    </p>
-                </div>
-                </div>
+     <div class="d-flex justify-content-around">
+
+
+                                          
+            <div class="fa-2x align-self-center" >
+
+            <i class="fas fa-check _green"></i>
+            </div>
+            <div class="align-self-center">
+            <p class="m-0">  Matured
+                </p>
+            </div>
+            </div>
+
+
+     @else
+     <div class="d-flex justify-content-around">
+            <div class="fa-2x align-self-center" >
+
+            <i class="fas fa-sync fa-spin _red"></i>
+            </div>
+            <div class="align-self-center">
+            <p class="m-0 rtt" id="rt">
+                </p>
+            </div>
+            </div>     
+            
+            @endif
+    
+    
+
+
         </td>
         <td class="d-none returnRate">{{$holding->schemes->maturityRate}}</td>
 

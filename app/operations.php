@@ -35,12 +35,15 @@ public static function calculateMaturity($holdingDate,$duration){
 
 }
 
+public static function maturityStatus($holdingDate,$duration){
+
+$maturityDate= Carbon::createFromFormat('Y-m-d H:i:s',$holdingDate);
+$maturityDate->addDays($duration);
 
 
-
-
-
+ return $maturityDate->lessThan(Carbon::now());
 
 }
 
 
+}

@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class holding extends Model
 {
     //
+    public $timestamps = false;
+
 
     public function schemes()
     {
