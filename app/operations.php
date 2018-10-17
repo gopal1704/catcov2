@@ -21,12 +21,16 @@ public static function walletTransfer(){
 public static function sendWithdrawalRequest(){
 
 }
-
+public static function displayTime($t){
+$time =  Carbon::createFromFormat('Y-m-d H:i:s', $t);
+return $time->toDateTimeString();  
+}
 public static function calculateMaturity($holdingDate,$duration){
 
-    $maturityDate= new Carbon($holdingDate);
+    $maturityDate= Carbon::createFromFormat('Y-m-d H:i:s',$holdingDate);
+  //  $maturityDate->tz('Asia/Kolkata');
     $maturityDate->addDays($duration);
-    return $maturityDate->format('d-m-Y');
+    return $maturityDate->toDateTimeString();
 
 
 }

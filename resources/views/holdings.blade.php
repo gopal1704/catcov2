@@ -65,15 +65,15 @@
 
 <tr class="d-flex holding">
 
-<td class="col-2 date" >{{ Carbon\Carbon::parse($holding->timestamp)->format('d/m/Y')}}</td>
+<td class="col-2 " >{{App\operations::displayTime($holding->TIMESTAMP)}}</td>
 <td class="col-2">{{$holding->schemes->schemeName}}</td> 
 
 <td class="col-2">{{$holding->amount}}</td> 
-<td class="col-2">{{ App\operations::calculateMaturity($holding->timestamp,$holding->schemes->duration)}}</td>
+<td class="col-2 date">{{ App\operations::calculateMaturity($holding->TIMESTAMP,$holding->schemes->duration)}}</td>
 
 
 
-<td class="col-2">
+<td class="col-2 rt">
 
             <div class="d-flex justify-content-around">
                 <div class="fa-2x align-self-center" >
@@ -81,7 +81,7 @@
                 <i class="fas fa-sync fa-spin _red"></i>
                 </div>
                 <div class="align-self-center">
-                <p class="m-0 remainingTime">                90 d 0 h 0s remaining
+                <p class="m-0 rtt" id="rt">
                     </p>
                 </div>
                 </div>
@@ -90,55 +90,6 @@
 
 
 @endforeach
-
-
-
-    <tr class="d-flex">
-        <td class="col-2">9/12/2018</td>
-        <td class="col-2">$1000</td>
-        <td class="col-2">9/12/2018</td>
-        <td class="col-4">
-
-            <div class="d-flex justify-content-between">
-                <div class="fa-2x align-self-center" >
-
-                <i class="fas fa-sync fa-spin _red"></i>
-                </div>
-                <div class="align-self-center">
-                    <p class="m-0">$1240</p>
-                <p class="m-0">                90 d 0 h 0s remaining
-                    </p>
-                </div>
-                </div>
-        </td>
-        <td class="col-2">1240</td>
-    </tr>
-    <tr class="d-flex">
-        <td class="col-2">9/12/2018</td>
-        <td class="col-2">$1000</td>
-        <td class="col-2">9/12/2018</td>
-        <td class="col-4">
-
-            <div class="d-flex justify-content-between">
-                <div class="fa-2x align-self-center" >
-
-                <i class="fas fa-sync fa-spin _red"></i>
-                </div>
-                <div class="align-self-center">
-                    <p class="m-0">$1240</p>
-                <p class="m-0">                90 d 0 h 0s remaining
-                    </p>
-                </div>
-                </div>
-        </td>
-        <td class="col-2">1240</td>
-    </tr>
-
-    
-   
-
-     
-           
 
 
                 <tr class="d-flex">
@@ -204,17 +155,20 @@
 <script>
 
     function remainingTime(date,element){
-
+console.log(date);
 console.log(element);
           // Set the date we're counting down to
-          var countDownDate = new moment('25/10/2018','DD/MM/YYYY').valueOf();
-        console.log(countDownDate);
+
+          var countDownDate = Date.parse(date);
+
+
+        console.log('count',countDownDate);
         // Update the count down every 1 second
         var x = setInterval(function() {
-        
+        console.log('interval');
           // Get todays date and time
           var now = new Date().getTime();
-        
+          console.log('now',now);
           // Find the distance between now and the count down date
           var distance = countDownDate - now;
         
@@ -225,9 +179,8 @@ console.log(element);
           var seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
           // Display the result in the element with id="demo"
-          element.innerHTML = days + "d " + hours + "h "
-          + minutes + "m " + seconds + "s ";
-        
+          element.find('.rt .rtt').html( days + "d " + hours + "h "
+          + minutes + "m " + seconds + "s ");
           // If the count down is finished, write some text 
           if (distance < 0) {
             clearInterval(x);
@@ -241,7 +194,7 @@ console.log(element);
           var  $this= $(this);
            var dt = $(this).find("td.date").html();
            console.log(dt);
-           remainingTime(dt,$(this).find("td.date"))
+           remainingTime(dt,$(this))
             });
 
 
