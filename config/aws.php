@@ -16,10 +16,7 @@ return [
     | http://docs.aws.amazon.com/aws-sdk-php/v3/guide/guide/configuration.html
     |
     */
-    'credentials' => [
-        'key'    => 'AKIAIMNCEVGNYYRFKCHA',
-        'secret' => '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',
-    ],
+   
     'region' => env('AWS_REGION', 'us-east-1'),
     'version' => 'latest',
     'ua_append' => [
