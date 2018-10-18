@@ -71,7 +71,7 @@
 <td class="col-2 amount">{{$holding->amount}}</td> 
 <td class="col-2 date">{{ App\operations::calculateMaturity($holding->TIMESTAMP,$holding->schemes->duration)}}</td>
 
-<td class="col-2 maturityAmount">1000</td>
+<td class="col-2 maturityAmount">{{$holding->amount+$holding->amount*($holding->schemes->maturityRate/100)}}</td>
 
 <td class="col-2 rt">
 
@@ -218,7 +218,7 @@ var s = Math.floor(amountDistance/1000);
 var m= Math.floor(maturityAmount/s);
 console.log(s,m);
 
-element.find('td.maturityAmount').html(amount+(s*incrementPerSecond));
+element.find('td.maturityAmount').html(amount+(s*incrementPerSecond).toFixed(5));
         }
         /////
 

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'homeController@index');
-Route::get('/home', 'homeController@index');
+Route::get('/home/{message}', 'homeController@index');
 Route::get('/logout', 'homeController@logout');
 
 
@@ -42,6 +42,7 @@ Route::get('/withdraw', function () {
 Route::get('/test', 'homecontroller@test1');
 
 Route::get('/createprofile', 'createprofile@index');
+Route::post('/saveprofile','createprofile@save');
 
 
 Auth::routes();

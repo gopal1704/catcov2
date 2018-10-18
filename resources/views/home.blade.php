@@ -4,6 +4,12 @@
 @section('content')
 <div class="col ">
 
+<div class="alert alert-success alert-dismissible">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+
+  <strong>Success!</strong> {{$message}}
+</div>
+
                                 <div class="row   justify-content-between  ">
 
 

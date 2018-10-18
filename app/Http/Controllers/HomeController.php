@@ -30,7 +30,7 @@ class HomeController extends Controller
         
        // $profile =  profile::where('userId',calculatebalance::getWalletBalance())->first();
 
-        if($profile->profileUpdated==false){
+        if(!$profile){
             return view('createprofile');
         }
         return view('home')->with('profile',$profile);
