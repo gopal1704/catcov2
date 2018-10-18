@@ -2,7 +2,7 @@
 namespace App;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
-
+use AWS;
 class operations{
 
     const Credit = 'Cr.';
@@ -13,6 +13,20 @@ class operations{
 
 public static function createInvestmentFromWallet($amount){
 
+}
+public static function sendSMS($number,$message){
+    $sms = AWS::createClient('sns');
+    
+$sms->publish([
+        'Message' => $message,
+        'PhoneNumber' => '+919176454024',    
+        'MessageAttributes' => [
+            'AWS.SNS.SMS.SMSType'  => [
+                'DataType'    => 'String',
+                'StringValue' => 'Transactional',
+             ]
+         ],
+      ]);
 }
 
 public static function walletTransfer(){
