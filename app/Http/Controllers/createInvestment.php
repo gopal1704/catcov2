@@ -29,6 +29,23 @@ class createInvestment extends Controller
         $transaction->amount = $amount;
         $transaction->shadowAccount = self::Investment;
         $transaction->ACCOUNT = self::MainWallet;
+        $transaction->narration= "Debit for Investment";
+
+
+
+//
+
+//referral transaction
+
+        $transaction_r= new transaction;
+        $transaction_r->userId = auth()->user()->referralid;
+        $transaction_r->TYPE= self::Credit;
+        $transaction_r->amount = $amount*(5/100);
+        $transaction_r->shadowAccount = 'src';
+        $transaction_r->ACCOUNT = self::PendingWallet;
+        $transaction_r->narration= "Credit Referral Spot Commission";
+
+
 //
         //holding
         $holding = new holding;
@@ -38,16 +55,18 @@ class createInvestment extends Controller
         $holding->paymentDetails="Wallet Payment";
 
       
-        DB::transaction(function () use ($transaction, $holding) {
+        DB::transaction(function () use ($transaction, $holding,$transaction_r) {
             $transaction->save();
             $holding->transactionId= $transaction->id;
-
             $holding->save();
+            $transaction_r->save();
+
         });
 
 
-             return redirect('/home');
-        
+        $message = "Investment Success!";
+        return redirect()->route('home', [$message]);
+          
 
 
         //create transaction

@@ -10,6 +10,9 @@ class calculatebalance {
     const MainWallet = 'mw';
     const PendingWallet = 'pw';
     const WithdrawalPendingWallet = 'wpw';
+    const ReferralSpotComission = 'src';
+    const ReferralReturns = 'prc';
+    const Investment = 'inv';
 
 
 
@@ -34,6 +37,24 @@ class calculatebalance {
             return  round($walletBalance, 2);
          
              }
+             public static function rsc(){
+                $userId= auth()->user()->id;
+                $walletBalance= transaction::where('userId', $userId)->where('shadowAccount',self::ReferralSpotComission)->sum('amount') ;
+                return  round($walletBalance, 2);
+                         
+             }
+             public static function rrt(){
+                $userId= auth()->user()->id;
+                $walletBalance= transaction::where('userId', $userId)->where('shadowAccount',self::ReferralReturns)->sum('amount') ;
+                return  round($walletBalance, 2);
+                         
+             }
+             public static function inv(){
+                $userId= auth()->user()->id;
+                $walletBalance= transaction::where('userId', $userId)->where('shadowAccount',self::Investment)->sum('amount') ;
+                return  round($walletBalance, 2);
+                         
+             }
 
              
     public static function getAllbalances(){
@@ -41,6 +62,9 @@ class calculatebalance {
             'mainWallet' => self::getWalletBalance(),
             'pendingWallet' => self::getPendingWalletBalance(),
             'withdrawalPendingBalance'=> self::getWithdrawalPendingWalletBalance(),
+            'SpotCommission'=> self::rsc(),
+            'ReferralReturns'=>self::rrt(),
+            'Investment'=>self::inv()
             
         ];
     }

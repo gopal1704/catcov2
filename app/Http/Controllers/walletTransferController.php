@@ -24,12 +24,13 @@ class walletTransferController extends Controller
     public function sendOtp(Request $request){
         $amount = $request->input('amount') ;
         $account = profile::where('userId', $request->input('accountNumber'))->first();
-       
+        $from = profile::where('userId', auth()->user()->id)->first();
+
         if($amount<=calculatebalance::getWalletBalance() && $account){
 
             $otp=rand(650000,100000);
-
-           operations::sendSMS('+919176454024','Otp for wallet transfer '.$otp);
+$mobile=$from->isdcode.$from->mobile;
+           operations::sendSMS($mobile,'Otp for wallet transfer '.$otp);
          $request->session()->put('otp', $otp);
          $request->session()->put('accountNumber', $account->userId);
          $request->session()->put('amount', $amount);
@@ -61,7 +62,7 @@ return 0;
         $transaction->TYPE= self::Debit;
         $transaction->amount = $amount;
         $transaction->ACCOUNT = self::MainWallet;
-        $transaction->narration= 'Debit wallet transfer to '  ; 
+        $transaction->narration= 'Debit wallet transfer to '.$toName . ' ' .$account  ; 
 
       //
       $transaction_r= new transaction;
@@ -70,7 +71,7 @@ return 0;
       $transaction_r->amount = $amount;
       $transaction_r->ACCOUNT = self::MainWallet;
       $transaction_r->fromId = auth()->user()->id;
-      $transaction_r->narration= 'Credit wallet transfer from '; 
+      $transaction_r->narration= 'Credit wallet transfer from '.$fromName . ' '.auth()->user()->id; 
 
       //
       DB::transaction(function () use ($transaction, $transaction_r) {
@@ -79,7 +80,10 @@ return 0;
     });
 
 
-return 'ok';
+
+    $message = "Wallet transfer Success!";
+    return redirect()->route('home', [$message]);
+      
 
    } 
    else{

@@ -27,24 +27,27 @@ class HomeController extends Controller
     public function index()
     {   
         $profile =  profile::where('userId',auth()->user()->id)->first();
+        $balance = calculatebalance::getAllbalances();
        // $message = "";
        // $profile =  profile::where('userId',calculatebalance::getWalletBalance())->first();
 
         if(!$profile){
             return view('createprofile');
         }
-        return view('home',compact('profile'));
+        return view('home',compact('profile','balance'));
     }
     public function message($message)
     {   
         $profile =  profile::where('userId',auth()->user()->id)->first();
+        $balance = calculatebalance::getAllbalances();
+
        // $message = "";
        // $profile =  profile::where('userId',calculatebalance::getWalletBalance())->first();
 
         if(!$profile){
             return view('createprofile');
         }
-        return view('home',compact('profile','message'));
+        return view('home',compact('profile','message','balance'));
     }
 
     public function logout(){

@@ -37,7 +37,7 @@ class createprofile extends Controller
         $profile->dateOfBirth = $request->input('dateOfBirth');
 
         $profile->save();
-       $message = "ssss";
+       $message = "Profile Updated!";
       return redirect()->route('home', [$message]);
 
     }

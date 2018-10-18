@@ -7,7 +7,7 @@
 <div class="alert alert-success alert-dismissible">
 <button type="button" class="close" data-dismiss="alert">&times;</button>
 
-  <strong>Success!</strong> {{$message}}
+  <strong>{{$message}}</strong> 
 </div>
 @endif
 
@@ -25,7 +25,7 @@
 <div class="d-flex  w-75 justify-content-center">                    
         <div class="align-self-center text-right">
 <p class="m-0">
-    10000 <br/>
+    {{$balance['mainWallet']}} <br/>
     Wallet Balance
 </p>
         </div>
@@ -43,7 +43,7 @@
                          <div class="d-flex  w-75 justify-content-center">                    
                                  <div class="align-self-center text-right">
                          <p  class="m-0">
-                             10000 <br/>
+                         {{$balance['pendingWallet']}} <br/>
                              Pending Wallet 
 
                          </p>
@@ -62,7 +62,7 @@
                                                  <div class="d-flex  w-75 justify-content-center">                    
                                                          <div class="align-self-center text-right">
                                                  <p class="m-0">
-                                                     10000 <br/>
+                                                 {{$balance['SpotCommission']}} <br/>
                                                      Referral comission
                                                     </p>
                                                          </div>
@@ -81,7 +81,7 @@
                                                                          <div class="d-flex  w-75 justify-content-center">                    
                                                                                  <div class="align-self-center text-right">
                                                                          <p class="m-0">
-                                                                             10000 <br/>
+                                                                         {{$balance['ReferralReturns']}} <br/>
                                                                              Monthly Ref. 
                                                                          </p>
                                                                                  </div>
@@ -98,8 +98,8 @@
                                                                                                  <div class="d-flex  w-75 justify-content-center">                    
                                                                                                          <div class="align-self-center text-right">
                                                                                                  <p class="m-0">
-                                                                                                     10000 <br/>
-                                                                                                      Active Holdings
+                                                                                                 {{$balance['Investment']}} <br/>
+                                                                                                      Lifetime Holdings
 
                                                                                                  </p>
                                                                                                          </div>

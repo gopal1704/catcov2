@@ -19,7 +19,7 @@ public static function sendSMS($number,$message){
     
 $sms->publish([
         'Message' => $message,
-        'PhoneNumber' => '+919176454024',    
+        'PhoneNumber' => $number,    
         'MessageAttributes' => [
             'AWS.SNS.SMS.SMSType'  => [
                 'DataType'    => 'String',
