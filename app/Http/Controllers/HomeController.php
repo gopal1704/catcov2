@@ -69,7 +69,7 @@ return redirect('/');
 
   public function  test1(){
 
-    return calculatebalance::getWalletBalance();
+    return calculatebalance::getAllbalances();
     }
 }
  

@@ -13,14 +13,15 @@
 <h4>wallet transfer</h4>
 
 
-<form>
+<form action="/wtotp" method="POST">
+@csrf
   <div class="form-group">
-    <label for="formGroupExampleInput">Account Number</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+    <label for="amount">Amount</label>
+    <input type="number" class="form-control" id="amount" placeholder="" name="amount">
   </div>
   <div class="form-group">
-    <label for="formGroupExampleInput2">Name</label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="">
+    <label for="accountNumber">Account Number</label>
+    <input type="number" class="form-control" id="accountNumber" placeholder="" name="accountNumber">
   </div>
 
   <div class="form-group">

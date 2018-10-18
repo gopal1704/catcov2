@@ -35,6 +35,8 @@ Route::get('/transactions', 'transactionsController@index');
 Route::get('/wallettransfer', function () {
     return view('wallettransfer');
 });
+///wallet transfer otp
+Route::post('/wtotp','walletTransferController@sendOtp');
 
 Route::get('/withdraw', function () {
     return view('withdraw');
