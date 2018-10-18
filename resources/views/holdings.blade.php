@@ -118,31 +118,6 @@
 @endforeach
 
 
-                <tr class="d-flex">
-                        <td class="col-2">6/12/2018</td>
-                        <td class="col-2">$1000</td>
-                        <td class="col-2">9/12/2018</td>
-                        <td class="col-4">
-                
-                            <div class="d-flex justify-content-between">
-
-
-                                          
-                                <div class="fa-2x align-self-center" >
-                
-                                <i class="fas fa-check _green"></i>
-                                </div>
-                                <div class="align-self-start">
-                                    <p class="m-0">$1240</p>
-                                <p class="m-0">    9/12/2018   Matured
-                                    </p>
-                                </div>
-                                </div>
-                        </td>
-                        <td class="col-2">1240</td>
-                    </tr>
-
-
 
 
 </tbody>
