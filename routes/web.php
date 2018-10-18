@@ -12,7 +12,8 @@
 */
 
 Route::get('/', 'homeController@index');
-Route::get('/home/{message}', 'homeController@index');
+Route::get('/home', 'homeController@index');
+Route::get('/homem/{message}', 'homeController@message')->name('home');
 Route::get('/logout', 'homeController@logout');
 
 

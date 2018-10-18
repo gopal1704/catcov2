@@ -3,12 +3,13 @@
 
 @section('content')
 <div class="col ">
-
+@if(isset($message))
 <div class="alert alert-success alert-dismissible">
 <button type="button" class="close" data-dismiss="alert">&times;</button>
 
   <strong>Success!</strong> {{$message}}
 </div>
+@endif
 
                                 <div class="row   justify-content-between  ">
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\profile;
-
+use HomeController;
 
 class createprofile extends Controller
 {
@@ -37,9 +37,9 @@ class createprofile extends Controller
         $profile->dateOfBirth = $request->input('dateOfBirth');
 
         $profile->save();
-        return redirect()->route('home', ['message' => 'Profile updated successfully!']);
+       $message = "ssss";
+      return redirect()->route('home', [$message]);
 
-//dd($request);
     }
     //
 }

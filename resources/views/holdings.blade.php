@@ -217,8 +217,9 @@
 var s = Math.floor(amountDistance/1000);
 var m= Math.floor(maturityAmount/s);
 console.log(s,m);
-
-element.find('td.maturityAmount').html(amount+(s*incrementPerSecond).toFixed(5));
+var fv= parseFloat(amount) + parseFloat((s*incrementPerSecond).toFixed(5)) ;
+fv = fv.toFixed(5);
+element.find('td.maturityAmount').html(fv);
         }
         /////
 
