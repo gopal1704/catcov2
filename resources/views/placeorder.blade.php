@@ -28,6 +28,8 @@
     <label for="formGroupExampleInput2">Payment Method</label>
     <select name="paymentMethod"  class="form-control" id="formGroupExampleInput2" placeholder="">
         <option value="wallet">Wallet</option>
+        <option value="btc">Bitcoin</option>
+
         <option value="paypal">Paypal</option>
 </select>
   </div>

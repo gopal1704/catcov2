@@ -31,6 +31,9 @@ return view('walletpayment' ,compact('amount','schemeId'));
     if($request->input('paymentMethod')=='paypal'){
         
     }
+    if($request->input('paymentMethod')=='btc'){
+        
+    }
 
 
 
