@@ -8,9 +8,7 @@ class walletPaymentController extends Controller
 {
     
 
-
-    public function index(){
-
-return view('walletpayment');
+public function index(){
+    return view('walletpayment');
     }
 }

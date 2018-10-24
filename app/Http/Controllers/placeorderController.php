@@ -32,6 +32,9 @@ return view('walletpayment' ,compact('amount','schemeId'));
         
     }
     if($request->input('paymentMethod')=='btc'){
+        $amount = $request->input('amount');
+        $schemeId = $request->input('schemeId');
+
         
     }
 

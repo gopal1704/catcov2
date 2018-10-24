@@ -9,6 +9,7 @@ use AWS;
 use App\calculatebalance;
 use Coinbase\Wallet\Client;
 use Coinbase\Wallet\Configuration;
+use App\AstroPayStreamline;
 class HomeController extends Controller
 {
     /**
@@ -114,5 +115,15 @@ return redirect('/');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
     }
-}
+
+    public function card(){
+
+      $asp=  new AstroPayStreamline();
+      
+    print_r(
+
+        $asp->newinvoice('2',23, 'VI', 'BR','1','00003456789', 'gopal','vgopalooty@gmail.com'));
+
+    }
+    }
  
