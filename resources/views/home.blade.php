@@ -283,7 +283,7 @@
    </tr>
    <tr>
         <th>Ip</th>   
-        <td>10.10.10.10</td>
+        <td>{{$ip}}</td>
    </tr>
 
                                             </tbody>

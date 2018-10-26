@@ -8,6 +8,34 @@
         font-family:gotham;
         font-size: 14px;
     }
+
+    /**/
+    .btn-primary{
+       
+        color:664d1e;
+        font-weight:bold;
+        background: #FDE08D;
+            background: -webkit-linear-gradient(top, #8f6B29, #FDE08D, #DF9F28);
+          background: linear-gradient(top, #8f6B29, #FDE08D, #DF9F28);
+      border:#8f6B29 2px solid;
+      }
+      
+    .btn-primary:hover{
+         cursor:pointer;
+              background: -webkit-linear-gradient(top, #DF9F28, #FDE08D, #8f6B29);
+          background: linear-gradient(top, #DF9F28, #FDE08D, #8f6B29);
+          border:#8f6B29 2px solid;
+          color:664d1e;
+      }
+
+
+    /**/
+    .nav-link-side .nav-item:hover{
+color: #f8f8f8;
+border-bottom: 2px solid gray; 
+
+
+    }
     a{
       color:   #8ea3b9;
       font-size: 15px;

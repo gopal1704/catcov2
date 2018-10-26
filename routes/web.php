@@ -45,7 +45,7 @@ Route::get('/withdraw', function () {
     return view('withdraw');
 });
 
-Route::get('/test', 'homecontroller@card');
+Route::get('/test', 'homecontroller@iptest');
 
 Route::get('/createprofile', 'createprofile@index');
 Route::post('/saveprofile','createprofile@save');

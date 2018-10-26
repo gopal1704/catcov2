@@ -31,18 +31,20 @@ class HomeController extends Controller
     {   
         $profile =  profile::where('userId',auth()->user()->id)->first();
         $balance = calculatebalance::getAllbalances();
+        $ip = \Request::ip();
        // $message = "";
        // $profile =  profile::where('userId',calculatebalance::getWalletBalance())->first();
 
         if(!$profile){
             return view('createprofile');
         }
-        return view('home',compact('profile','balance'));
+        return view('home',compact('profile','balance','ip'));
     }
     public function message($message)
     {   
         $profile =  profile::where('userId',auth()->user()->id)->first();
         $balance = calculatebalance::getAllbalances();
+        $ip = \Request::ip();
 
        // $message = "";
        // $profile =  profile::where('userId',calculatebalance::getWalletBalance())->first();
@@ -72,6 +74,10 @@ return redirect('/');
 
     }
 
+
+  public function  iptest(Request $request){
+return \Request::ip();
+  }
 
   public function  test1(){
 

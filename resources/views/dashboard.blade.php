@@ -15,13 +15,36 @@
 
 <body>
     <div class="container-fluid">
+        <div class="row catco-pannel">
+            <div class="col">
+                <nav class="navbar navbar-expand ">
 
+               
+
+                                <a style="font-size:25px; font-weight:bold;" class="navbar-brand goldtextcss" href="">CATCOTRADE</a>                       
+                        <ul class="nav navbar-nav mx-auto">
+                                <li class="nav-item ">
+
+
+                                </li>
+                            </ul>
+                   
+                    <ul class="nav navbar-nav">
+
+                        <li class="nav-item ">
+                          <a style="color:#FFF"class="nav-link" href="/logout">logout</a>  
+                        </li>
+                    </ul>
+
+                </nav>
+            </div>
+        </div>
 
         <div class="row" style="height:100vh">
             <!-- main row -->
-            <div class="col-2 right-nav catco-pannel" >
+            <div class="col-2 right-nav catco-pannel p-0 m-0" >
                 <!-- side nav col -->
-                <nav class="navbar">
+                <nav class="navbar p-0 m-0">
 
                     <div class="navbar-nav nav-link-side">
                         <a class="nav-item nav-link" href="/">DASHBOARD</a>
@@ -49,25 +72,7 @@
                 <div class="row">
                     <div class="col ">
 
-                        <div class="row catco-pannel">
-                            <div class="col">
-                                <nav class="navbar navbar-expand ">
-                                        <ul class="nav navbar-nav mx-auto">
-                                                <li class="nav-item ">
-                                                        <a style="font-size:25px; font-weight:bold;" class="nav-link goldtextcss" href="">CATCOTRADE</a>  
-                                                      </li>
-                                            </ul>
-                                   
-                                    <ul class="nav navbar-nav">
-
-                                        <li class="nav-item ">
-                                          <a style="color:#FFF"class="nav-link" href="/logout">logout</a>  
-                                        </li>
-                                    </ul>
-
-                                </nav>
-                            </div>
-                        </div>
+                        
 
                         <div class="row main-col">
                             
