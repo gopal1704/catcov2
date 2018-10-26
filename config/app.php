@@ -160,6 +160,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Aws\Laravel\AwsServiceProvider::class,
+        \Torann\GeoIP\GeoIPServiceProvider::class,
+
 
     ],
 
@@ -210,6 +212,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'AWS' => Aws\Laravel\AwsFacade::class,
+        'GeoIP' => \Torann\GeoIP\Facades\GeoIP::class,
     ],
 
 ];

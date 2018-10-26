@@ -44,8 +44,8 @@ class HomeController extends Controller
     {   
         $profile =  profile::where('userId',auth()->user()->id)->first();
         $balance = calculatebalance::getAllbalances();
-        $ip = \Request::ip();
-
+       
+       $ip = geoip()->getLocation( \Request::ip());
        // $message = "";
        // $profile =  profile::where('userId',calculatebalance::getWalletBalance())->first();
 
