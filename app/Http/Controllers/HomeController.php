@@ -31,7 +31,13 @@ class HomeController extends Controller
     {   
         $profile =  profile::where('userId',auth()->user()->id)->first();
         $balance = calculatebalance::getAllbalances();
-        $ip = geoip()->getLocation( \Request::ip());
+        $loc = geoip()->getLocation( \Request::ip());
+
+       $city= $loc->city;
+       $state= $loc->state_name;
+
+       $country=$loc->country;
+       $ip= $city. $state.$country;
         // $message = "";
        // $profile =  profile::where('userId',calculatebalance::getWalletBalance())->first();
 
@@ -45,7 +51,8 @@ class HomeController extends Controller
         $profile =  profile::where('userId',auth()->user()->id)->first();
         $balance = calculatebalance::getAllbalances();
        
-       $ip = geoip()->getLocation( \Request::ip());
+       $loc = geoip()->getLocation( \Request::ip());
+       $ip= $loc->city. " " . $loc.state_name. " ".$loc->country;
        // $message = "";
        // $profile =  profile::where('userId',calculatebalance::getWalletBalance())->first();
 
