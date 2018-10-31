@@ -9,12 +9,19 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script src="/js/moment.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 
 <body>
     <div class="container-fluid">
+    
+
+        <div class="row " style="height:100vh">
+            <div class="col d-flex flex-column justify-content between">
+    
         <div class="row catco-pannel">
             <div class="col">
                 <nav class="navbar navbar-expand ">
@@ -34,19 +41,31 @@
                         <li class="nav-item ">
                           <a style="color:#FFF"class="nav-link" href="/logout">logout</a>  
                         </li>
+
+                          <!-- Dropdown -->
+    <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Dropdown link
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Link 1</a>
+              <a class="dropdown-item" href="#">Link 2</a>
+              <a class="dropdown-item" href="#">Link 3</a>
+            </div>
+          </li>
+
                     </ul>
 
                 </nav>
             </div>
         </div>
 
-        <div class="row" style="height:100vh">
+        <div class="row flex-fill">
             <!-- main row -->
-            <div class="col-2 right-nav catco-pannel p-0 m-0" >
+            <div class="col-2 right-nav catco-pannel " >
                 <!-- side nav col -->
-                <nav class="navbar p-0 m-0">
 
-                    <div class="navbar-nav nav-link-side">
+                    <!-- <div class="navbar-nav nav-link-side">
                         <a class="nav-item nav-link" href="/">DASHBOARD</a>
                         <a class="nav-item nav-link" href="/holdings">GOLD WALLET</a>
                         <a class="nav-item nav-link" href="/placeorder">PLACE BUY ORDER</a>
@@ -55,9 +74,24 @@
                         <a class="nav-item nav-link" href="/wallettransfer">WALLET TRANSFER</a>
                         <a class="nav-item nav-link" href="/">BUSINESS PLAN</a>
 
-                    </div>
+                    </div> -->
+                    <nav id="sidebar">
+<ul class="list-unstyled components">
+    <li>
+        <a class="" href="/">DASHBOARD</a>
+        
+    </li>
+    <li>        <a class="" href="/holdings">GOLD WALLET</a>
+    </li>
+    <li> <a class="" href="/placeorder">PLACE BUY ORDER</a></li>    
+  <li> <a class="" href="/referrals">MY REFERRALS</a></li>     
+     <li><a class="" href="/transactions">TRANSACTIONS</a></li>   
+     <li> <a class="" href="/wallettransfer">WALLET TRANSFER</a></li>  
+        <li><a class="" href="/">BUSINESS PLAN</a></li>  
 
-                </nav>
+</ul>
+                    </nav>
+
 
 
 
@@ -67,7 +101,7 @@
 
 
             <!-- right side col -->
-            <div class="col-10 d-flex flex-column">
+            <div class="col-10 d-flex  flex-column align-content-between">
 
                 <div class="row">
                     <div class="col ">
@@ -84,10 +118,10 @@
 
 
 
-                <div class="row align-self-end">
+                <div class="row mt-auto">
                     <div class="col">
-                    <p>catcotrade 2018</p>
-                    
+                    <a href="https://ssl.comodo.com">
+                    <img src="https://ssl.comodo.com/images/trusted-site-seal.png" alt="Comodo Trusted Site Seal" width="113" height="59" style="border: 0px;"></a>                    
                     </div>
                     
                             </div>
@@ -102,8 +136,8 @@
         </div>
         <!-- main row  -->
 
-
-
+    </div> <!-- wrapper col -->
+</div>  <!-- wrapper row -->
     </div>
     
 

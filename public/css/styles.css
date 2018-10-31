@@ -5,7 +5,7 @@
     }
     body{
         background-color:#2e3851; color:#FFF;
-        font-family:gotham;
+        font-family: 'Exo 2', sans-serif;
         font-size: 14px;
     }
 
@@ -35,6 +35,10 @@ color: #f8f8f8;
 border-bottom: 2px solid gray; 
 
 
+    }
+
+    #sidebar li {
+padding: 10px;
     }
     a{
       color:   #8ea3b9;

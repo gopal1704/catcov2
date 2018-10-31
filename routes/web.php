@@ -11,7 +11,10 @@
 |
 */
 
-Route::get('/', 'homeController@index');
+Route::get('/', function () {
+    return view('maintenance');
+});
+
 Route::get('/home', 'homeController@index');
 Route::get('/homem/{message}', 'homeController@message')->name('home');
 Route::get('/logout', 'homeController@logout');
