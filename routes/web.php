@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('maintenance');
-});
+// Route::get('/', function () {
+//     return view('maintenance');
+// });
+Route::get('/', 'homeController@index');
 
 Route::get('/home', 'homeController@index');
 Route::get('/homem/{message}', 'homeController@message')->name('home');
@@ -55,4 +56,11 @@ Route::post('/saveprofile','createprofile@save');
 
 
 Auth::routes();
+
+//registration routes
+
+
+Route::get('register/{referralid}', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');
 

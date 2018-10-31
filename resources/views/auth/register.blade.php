@@ -31,9 +31,9 @@
                             <div class="col-md-6">
                                 <input id="referralid" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="referralid" value="{{ old('referralid') }}" required autofocus>
 
-                                @if ($errors->has('name'))
+                                @if ($errors->has('referralid'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('referralid') }}</strong>
                                     </span>
                                 @endif
                             </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\profile;
+use App\operations;
 use HomeController;
 
 class createprofile extends Controller
@@ -15,10 +16,12 @@ class createprofile extends Controller
     }
 
     public function index(){
-        
-        return view('createprofile');
+        $timezones = operations::timezones;
+    
+        return view('createprofile')->with('timezones',$timezones);
     }
     public function save(Request $request){
+
         
         $profile = new profile;
         $profile->userId = auth()->user()->id;
@@ -35,7 +38,8 @@ class createprofile extends Controller
         $profile->mobile=$request->input('mobile');
         $profile->pincode = $request->input('pincode');
         $profile->dateOfBirth = $request->input('dateOfBirth');
-
+        $profile->timeZone = $request->input('timeZone');
+        $profile->walletId = str_random(28);
         $profile->save();
        $message = "Profile Updated!";
       return redirect()->route('home', [$message]);

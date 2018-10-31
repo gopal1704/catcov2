@@ -70,7 +70,7 @@
 
             </div>
             <div class="form-group row">
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                             <label for="gender" class="col-sm-6 col-form-label">{{ __('Gender') }}</label>
 
                         <select id="gender" name="gender" class="form-control">
@@ -80,11 +80,24 @@
 
                         </select>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                             <label for="dob" class="col-sm-6 col-form-label">{{ __('Date of Birth') }}</label>
 
                         <input type="date" class="form-control" id="dob" name="dateOfBirth">
                         </div>
+ 
+                        <div class="col-md-5">
+                                <label for="timezone" class="col-sm-4 col-form-label text-md-right">{{ __('Time zone') }}</label>
+                               
+                                <select id="timezone" name="timeZone" class="form-control">
+                                        @foreach ( $timezones as $key => $value )
+                                        <option value="{{$key}}">{{$value}}</option>
+                                @endforeach
+
+                                </select>
+                        </div>
+             
+
             </div>
             <div class="form-group row">
 
@@ -408,6 +421,7 @@
     
 
                             </div>
+                                   
                             <br>
                             <div class="form-group">
                                     <button type="submit" class="btn btn-block btn-primary">Save Profile</button>
