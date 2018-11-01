@@ -118,118 +118,82 @@
                                 <div class="row justify-content-between">
 
                                     <div class="col-6 catco-pannel p-0">
-<table class="table">
+
+
+                                    <table class="table">
 <thead >
-    <tr>
-        <th>Date</th>
-        <th>Gold Wallet</th>
-        <th>Maturity</th>
+    <tr class="d-flex">
+        <th class="col-3">Date</th>
+
+        <th class="col-3">Gold Wallet</th>
+        <th class="col-6">Maturity </th>
+
     </tr>
 </thead>
 <tbody>
+@foreach ($holdings as $holding)
 
-    <tr>
-        <td>9/12/2018</td>
-        <td>$1000</td>
-        <td >
+<tr class="d-flex holding">
 
-            <div class="d-flex justify-content-between">
-                <div class="fa-2x align-self-center" >
+<td class="col-3 fromDate" >{{App\operations::displayTime($holding->TIMESTAMP)}}</td>
+<td class="col-2 d-none">{{$holding->schemes->schemeName}}</td> 
 
-                <i class="fas fa-sync fa-spin _red"></i>
-                </div>
-                <div class="align-self-center">
-                    <p class="m-0">$1240</p>
-                <p class="m-0">                90 d 0 h 0s remaining
-                    </p>
-                </div>
-                </div>
+<td class="col-3 amount">{{$holding->amount}}</td> 
+<td class="col-2 date d-none">{{ App\operations::calculateMaturity($holding->TIMESTAMP,$holding->schemes->duration)}}</td>
+
+<td class="col-2 maturityAmount d-none">{{$holding->amount+$holding->amount*($holding->schemes->maturityRate/100)}}</td>
+
+<td class="col-6 rt">
+
+<!-- <span class="maturityAmount"></td>
+</span> -->
+     @if( App\operations::maturityStatus($holding->TIMESTAMP,$holding->schemes->duration))
+
+     <div class="d-flex justify-content-around ma">
+
+<p class="maturityAmount _green">{{$holding->amount+$holding->amount*($holding->schemes->maturityRate/100)}}</p>
+                                          
+            <div class="fa-2x align-self-center" >
+
+            <i class="fas fa-check _green"></i>
+            </div>
+            <div class="align-self-center">
+            <p class="m-0">  Matured
+                </p>
+            </div>
+            </div>
+
+
+     @else
+     <div class="d-flex justify-content-around ma">
+     <p class="maturityAmount _green">{{$holding->amount+$holding->amount*($holding->schemes->maturityRate/100)}}</p>
+
+            <div class="fa-2x align-self-center" >
+
+            <i class="fas fa-sync fa-spin _red"></i>
+            </div>
+            <div class="align-self-center">
+            <p class="m-0 rtt" id="rt">
+                </p>
+            </div>
+            </div>     
+            
+            @endif
+    
+    
+
+
         </td>
-    </tr>
+        <td class="d-none returnRate">{{$holding->schemes->maturityRate}}</td>
 
-    <tr>
-            <td>9/12/2018</td>
-            <td>$1000</td>
-            <td >
-    
-                <div class="d-flex justify-content-between">
-                    <div class="fa-2x align-self-center" >
-    
-                    <i class="fas fa-sync fa-spin _red"></i>
-                    </div>
-                    <div class="align-self-center">
-                        <p class="m-0">$1240</p>
-                    <p class="m-0">                90 d 0 h 0s remaining
-                        </p>
-                    </div>
-                    </div>
-            </td>
-        </tr>
-
-        <tr>
-                <td>9/12/2018</td>
-                <td>$1000</td>
-                <td >
-        
-                    <div class="d-flex justify-content-between">
-                        <div class="fa-2x align-self-center" >
-        
-                        <i class="fas fa-sync fa-spin _red"></i>
-                        </div>
-                        <div class="align-self-center">
-                            <p class="m-0">$1240</p>
-                        <p class="m-0">                90 d 0 h 0s remaining
-                            </p>
-                        </div>
-                        </div>
-                </td>
-            </tr>
-            <tr>
-                    <td>9/12/2018</td>
-                    <td>$1000</td>
-                    <td >
-            
-                        <div class="d-flex justify-content-between">
-                            <div class="fa-2x align-self-center" >
-            
-                            <i class="fas fa-sync fa-spin _red"></i>
-                            </div>
-                            <div class="align-self-center">
-                                <p class="m-0">$1240</p>
-                            <p class="m-0">                90 d 0 h 0s remaining
-                                </p>
-                            </div>
-                            </div>
-                    </td>
-                </tr>
+</tr>
 
 
-                <tr>
-                        <td>6/12/2018</td>
-                        <td>$1000</td>
-                        <td >
-                
-                            <div class="d-flex justify-content-between">
-                                <div class="fa-2x align-self-center" >
-                
-                                <i class="fas fa-check _green"></i>
-                                </div>
-                                <div class="align-self-start">
-                                    <p class="m-0">$1240</p>
-                                <p class="m-0">    9/12/2018   Matured
-                                    </p>
-                                </div>
-                                </div>
-                        </td>
-                    </tr>
-
-
-
+@endforeach
 
 </tbody>
-
-
 </table>
+
 
                                     </div>
                                     <div class="col-5 catco-pannel p-0">
@@ -295,5 +259,76 @@
                                 </div>
 
                             </div>
+                            <script>
+
+function remainingTime(date,fromdate,element,amt,rtRate){
+
+      // Set the date we're counting down to
+
+      var countDownDate = Date.parse(date);
+      var amount =parseFloat(amt);
+      var returnRate = parseFloat(rtRate);
+      var fromdate = Date.parse(fromdate);
+
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+      // Get todays date and time
+      var now = new Date().getTime();
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+      var amountDistance= now - fromdate;
+    
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+
+    if(distance/1000>0){
+    //calculate 1second value
+    var maturityAmount =  parseFloat(amount*(returnRate/100).toFixed(2));
+
+var     maturityPeriodSeconds = (countDownDate - fromdate)/1000;
+var     incrementPerSecond = (maturityAmount/maturityPeriodSeconds).toFixed(5);
+
+   // console.log('incsec',incrementPerSecond);
+    ////calculate maturity amount .
+//console.log('maturity',maturityAmount);
+var s = Math.floor(amountDistance/1000);
+var m= Math.floor(maturityAmount/s);
+console.log(s,m);
+var fv= parseFloat(amount) + parseFloat((s*incrementPerSecond).toFixed(5)) ;
+fv = fv.toFixed(5);
+element.find('.ma .maturityAmount').html(fv);
+    }
+    /////
+
+
+
+      // Display the result in the element with id="demo"
+      element.find('.rt .rtt').html( days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ");
+      // If the count down is finished, write some text 
+      if (distance < 0) {
+        clearInterval(x);
+        element.find('.rt .rtt').html("MATURED");
+      }
+    }, 1000);
+
+}
+  
+    $("tr.holding").each(function() {
+      var  $this= $(this);
+       var dt = $(this).find("td.date").html();
+       var amount =$(this).find("td.amount").html();
+       var returnRate = $(this).find("td.returnRate").html();
+       var fromDate = $(this).find("td.fromDate").html();
+       console.log(amount,returnRate);
+       remainingTime(dt,fromDate,$(this),amount,returnRate);
+        });
+
+
+    </script>
 
                             @endsection

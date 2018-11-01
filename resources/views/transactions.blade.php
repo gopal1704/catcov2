@@ -32,7 +32,7 @@
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 Export
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="dropdownMenuButton">
                       <a class="dropdown-item" href="#">PDF</a>
                       <a class="dropdown-item" href="#">MS EXCEL</a>
                       <a class="dropdown-item" href="#"></a>
@@ -66,12 +66,12 @@ Export
       </td>
       <td>    {{ $transaction->narration}}
         </td>
-        <td> 
+        <td class="_green"> 
         @if ($transaction->TYPE == 'Cr.')
           {{ $transaction->amount}}
           @endif
           </td>
-          <td> 
+          <td class="_redtxt"> 
               @if ($transaction->TYPE == 'Dr.')
                 {{ $transaction->amount}}
                 @endif

@@ -45,14 +45,14 @@
                           <!-- Dropdown -->
     <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-              Dropdown link
+            <i class="fa fa-user" aria-hidden="true"></i>
             </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Link 1</a>
-              <a class="dropdown-item" href="#">Link 2</a>
-              <a class="dropdown-item" href="#">Link 3</a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="#">Account</a>
+              <a class="dropdown-item" href="#">Profile</a>
+              <a class="dropdown-item" href="/logout">Logout</a>
             </div>
-          </li>
+            </li>
 
                     </ul>
 
@@ -62,7 +62,7 @@
 
         <div class="row flex-fill">
             <!-- main row -->
-            <div class="col-2 right-nav catco-pannel " >
+            <div class="col-2 right-nav p-0 catco-pannel " >
                 <!-- side nav col -->
 
                     <!-- <div class="navbar-nav nav-link-side">
@@ -76,7 +76,7 @@
 
                     </div> -->
                     <nav id="sidebar">
-<ul class="list-unstyled components">
+<ul class="list-unstyled components sidenav">
     <li>
         <a class="" href="/">DASHBOARD</a>
         
@@ -118,11 +118,14 @@
 
 
 
-                <div class="row mt-auto">
-                    <div class="col">
+                <div class="row mt-auto d-flex justify-content-center">
+                    <div class="col-6">
                     <a href="https://ssl.comodo.com">
                     <img src="https://ssl.comodo.com/images/trusted-site-seal.png" alt="Comodo Trusted Site Seal" width="113" height="59" style="border: 0px;"></a>                    
-                    </div>
+                <span style="display:inline-block mb-auto mt-auto">	Copyrights &copy;  Catco Trading International Inc - 2018 
+</span>   
+                </div>
+                  
                     
                             </div>
                     

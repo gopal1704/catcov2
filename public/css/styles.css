@@ -7,8 +7,22 @@
         background-color:#2e3851; color:#FFF;
         font-family: 'Exo 2', sans-serif;
         font-size: 14px;
+        text-decoration: none !important;
     }
-
+a{
+    text-decoration: none !important;
+    color: #f8f8f8 !important;
+}
+.goldtextcss {
+    color: #8ea3b9;
+    }
+    .dropdown-menu{
+        background-color: #40495F;
+    }
+    .dropdown-item:hover{
+        background-color:  #2e3851;
+    }
+    
     /**/
     .btn-primary{
        
@@ -27,14 +41,36 @@
           border:#8f6B29 2px solid;
           color:664d1e;
       }
+.bg-success{
+    background-color: 	#7ABF0D;
+}
 
 
     /**/
-    .nav-link-side .nav-item:hover{
+    
+    .sidenav li a{
+        color: #f8f8f8;
+       padding-left: 5px;
+       display: block;     
+
+            }
+            td, th{
+                vertical-align: middle !important;
+
+            }
+            th{
+                text-align: left;
+
+            }
+    .sidenav li:hover{
+       
 color: #f8f8f8;
-border-bottom: 2px solid gray; 
 
+background-image: linear-gradient(to right, 	#7ABF0D 0%, #8fd3f4 51%, #84fab0 100%);
 
+-webkit-transition: background-image 1000ms linear;
+    -ms-transition: background-image 1000ms linear;
+    transition: background-image 1000ms linear;
     }
 
     #sidebar li {
@@ -87,7 +123,7 @@ color: #FFF;
 
 }
 ._green{
-    color:  #28a745;
+color:  #3cf366 !important;
 
 }
 ._red{
@@ -98,4 +134,8 @@ background: -webkit-linear-gradient(transparent, transparent),
 background: -o-linear-gradient(transparent, transparent);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
+}
+._redtxt{
+    color: red;
+
 }

@@ -49,7 +49,7 @@ Route::get('/withdraw', function () {
     return view('withdraw');
 });
 
-Route::get('/test', 'homecontroller@iptest');
+Route::get('/test', 'homecontroller@testreturns');
 
 Route::get('/createprofile', 'createprofile@index');
 Route::post('/saveprofile','createprofile@save');

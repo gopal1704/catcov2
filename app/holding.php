@@ -16,6 +16,6 @@ class holding extends Model
     }
     public function return_credit()
     {
-        return $this->hasMany('App\return_credit','id','holdingId');
+        return $this->hasMany('App\return_credit','holdingId');
     }
 }

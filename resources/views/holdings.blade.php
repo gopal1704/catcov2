@@ -71,7 +71,7 @@
 <td class="col-2 amount">{{$holding->amount}}</td> 
 <td class="col-2 date">{{ App\operations::calculateMaturity($holding->TIMESTAMP,$holding->schemes->duration)}}</td>
 
-<td class="col-2 maturityAmount">{{$holding->amount+$holding->amount*($holding->schemes->maturityRate/100)}}</td>
+<td class="col-2 maturityAmount _green">{{$holding->amount+$holding->amount*($holding->schemes->maturityRate/100)}}</td>
 
 <td class="col-2 rt">
 

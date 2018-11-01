@@ -10,6 +10,10 @@ use App\calculatebalance;
 use Coinbase\Wallet\Client;
 use Coinbase\Wallet\Configuration;
 use App\AstroPayStreamline;
+use App\holding;
+use Carbon\Carbon;
+use App\return_credit;
+use App\User;
 class HomeController extends Controller
 {
     /**
@@ -27,6 +31,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public  function getHoldings(){
+        $user = User::find(auth()->user()->id);
+        $holdings = $user->holdings()->with('schemes')->orderBy('timestamp', 'asc')->take(5)->get();
+        return $holdings;
+     }
     public function index()
     {   
         $profile =  profile::where('userId',auth()->user()->id)->first();
@@ -38,14 +48,20 @@ class HomeController extends Controller
 
        $country=$loc->country;
        $ip= $city. $state.$country;
+       $holdings=$this->getHoldings();
         // $message = "";
        // $profile =  profile::where('userId',calculatebalance::getWalletBalance())->first();
 
         if(!$profile){
             return view('createprofile');
         }
-        return view('home',compact('profile','balance','ip'));
+
+      
+        return view('home',compact('profile','balance','ip','holdings'));
     }
+  
+
+
     public function message($message)
     {   
         $profile =  profile::where('userId',auth()->user()->id)->first();
@@ -132,7 +148,41 @@ return \Request::ip();
     
 public function testreturns(){
 
+$activeHoldings= holding::where('status',1)->orderBy('timestamp', 'asc')->with('schemes')->with('return_credit')->get();
+//return $activeHoldings ;
+//dd('');
+foreach ($activeHoldings as $key => $holding){
     
+    $currentTime = Carbon::now();
+    $referralReturnDuration = $holding->schemes->referralReturnDuration;
+    $duration =   $holding->schemes->duration;
+    $totalCycles = $holding->schemes->referralReturnFrequency;
+   //for each cycle
+  
+   for($cycle=1;$cycle<=$totalCycles;$cycle++){
+    $holdingDate = Carbon::createFromFormat('Y-m-d H:i:s',$holding->TIMESTAMP);
+    $holdingDate->addDays($referralReturnDuration*$cycle);
+    echo $holdingDate .'</br>';
+    foreach($holding->return_credit as $returns){
+         if($cycle==$returns->returnCycle){
+    echo 'returns already credited';
+}
+              else{
+    
+                  }
+
+    }
+
+   }
+
+
+}
+
+}
+//return $activeHoldings;
+
+public function checkCreditStatus($cycle,$holdingId){
+
 }
 
 
