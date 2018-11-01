@@ -11,6 +11,7 @@ use Coinbase\Wallet\Client;
 use Coinbase\Wallet\Configuration;
 use App\AstroPayStreamline;
 use App\holding;
+use App\operations;
 use Carbon\Carbon;
 use App\return_credit;
 use App\User;
@@ -45,19 +46,22 @@ class HomeController extends Controller
 
        $city= $loc->city;
        $state= $loc->state_name;
-
+  $ip=\Request::ip();
        $country=$loc->country;
-       $ip= $city. $state.$country;
+       $location= $city.' '. $state.' '.$country;
        $holdings=$this->getHoldings();
         // $message = "";
        // $profile =  profile::where('userId',calculatebalance::getWalletBalance())->first();
 
         if(!$profile){
-            return view('createprofile');
+            $timezones = operations::timezones;
+    
+            return view('createprofile')->with('timezones',$timezones);
+
         }
 
       
-        return view('home',compact('profile','balance','ip','holdings'));
+        return view('home',compact('profile','balance','ip','holdings','location'));
     }
   
 
@@ -67,15 +71,21 @@ class HomeController extends Controller
         $profile =  profile::where('userId',auth()->user()->id)->first();
         $balance = calculatebalance::getAllbalances();
        
-       $loc = geoip()->getLocation( \Request::ip());
-       $ip= $loc->city. " " . $loc.state_name. " ".$loc->country;
-       // $message = "";
-       // $profile =  profile::where('userId',calculatebalance::getWalletBalance())->first();
+        $loc = geoip()->getLocation( \Request::ip());
 
+        $city= $loc->city;
+        $state= $loc->state_name;
+   $ip=\Request::ip();
+        $country=$loc->country;
+        $location= $city.' '. $state.' '.$country;
+        $holdings=$this->getHoldings();
         if(!$profile){
-            return view('createprofile');
+            $timezones = operations::timezones;
+    
+            return view('createprofile')->with('timezones',$timezones);
+
         }
-        return view('home',compact('profile','message','balance'));
+        return view('home',compact('profile','message','balance','ip','holdings','location'));
     }
 
     public function logout(){

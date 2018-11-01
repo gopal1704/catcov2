@@ -2,7 +2,7 @@
 
 
 @section('content')
-<div class="col ">
+<div class="col " style="">
 @if(isset($message))
 <div class="alert alert-success alert-dismissible">
 <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -11,7 +11,7 @@
 </div>
 @endif
 
-                                <div class="row   justify-content-between  ">
+                                <div class="row   justify-content-between  "  >
 
 
                                     <div class="col-2 p-0 catco-pannel d-flex flex-row justify-content-between ">
@@ -223,8 +223,15 @@
    
 <tr>
 
+<th>Wallet Id	</th>   
+<td>{{$profile->walletId}}</td>
+
+
+</tr>
+<tr>
+
         <th>Referral link</th>   
-        <td> http://dashboard.catcotrade.info
+        <td> https://catcotrade.info/register?referralid={{$profile->userId}}
             </td>
    
    
@@ -233,7 +240,14 @@
 <tr>
 
         <th>Approval</th>   
-        <td>{{$profile->approvalStatus}}</td>
+        <td>@if($profile->approvalStatus)
+        <span class="badge badge-success">Approved</span>
+
+            @else
+<span class="badge badge-danger">Pending</span>
+            @endif
+        
+        </td>
        
    
    </tr>
@@ -248,6 +262,10 @@
    <tr>
         <th>Ip</th>   
         <td>{{$ip}}</td>
+   </tr>
+   <tr>
+        <th>Ip Location</th>   
+        <td>{{$location}}</td>
    </tr>
 
                                             </tbody>

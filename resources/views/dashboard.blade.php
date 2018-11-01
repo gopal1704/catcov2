@@ -38,9 +38,9 @@
                    
                     <ul class="nav navbar-nav">
 
-                        <li class="nav-item ">
+                        <!-- <li class="nav-item ">
                           <a style="color:#FFF"class="nav-link" href="/logout">logout</a>  
-                        </li>
+                        </li> -->
 
                           <!-- Dropdown -->
     <li class="nav-item dropdown">
@@ -108,7 +108,7 @@
 
                         
 
-                        <div class="row main-col">
+                        <div class="row main-col" >
                             
 <!-- main content goes here -->
 @yield('content')
