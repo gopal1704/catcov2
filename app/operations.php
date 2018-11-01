@@ -152,15 +152,22 @@ public static function walletTransfer(){
 public static function sendWithdrawalRequest(){
 
 }
+public static function getTimeZone(){
+    $profile =  profile::where('userId',auth()->user()->id)->first();
+    return $profile->timeZone;
+}
 public static function displayTime($t){
 $time =  Carbon::createFromFormat('Y-m-d H:i:s', $t);
+$timeZone = self::getTimeZone();
+$time->tz($timeZone);
 return $time->toDateTimeString();  
 }
 public static function calculateMaturity($holdingDate,$duration){
-
+    
+    $timeZone = self::getTimeZone();
     $maturityDate= Carbon::createFromFormat('Y-m-d H:i:s',$holdingDate);
     
-  //  $maturityDate->tz('Asia/Kolkata');
+    $maturityDate->tz($timeZone);
     $maturityDate->addDays($duration);
     return $maturityDate->toDateTimeString();
 
@@ -168,12 +175,17 @@ public static function calculateMaturity($holdingDate,$duration){
 }
 
 public static function maturityStatus($holdingDate,$duration){
+    $timeZone = self::getTimeZone();
 
 $maturityDate= Carbon::createFromFormat('Y-m-d H:i:s',$holdingDate);
+
 $maturityDate->addDays($duration);
+$maturityDate->tz($timeZone);
+$currentTime = Carbon::now();
+$currentTime->tz($timeZone);
 
 
- return $maturityDate->lessThan(Carbon::now());
+ return $maturityDate->lessThan($currentTime);
 
 }
 

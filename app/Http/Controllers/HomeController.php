@@ -129,14 +129,12 @@ return \Request::ip();
 
     }
 
-    public function card(){
+    
+public function testreturns(){
 
-      $asp=  new AstroPayStreamline();
-      
-    print_r(
+    
+}
 
-        $asp->newinvoice('2',23, 'VI', 'BR','1','00003456789', 'gopal','vgopalooty@gmail.com'));
 
-    }
     }
  

@@ -24,12 +24,13 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
+                        @if ($referralid)
 
                         <div class="form-group row">
                             <label for="referralid" class="col-md-4 col-form-label text-md-right">{{ __('Referral Id') }}</label>
 
                             <div class="col-md-6">
-                                <input id="referralid" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="referralid" value="{{ old('referralid') }}" required autofocus>
+                                <input id="referralid" type="number" class="form-control{{ $errors->has('referralid') ? ' is-invalid' : '' }}" name="referralid" value="{{ $referralid }}" required >
 
                                 @if ($errors->has('referralid'))
                                     <span class="invalid-feedback" role="alert">
@@ -38,6 +39,8 @@
                                 @endif
                             </div>
                         </div>
+                        @endif
+
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>

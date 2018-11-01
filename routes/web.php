@@ -60,7 +60,6 @@ Auth::routes();
 //registration routes
 
 
-Route::get('register/{referralid}', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 

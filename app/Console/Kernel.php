@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Console;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-
+use App\holding;
 class Kernel extends ConsoleKernel
 {
     /**
@@ -24,8 +25,23 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        
+
+        $schedule->call(function () {
+          
+            //loop through active holdings
+            // $activeHoldings=holding::where('status', 1);
+            // foreach ($activeHoldings as $holding) {
+              
+
+            // }
+            DB::table('ss')->insert(
+                ['tt' => 10]
+            );
+
+            
+
+        })->everyMinute();
     }
 
     /**
