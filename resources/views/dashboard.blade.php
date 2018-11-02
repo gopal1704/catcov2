@@ -103,22 +103,20 @@
             <!-- right side col -->
             <div class="col-10 d-flex  flex-column align-content-between">
 
-                <div class="row">
-                    <div class="col ">
+               
 
                         
 
-                        <div class="row main-col" >
+                        <div class="row main-col flex-fill" >
                             
 <!-- main content goes here -->
 @yield('content')
-                        </div>
-                    </div>
+                       
                 </div>
 
 
 
-                <div class="row mt-auto d-flex justify-content-center">
+                <div class="row  d-flex justify-content-center">
                     <div class="col-6">
                     <a href="https://ssl.comodo.com">
                     <img src="https://ssl.comodo.com/images/trusted-site-seal.png" alt="Comodo Trusted Site Seal" width="113" height="59" style="border: 0px;"></a>                    

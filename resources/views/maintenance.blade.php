@@ -15,10 +15,10 @@
     
 <div class="container h-100" >
     <div class="row justify-content-center h-100 d-flex">
-        <div class="col-md-8 align-self-center">
-            <div class="catco-pannel" >
+        <div class="col-md-4 align-self-center">
+            <div class="" >
                 
-                <h1 style="padding:20px;">Site under maintanance!</h1>
+               <img src="/images/um.jpg" alt="">
         </div>
     </div>
 </div>
