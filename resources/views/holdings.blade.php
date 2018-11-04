@@ -45,7 +45,7 @@
 
 <div class="row">
     <div class="col">
-    <table class="table">
+    <table class="table table-striped catco-pannel">
 <thead >
     <tr class="d-flex">
         <th class="col-2">Date</th>

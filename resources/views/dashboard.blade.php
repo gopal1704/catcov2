@@ -84,10 +84,10 @@
     <li>        <a class="" href="/holdings">Gold Wallet</a>
     </li>
     <li> <a class="" href="/placeorder">Place Buy Order</a></li>    
-  <li> <a class="" href="/referrals">MY REFERRALS</a></li>     
-     <li><a class="" href="/transactions">TRANSACTIONS</a></li>   
-     <li> <a class="" href="/wallettransfer">WALLET TRANSFER</a></li>  
-        <li><a class="" href="/">BUSINESS PLAN</a></li>  
+  <li> <a class="" href="/referrals">My Referrals</a></li>     
+     <li><a class="" href="/transactions">Transactions</a></li>   
+     <li> <a class="" href="/wallettransfer">Wallet Transfer</a></li>  
+        <li><a class="" href="/">Business Plan</a></li>  
 
 </ul>
                     </nav>

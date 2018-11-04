@@ -30,7 +30,7 @@ a{
         background-color:  #63e649;
     }
 
-    panel-header,thead{
+    panel-header,thead,.tth{
         margin-left: -1.42857rem;
         margin-right: -1.42857rem;
         margin-top: 0;
@@ -95,6 +95,11 @@ color: rgb(12, 6, 6);
       font-size: 25px;
     background-color:   #373737;
     }
+    .sidenav li:hover{
+    background-color:   #202020;
+
+    }
+
 
 .main-col{
     padding: 25px;
@@ -117,6 +122,7 @@ color: rgb(12, 6, 6);
 }
 .cur-item-dollar{
     height: 40px;
+    color: #d9dbdb;
 }
 .table{
     font-size: 13px;
@@ -127,8 +133,11 @@ color: rgb(12, 6, 6);
 
 
 }
+.dollar{
+color: #eceeee;
+}
 ._green{
-color:  #3cf366 !important;
+color:  #83ba3b !important;
 
 }
 ._red{

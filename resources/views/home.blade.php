@@ -18,7 +18,7 @@
 
                    <div class="d-flex bg-success w-25 justify-content-center">                    
 <div class="align-self-center bg-success">
-<h1>$</h1>
+<p  class="m-0 dollar" style="font-size:45px;">$</p>
 </div>
 </div> 
 
@@ -36,7 +36,7 @@
 
                                             <div class="d-flex bg-success w-25 justify-content-center">                    
                          <div class="align-self-center bg-success">
-                         <p class="m-0" style="font-size:45px">$</p>
+                         <p class="m-0 dollar" style="font-size:45px">$</p>
                          </div>
                          </div> 
                          
@@ -55,7 +55,7 @@
 
                                                                     <div class="d-flex bg-success w-25 justify-content-center">                    
                                                  <div class="align-self-center bg-success">
-                                                 <p class="m-0" style="font-size:45px">$</p>
+                                                 <p class="m-0 dollar" style="font-size:45px">$</p>
                                                  </div>
                                                  </div> 
                                                  
@@ -74,7 +74,7 @@
 
                                                                                             <div class="d-flex bg-success w-25 justify-content-center">                    
                                                                          <div class="align-self-center bg-success">
-                                                                         <p class="m-0" style="font-size:45px">$</p>
+                                                                         <p class="m-0 dollar" style="font-size:45px">$</p>
                                                                          </div>
                                                                          </div> 
                                                                          
@@ -91,7 +91,7 @@
 
                                                                                                                     <div class="d-flex bg-success w-25 justify-content-center">                    
                                                                                                  <div class="align-self-center bg-success">
-                                                                                                 <p class="m-0" style="font-size:45px">$</p>
+                                                                                                 <p class="m-0 dollar" style="font-size:45px">$</p>
                                                                                                  </div>
                                                                                                  </div> 
                                                                                                  
@@ -115,11 +115,11 @@
                                 
                                 <div class="row  justify-content-between" style="margin-top:25px;" >
 
-                                    <div class="col-6 catco-pannel p-0">
+                                    <div class="col-6  p-0">
 
 
-                                    <table class="table">
-<thead >
+                                    <table class="table table-striped catco-pannel">
+<thead>
     <tr class="d-flex">
         <th class="col-3">Date</th>
 
@@ -194,11 +194,18 @@
 
 
                                     </div>
-                                    <div class="col-5 catco-pannel p-0">
+                                    <div class="col-5  p-0">
 
 
-                                        <table class="table text-nowrap" >
+                                        <table class="table table-striped catco-pannel text-nowrap" >
+                                     
+  <thead>  <tr>
+<th colspan="2">Account Summary</th>
+      
 
+    </tr>
+</thead>
+    
                                          
 
                                             <tbody>
