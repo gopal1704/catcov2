@@ -30,7 +30,7 @@ a{
         background-color:  #63e649;
     }
 
-    panel-header,thead,.tth{
+    .panel-header,thead,.tth{
         margin-left: -1.42857rem;
         margin-right: -1.42857rem;
         margin-top: 0;
@@ -97,7 +97,7 @@ color: rgb(12, 6, 6);
     }
     .sidenav li:hover{
     background-color:   #202020;
-
+border-left:5px solid #65902e  ;
     }
 
 

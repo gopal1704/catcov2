@@ -17,10 +17,12 @@
 <div class="container h-100" >
     <div class="row justify-content-center h-100 d-flex">
         <div class="col-md-8 align-self-center">
-            <div class="catco-pannel">
-                <div class="card-header">{{ __('Login') }}</div>
+
+            <div class="catco-pannel p-0 ">
+            <div class="tth m-0" style="padding:10px; text-align:center;">{{ __('Catcotrade Login') }}</div>
 
                 <div class="card-body">
+
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 

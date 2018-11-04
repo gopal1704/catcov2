@@ -62,7 +62,7 @@
 
         <div class="row flex-fill">
             <!-- main row -->
-            <div class="col-2 right-nav " >
+            <div class="col-2 p-0 right-nav " >
                 <!-- side nav col -->
 
                     <!-- <div class="navbar-nav nav-link-side">
@@ -78,16 +78,17 @@
                     <nav id="sidebar">
 <ul class="list-unstyled components sidenav">
     <li>
-        <a class="" href="/">Home</a>
+        <a class="" href="/"> <i class="fas fa-user-circle fa-lg"></i> Home</a>
         
     </li>
-    <li>        <a class="" href="/holdings">Gold Wallet</a>
+    <li>       <a class="" href="/holdings"> <i class="fas fa-money-bill-alt fa-lg"></i> Gold Wallet</a>
     </li>
-    <li> <a class="" href="/placeorder">Place Buy Order</a></li>    
-  <li> <a class="" href="/referrals">My Referrals</a></li>     
-     <li><a class="" href="/transactions">Transactions</a></li>   
-     <li> <a class="" href="/wallettransfer">Wallet Transfer</a></li>  
-        <li><a class="" href="/">Business Plan</a></li>  
+    <li> <a class="" href="/placeorder"><i class="fas fa-money-bill-alt fa-lg"></i>Place Buy Order</a></li>    
+  <li> <a class="" href="/referrals"> <i class="fas fa-users fa-lg"></i>My Referrals</a></li>     
+     <li><a class="" href="/transactions"><i class="fas fa-exchange-alt fa-lg"></i>Transactions</a></li>   
+     <li> <a class="" href="/wallettransfer"> <i class="fas fa-credit-card
+                fa-lg"></i>Wallet Transfer</a></li>  
+        <li><a class="" href="/"><i class="fas fa-clipboard fa-lg"></i>Business Plan</a></li>  
 
 </ul>
                     </nav>
