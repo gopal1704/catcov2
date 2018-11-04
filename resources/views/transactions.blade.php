@@ -43,9 +43,9 @@ Export
 
                 </div>
 
-<div class="row">
+<div class="row ">
     <div class="col">
-        <table class="table">
+        <table class="table table-striped catco-pannel">
 
 <thead>
     <tr>

@@ -22,7 +22,7 @@
         <div class="row " style="height:100vh">
             <div class="col d-flex flex-column justify-content between">
     
-        <div class="row catco-pannel">
+        <div class="row  top-bar">
             <div class="col">
                 <nav class="navbar navbar-expand ">
 
@@ -62,7 +62,7 @@
 
         <div class="row flex-fill">
             <!-- main row -->
-            <div class="col-2 right-nav p-0 catco-pannel " >
+            <div class="col-2 right-nav " >
                 <!-- side nav col -->
 
                     <!-- <div class="navbar-nav nav-link-side">
@@ -78,12 +78,12 @@
                     <nav id="sidebar">
 <ul class="list-unstyled components sidenav">
     <li>
-        <a class="" href="/">DASHBOARD</a>
+        <a class="" href="/">Home</a>
         
     </li>
-    <li>        <a class="" href="/holdings">GOLD WALLET</a>
+    <li>        <a class="" href="/holdings">Gold Wallet</a>
     </li>
-    <li> <a class="" href="/placeorder">PLACE BUY ORDER</a></li>    
+    <li> <a class="" href="/placeorder">Place Buy Order</a></li>    
   <li> <a class="" href="/referrals">MY REFERRALS</a></li>     
      <li><a class="" href="/transactions">TRANSACTIONS</a></li>   
      <li> <a class="" href="/wallettransfer">WALLET TRANSFER</a></li>  

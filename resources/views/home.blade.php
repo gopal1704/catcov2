@@ -2,7 +2,7 @@
 
 
 @section('content')
-<div class="col flex-grow-1" style="">
+<div class="col flex-grow-1" style="overflow-y:scroll;" >
 @if(isset($message))
 <div class="alert alert-success alert-dismissible">
 <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -113,7 +113,7 @@
                                 </div>
 
                                 
-                                <div class="row  justify-content-between" style="margin-top:200px;">
+                                <div class="row  justify-content-between" style="margin-top:25px;" >
 
                                     <div class="col-6 catco-pannel p-0">
 
