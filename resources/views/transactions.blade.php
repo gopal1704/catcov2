@@ -62,7 +62,7 @@ Export
     @foreach ($transactions as $transaction)
     <tr>
         <td>{{ $transaction->id}}</td>
-      <td>    {{ Carbon\Carbon::parse($transaction->timestamp)->format('d-m-Y')}}
+      <td>  {{App\operations::displayTime($transaction->TIMESTAMP)}} 
       </td>
       <td>    {{ $transaction->narration}}
         </td>
