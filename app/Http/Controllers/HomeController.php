@@ -35,7 +35,7 @@ class HomeController extends Controller
 
     public  function getHoldings(){
         $user = User::find(auth()->user()->id);
-        $holdings = $user->holdings()->with('schemes')->orderBy('timestamp', 'asc')->take(5)->get();
+        $holdings = $user->holdings()->with('schemes')->orderBy('timestamp', 'desc')->take(5)->get();
         return $holdings;
      }
     public function index()
@@ -46,7 +46,7 @@ class HomeController extends Controller
 
        $city= $loc->city;
        $state= $loc->state_name;
-  $ip=\Request::ip();
+       $ip=\Request::ip();
        $country=$loc->country;
        $location= $city.' '. $state.' '.$country;
        $holdings=$this->getHoldings();
