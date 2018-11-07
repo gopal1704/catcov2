@@ -17,7 +17,7 @@ class transactionsController extends Controller
     public function index(){
         $user = User::find(auth()->user()->id);
 //return $user;
-        $transactions = $user->transactions()->paginate(5);
+        $transactions = $user->transactions()->paginate(8);
       //  return $transactions;
         //->paginate(2);
 

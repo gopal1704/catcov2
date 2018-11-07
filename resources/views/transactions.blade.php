@@ -3,7 +3,7 @@
 
 @section('content')
 
-<div class="col">
+<div class="col" >
     <div class="row">
         <div class="col">
 
@@ -42,8 +42,16 @@ Export
             
 
                 </div>
+                <div class="row">
+                    <div class="col">
+                            <nav aria-label="Page navigation example">
+                                {{ $transactions->links() }}
+             
+                                  </nav>
+                    </div>
+                </div>
 
-<div class="row ">
+<div class="row " style="overflow-y:scroll;">
     <div class="col">
         <table class="table table-striped catco-pannel">
 
@@ -91,14 +99,7 @@ Export
     </div>
     </div>
 
-    <div class="row">
-        <div class="col">
-                <nav aria-label="Page navigation example">
-                    {{ $transactions->links() }}
- 
-                      </nav>
-        </div>
-    </div>
+   
 
     </div>
 

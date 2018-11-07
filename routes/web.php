@@ -30,9 +30,7 @@ Route::post('/createinvestment/{type}', 'createInvestment@fromWallet');
 Route::post('/gotopayment','placeorderController@selectPayment');
 
 
-Route::get('/referrals', function () {
-    return view('referrals');
-});
+Route::get('/referrals', 'referral@index');
 
 Route::get('/transactions', 'transactionsController@index');
 

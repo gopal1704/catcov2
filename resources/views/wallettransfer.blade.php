@@ -10,7 +10,7 @@
 <div class="row justify-content-center align-items-center">
 <div class="col-4 text-center">
 
-<h4>wallet transfer</h4>
+<h4>Wallet transfer</h4>
 
 
 <form action="/wtotp" method="POST">
@@ -20,8 +20,8 @@
     <input type="number" class="form-control" id="amount" placeholder="" name="amount">
   </div>
   <div class="form-group">
-    <label for="accountNumber">Account Number</label>
-    <input type="number" class="form-control" id="accountNumber" placeholder="" name="accountNumber">
+    <label for="walletId">Wallet Id</label>
+    <input type="text" class="form-control" id="walletId" placeholder="" name="walletId">
   </div>
 
   <div class="form-group">
