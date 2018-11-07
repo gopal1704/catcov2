@@ -13,6 +13,26 @@ class withdrawController extends Controller
 
     }
     public function selectwithdrawalmethod(Request $request){
+       $withdrawalMethod= $request->input('wmethod');
+       switch ($withdrawalMethod) {
+        case 'bank':
+                   return view('withdraw.bank');
+       break;
+       case 'paypal':
+       return view('withdraw.paypal');
+       break;
+
+       case 'moneypolo':
+       return view('withdraw.moneypolo');
+       break;
+
+       case 'bitcoin':
+       return view('withdraw.bitcoin');
+       break;
+        
+        default:
+        return '';
+    }
 
 
     }
