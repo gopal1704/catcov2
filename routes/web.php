@@ -51,6 +51,7 @@ Route::get('/test', 'homecontroller@testreturns');
 
 Route::get('/createprofile', 'createprofile@index');
 Route::post('/saveprofile','createprofile@save');
+Route::get('/withdraw', 'withdrawController@index');
 
 
 Auth::routes();

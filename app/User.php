@@ -31,7 +31,7 @@ class User extends Authenticatable
 
     /**RELATIONSHIPS */
     public function profiles(){
-        return $this->hasOne('App\profiles');
+        return $this->hasOne('App\profile','userId');
     }
     public function transactions(){
         return $this->hasMany('App\transaction','userId');

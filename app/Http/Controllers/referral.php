@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\profile;
+use App\User;
 class referral extends Controller
 {
     
     public function index(){
 
 
-        $referrals =  profile::where('userId',auth()->user()->id)->get();
-        //return $referrals;
+        $referrals =  User::where('referralid',auth()->user()->id)->with('profiles')->get();
+        return $referrals;
         return view('referrals',compact('referrals'));
         
 
