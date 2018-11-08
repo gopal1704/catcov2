@@ -57,6 +57,12 @@ Route::get('/withdraw', 'withdrawController@index');
 Route::post('/withdrawsubmit', 'withdrawController@selectwithdrawalmethod');
 
 
+//profile
+Route::get('/viewprofile', 'createprofile@viewProfile');
+Route::post('/editprofile', 'createprofile@goToEditProfile');
+
+
+
 Auth::routes();
 
 //registration routes

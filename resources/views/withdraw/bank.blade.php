@@ -9,7 +9,7 @@
 <div class="row justify-content-center align-items-center">
 <div class="col-4 text-center">
 
-<h4>Withdraw - Bank</h4>
+<h4>Withdrawal - Bank</h4>
 
 
 <form method="POST" action="/withdrawsubmit">

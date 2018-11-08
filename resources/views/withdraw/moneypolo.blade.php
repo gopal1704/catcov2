@@ -20,20 +20,15 @@
   </div>
  
  
-  <div class="form-group">
-    <label for="bankname">Bank Name</label>
-    <input name="bankname" type="text" class="form-control" id="bankname" placeholder="">
-  </div>
+
 
   <div class="form-group">
-    <label for="accountnumber">Account Number</label>
-    <input name="accountnumber" type="text" class="form-control" id="accountnumber" placeholder="">
+    <label for="moneypolo">Moneypolo Email or Account Number
+    </label>
+    <input name="moneypolo" type="text" class="form-control" id="moneypolo" placeholder="">
   </div>
 
-  <div class="form-group">
-    <label for="ifsc">IFSC Code</label>
-    <input name="ifsc" type="text" class="form-control" id="ifsc" placeholder="">
-  </div>
+  
 
   <div class="form-group">
         <button type="submit" class="btn btn-block btn-primary">Submit request</button>

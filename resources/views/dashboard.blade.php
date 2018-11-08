@@ -49,7 +49,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right">
               <a class="dropdown-item" href="#">Account</a>
-              <a class="dropdown-item" href="#">Profile</a>
+              <a class="dropdown-item" href="/viewprofile">Profile</a>
               <a class="dropdown-item" href="/logout">Logout</a>
             </div>
             </li>

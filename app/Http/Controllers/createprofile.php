@@ -45,5 +45,20 @@ class createprofile extends Controller
       return redirect()->route('home', [$message]);
 
     }
+
+    public function viewProfile(){
+
+        $profile =  profile::where('userId',auth()->user()->id)->first();
+    
+    return view('profile.viewprofile',compact('profile'));
+    }
+    public function goToEditProfile(){
+
+        return view('profile.editprofile');
+
+    }
+
+
+
     //
 }
