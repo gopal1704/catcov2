@@ -15,6 +15,7 @@ use App\operations;
 use Carbon\Carbon;
 use App\return_credit;
 use App\User;
+use Mail;
 class HomeController extends Controller
 {
     /**
@@ -109,8 +110,14 @@ return redirect('/');
 
 
   public function  iptest(Request $request){
-return \Request::ip();
-  }
+    $data = array('name'=>"Virat Gandhi");
+
+    Mail::send(['text'=>'mail.mail'], $data, function($message) {
+        $message->to('vgopalooty@gmail.com', 'Tutorials Point')->subject
+           ('Laravel HTML Testing Mail');
+        $message->from('mail@catcotrade.info','test');
+     });
+}
 
   public function  test1(){
 
