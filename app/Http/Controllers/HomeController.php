@@ -16,6 +16,8 @@ use Carbon\Carbon;
 use App\return_credit;
 use App\User;
 use Mail;
+use DB;
+use App\transaction;
 class HomeController extends Controller
 {
     /**
@@ -166,29 +168,60 @@ return redirect('/');
 public function testreturns(){
 
 $activeHoldings= holding::where('status',1)->orderBy('timestamp', 'asc')->with('schemes')->with('return_credit')->get();
-//return $activeHoldings ;
-//dd('');
 foreach ($activeHoldings as $key => $holding){
     
     $currentTime = Carbon::now();
     $referralReturnDuration = $holding->schemes->referralReturnDuration;
     $duration =   $holding->schemes->duration;
     $totalCycles = $holding->schemes->referralReturnFrequency;
-   //for each cycle
   
+   //maturity logic 
+   $holdingDate = Carbon::createFromFormat('Y-m-d H:i:s',$holding->TIMESTAMP);
+   $holdingDate->addDays($holding->schemes->duration);
+   if($currentTime->greaterThan($holdingDate)){
+       echo "maturity";
+   }
+  
+
+
    for($cycle=1;$cycle<=$totalCycles;$cycle++){
     $holdingDate = Carbon::createFromFormat('Y-m-d H:i:s',$holding->TIMESTAMP);
     $holdingDate->addDays($referralReturnDuration*$cycle);
-    echo $holdingDate .'</br>';
-    foreach($holding->return_credit as $returns){
-         if($cycle==$returns->returnCycle){
-    echo 'returns already credited';
-}
-              else{
-    
-                  }
+   
+    if($currentTime->greaterThan($holdingDate)){
+        echo "true";
 
-    }
+        $isCycleCredited = DB::table('return_credits')->where('holdingId', $holding->id)->where('returnCycle', $cycle)->first();
+      if(!$isCycleCredited) {
+         //credit the returns 
+         $returnAmount =  ($holding->schemes->referralReturnRate/100 )* $holding->amount;
+         $returnUser = DB::table('users')->where('id', $holding->userId)->first()->referralid;
+         $from =DB::table('profiles')->where('userId', $holding->userId)->first();
+         $fromName = $from->firstName . ' ' . $from->lastName;
+         echo $fromName;
+
+         //transaction
+         $transaction= new transaction;
+         $transaction->userId = $returnUser;
+         $transaction->TYPE= 'Cr.';
+         $transaction->amount = $returnAmount;
+         $transaction->shadowAccount = 'prc';
+         $transaction->ACCOUNT = 'pw';
+         $transaction->narration= $cycle."rd ". "Referral comission from : " .$fromName. " ". $holding->userId  ;
+         //
+        
+         DB::transaction(function () use ($transaction) {
+            $transaction->save();
+           
+
+        });
+
+
+
+      } 
+        
+   }
+   
 
    }
 

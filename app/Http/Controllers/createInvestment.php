@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\transaction;
 use App\holding;
 use DB;
-
+use App\operations;
 class createInvestment extends Controller
 {
     //
@@ -72,5 +72,5 @@ class createInvestment extends Controller
         //create transaction
 
 
-    }
+        }
 }
