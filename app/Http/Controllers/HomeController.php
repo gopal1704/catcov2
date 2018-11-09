@@ -209,9 +209,20 @@ foreach ($activeHoldings as $key => $holding){
          $transaction->ACCOUNT = 'pw';
          $transaction->narration= $cycle."rd ". "Referral comission from : " .$fromName. " ". $holding->userId  ;
          //
+ 
+         //save return credit true 
+         $return_credit = new return_credit;
+         $return_credit->userId= $holding->userId;
+         $return_credit->holdingId= $holding->id;
+         $return_credit->returnCycle=$cycle;
+
+           
+         //
         
-         DB::transaction(function () use ($transaction) {
+         DB::transaction(function () use ($transaction,$return_credit) {
             $transaction->save();
+            $return_credit->transactionId= $transaction->id;
+$return_credit->save();
            
 
         });
