@@ -175,12 +175,7 @@ foreach ($activeHoldings as $key => $holding){
     $duration =   $holding->schemes->duration;
     $totalCycles = $holding->schemes->referralReturnFrequency;
   
-   //maturity logic 
-   $holdingDate = Carbon::createFromFormat('Y-m-d H:i:s',$holding->TIMESTAMP);
-   $holdingDate->addDays($holding->schemes->duration);
-   if($currentTime->greaterThan($holdingDate)){
-       echo "maturity";
-   }
+   
   
 
 
@@ -236,7 +231,13 @@ $return_credit->save();
 
    }
 
-
+//maturity logic 
+$holdingDate = Carbon::createFromFormat('Y-m-d H:i:s',$holding->TIMESTAMP);
+$holdingDate->addDays($holding->schemes->duration);
+if($currentTime->greaterThan($holdingDate)){
+    
+    echo "maturity";
+}
 }
 
 }
