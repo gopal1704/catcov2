@@ -204,7 +204,7 @@ foreach ($activeHoldings as $key => $holding){
          $transaction->ACCOUNT = 'pw';
          $transaction->narration= $cycle."rd ". "Referral comission from : " .$fromName. " ". $holding->userId  ;
          //
- 
+        $sms = 'Catcotrade Credit USD:'.$returnAmount. " Month : ". $cycle." ". "Referral comission from : " .$fromName. " ". $holding->userId  ;
          //save return credit true 
          $return_credit = new return_credit;
          $return_credit->userId= $holding->userId;
@@ -222,7 +222,14 @@ $return_credit->save();
 
         });
 
+        //send sms
+        $smsUser = DB::table('users')->where('id', $holding->userId)->first()->referralid;
+        $smsUserProfile =DB::table('profiles')->where('userId', $smsUser)->first();
+        $mobile= $smsUserProfile->isdcode.$smsUserProfile->mobile;
+        operations::sendSMS($mobile,$sms);
+        
 
+         exit();
 
       } 
         
@@ -235,8 +242,27 @@ $return_credit->save();
 $holdingDate = Carbon::createFromFormat('Y-m-d H:i:s',$holding->TIMESTAMP);
 $holdingDate->addDays($holding->schemes->duration);
 if($currentTime->greaterThan($holdingDate)){
-    
+
     echo "maturity";
+    $maturityAmount = ($holding->amount*($holding->schemes->maturityRate)/100)+$holding->amount;
+    $transaction= new transaction;
+    $transaction->userId = $holding->userId;
+    $transaction->TYPE= 'Cr.';
+    $transaction->amount = $maturityAmount;
+    $transaction->ACCOUNT = 'mw';
+    $transaction->narration= 'Credit investment return' ;
+    $sms = 'Catcotrade Credit investment return : USD '. $maturityAmount ;  
+    DB::transaction(function () use ($transaction) {
+        $transaction->save();
+        
+       
+
+    });
+    holding::where('id',$holding->id)->update(['STATUS' => 0]);
+    $smsUserProfile =DB::table('profiles')->where('userId', $holding->userId)->first();
+    $mobile= $smsUserProfile->isdcode.$smsUserProfile->mobile;
+    operations::sendSMS($mobile,$sms);
+
 }
 }
 
