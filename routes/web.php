@@ -18,6 +18,18 @@ Route::get('/', function () {
     return view('homepage.mainpage');
 });
 
+Route::get('/about', function () {
+    return view('homepage.about');
+});
+
+Route::get('/invest', function () {
+    return view('homepage.invest');
+});
+
+Route::get('/tc', function () {
+    return view('homepage.terms');
+});
+
 
 Route::get('/home', 'homeController@index');
 Route::get('/homem/{message}', 'homeController@message')->name('home');
