@@ -4,7 +4,7 @@
 @section('content')
 
 <section>
-          <div class="parallax-container" data-parallax-img="images/background-03-1920x447.jpg">
+          <div class="parallax-container" data-parallax-img="homepage/images/background-03-1920x447.jpg">
             <div class="parallax-content">
               <div class="container">
                 <div class="row align-items-sm-center justify-content-sm-center section-41 section-md-50 section-lg-66 context-dark">
