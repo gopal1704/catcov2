@@ -108,7 +108,7 @@
                                                                                                          <div class="align-self-center text-right">
                                                                                                  <p class="m-0">
                                                                                                  {{$balance['Investment']}} <br/>
-                                                                                                      Lifetime Holdings
+                                                                                                      Total Holdings
 
                                                                                                  </p>
                                                                                                          </div>

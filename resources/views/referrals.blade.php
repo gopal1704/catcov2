@@ -55,24 +55,28 @@ Export
         <table class="table table-striped catco-pannel">
 
 <thead>
-    <tr>
-        <th>Account</th>
-<th>Joining Date</th>
+    <tr class="d-flex">
+        <th class="col-2">Account</th>
+<th class="col-2">Joining Date</th>
 
-<th>Name</th>
-
+<th class="col-4">Name</th>
+<th class="col-4">Email</th>
 </tr>
 </thead>
 <tbody>
     @foreach ($referrals as $referral)
-    <tr>
-        <td>{{ $referral->userId}}</td>
-      <td>  {{App\operations::displayTime($referral->joiningDate)}} 
+    <tr class="d-flex">
+        <td class="col-2">{{ $referral->id}}</td>
+
+
+      <td class="col-2">  {{App\operations::displayTime($referral->profiles->joiningDate)}} 
       </td>
-      <td>    {{ $referral->name}}
+      <td class="col-4">    {{ $referral->name}}
         </td>
        
-        
+        <td class="col-4">    {{ $referral->email}}
+        </td>
+       
 
 
     </tr>

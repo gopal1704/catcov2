@@ -63,18 +63,7 @@
         <div class="row flex-fill">
             <!-- main row -->
             <div class="col-2 p-0 right-nav " >
-                <!-- side nav col -->
-
-                    <!-- <div class="navbar-nav nav-link-side">
-                        <a class="nav-item nav-link" href="/">DASHBOARD</a>
-                        <a class="nav-item nav-link" href="/holdings">GOLD WALLET</a>
-                        <a class="nav-item nav-link" href="/placeorder">PLACE BUY ORDER</a>
-                        <a class="nav-item nav-link" href="/referrals">MY REFERRALS</a>
-                        <a class="nav-item nav-link" href="/transactions">TRANSACTIONS</a>
-                        <a class="nav-item nav-link" href="/wallettransfer">WALLET TRANSFER</a>
-                        <a class="nav-item nav-link" href="/">BUSINESS PLAN</a>
-
-                    </div> -->
+               
                     <nav id="sidebar">
 <ul class="list-unstyled components sidenav">
     <li>

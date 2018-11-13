@@ -9,6 +9,7 @@ use AWS;
 use App\calculatebalance;
 use App\operations;
 use App\transaction;
+use Session;
 use DB;
 
 class walletTransferController extends Controller
@@ -45,6 +46,14 @@ class walletTransferController extends Controller
 
         }
         else{
+            if(!$account){
+                Session::flash('error', 'Wallet id incorrect!'); 
+                return redirect('/wallettransfer');
+            }else{
+                Session::flash('error', 'Insufficient funds in wallet could not process request!'); 
+                return redirect('/wallettransfer');
+            }
+
 return 0;
         }
 

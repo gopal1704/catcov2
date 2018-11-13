@@ -18,7 +18,7 @@ class referral extends Controller
 
 
         $referrals =  User::where('referralid',auth()->user()->id)->with('profiles')->get();
-        return $referrals;
+       //return $referrals;
         return view('referrals',compact('referrals'));
         
 

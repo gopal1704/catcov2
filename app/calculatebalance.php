@@ -3,7 +3,7 @@ namespace App;
 use Illuminate\Support\Facades\Auth;
 
 use App\transaction;
-
+use App\holding;
 class calculatebalance {
     const Credit = 'Cr.';
     const Debit = 'Dr.';
@@ -51,7 +51,7 @@ class calculatebalance {
              }
              public static function inv(){
                 $userId= auth()->user()->id;
-                $walletBalance= transaction::where('userId', $userId)->where('shadowAccount',self::Investment)->sum('amount') ;
+                $walletBalance= holding::where('userId', $userId)->where('status',1)->sum('amount') ;
                 return  round($walletBalance, 2);
                          
              }
