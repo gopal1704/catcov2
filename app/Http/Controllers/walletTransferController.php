@@ -21,6 +21,12 @@ class walletTransferController extends Controller
     const WithdrawalPendingWallet = 'wpw';
     const Investment ="inv";
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
+
     public function sendOtp(Request $request){
         $amount = $request->input('amount') ;
         $account = profile::where('walletId', $request->input('walletId'))->first();

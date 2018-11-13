@@ -9,6 +9,7 @@ use DB;
 use App\operations;
 use App\calculatebalance;
 use Session;
+use App\profile;
 
 class createInvestment extends Controller
 {
@@ -21,6 +22,12 @@ class createInvestment extends Controller
     const WithdrawalPendingWallet = 'wpw';
     const Investment ="inv";
 
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
 
     public function fromWallet(Request $request, $type){
 
@@ -80,10 +87,10 @@ class createInvestment extends Controller
         $mobileInvestor= $investorProfile->isdcode.$investorProfile->mobile;
         $mobileReferral=$referralProfile->isdcode.$referralProfile->mobile;
 
-        operations::sendSMS($mobileInvestor,'Catcotrade - Investment of USD : '.amount. ' successful!');//send sms to investor
+        operations::sendSMS($mobileInvestor,'Catcotrade - Investment of USD : '.$amount. ' successful!');//send sms to investor
        
        
-        operations::sendSMS($mobileReferral,'Catcotrade - Rrferral spot commission USD :  '.$transaction_r->amount. ' from - '.$investorName. 'account - '.auth()->user()->id );//send sms to referral
+        operations::sendSMS($mobileReferral,'Catcotrade - Rrferral spot commission USD :  '.$transaction_r->amount. ' from - '.$investorName. ' account - '.auth()->user()->id );//send sms to referral
 
         //
         Session::flash('message', 'Investment successful!'); 
