@@ -274,7 +274,7 @@
    
    </tr>
    <tr>
-        <th>Ip</th>   
+        <th>Ip Address</th>   
         <td>{{$ip}}</td>
    </tr>
    <tr>

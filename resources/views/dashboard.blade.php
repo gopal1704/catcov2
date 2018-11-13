@@ -70,15 +70,15 @@
         <a class="" href="/home"> <i class="fas fa-user-circle fa-lg"></i> Home</a>
         
     </li>
-    <li>       <a class="" href="/holdings"> <i class="fas fa-money-bill-alt fa-lg"></i> Gold Wallet</a>
+    <li>       <a class="" href="/holdings"> <i class="fas fa-wallet fa-lg"></i> Catco Wallet</a>
     </li>
-    <li> <a class="" href="/placeorder"><i class="fas fa-money-bill-alt fa-lg"></i>Place Buy Order</a></li>    
+    <li> <a class="" href="/placeorder"><i class="fas fa-shopping-cart fa-lg"></i>Place Buy Order</a></li>    
   <li> <a class="" href="/referrals"> <i class="fas fa-users fa-lg"></i>My Referrals</a></li>     
      <li><a class="" href="/transactions"><i class="fas fa-exchange-alt fa-lg"></i>Transactions</a></li>   
      <li> <a class="" href="/wallettransfer"> <i class="fas fa-credit-card
                 fa-lg"></i>Wallet Transfer</a></li>  
-     <li> <a class="" href="/withdraw"> <i class="fas fa-credit-card fa-lg"></i>Withdraw</a></li>          
-        <li><a class="" href="/"><i class="fas fa-clipboard fa-lg"></i>Business Plan</a></li>  
+     <li> <a class="" href="/withdraw"> <i class="fas fa-money-check-alt fa-lg"></i>Withdraw</a></li>          
+        <li><a class="" href="/home"><i class="fas fa-clipboard fa-lg"></i>Business Plan</a></li>  
 
 </ul>
                     </nav>

@@ -71,6 +71,10 @@ return 0;
   $toName =       profile::where('walletId',$walletId)->first()->firstName;
   $fromName =       profile::where('userId',auth()->user()->id)->first()->firstName;
   $fromWallet =  profile::where('userId',auth()->user()->id)->first()->walletId;
+  
+  $tomobile= profile::where('walletId',$walletId)->first()->isdcode.profile::where('walletId',$walletId)->first()->mobile;
+  $fromMobile = profile::where('userId',auth()->user()->id)->first()->isdcode.profile::where('userId',auth()->user()->id)->first()->mobile;
+
 
   $toAccount = profile::where('walletId',$walletId)->first()->userId;
     
@@ -96,16 +100,22 @@ return 0;
         $transaction->save();
         $transaction_r->save();
     });
+    $fm='Catcotrade - '.$transaction->narration. ' USD : '.$amount;
 
+    operations::sendSMS($fromMobile,$fm );
+$tm='Catcotrade - '.$transaction_r->narration. ' USD : '.$amount;
+    operations::sendSMS($tomobile, $tm);
 
-
-    $message = "Wallet transfer Success!";
-    return redirect()->route('home', [$message]);
+    Session::flash('message', 'Wallet transfer successful!'); 
+        return redirect('/home');
       
 
    } 
    else{
-   return 'fail' ;
+
+    Session::flash('error', 'incorrect otp!'); 
+    return redirect('/wallettransfer');
+  
 }
    }
 }
