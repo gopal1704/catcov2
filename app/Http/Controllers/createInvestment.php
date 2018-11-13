@@ -7,6 +7,9 @@ use App\transaction;
 use App\holding;
 use DB;
 use App\operations;
+use App\calculatebalance;
+use Session;
+
 class createInvestment extends Controller
 {
     //
@@ -20,8 +23,13 @@ class createInvestment extends Controller
 
 
     public function fromWallet(Request $request, $type){
+
         $amount = floatval ($request->input('amount') );
         $schemeId =$request->input('schemeId') ;
+        $walletBalance = calculatebalance::getWalletBalance();
+        
+        if($walletBalance>=$amount){//if sufficient wallet balance
+
         //
         $transaction= new transaction;
         $transaction->userId = auth()->user()->id;
@@ -64,9 +72,36 @@ class createInvestment extends Controller
         });
 
 
-        $message = "Investment Success!";
-        return redirect()->route('home', [$message]);
-          
+        //sms notice
+        $investorProfile = profile::where('userId', auth()->user()->id)->first();
+        $referralProfile = profile::where('userId', auth()->user()->referralid)->first();
+        $investorName = $investorProfile->title.' '.$investorProfile->firstName.' '.$investorProfile->lastName;
+
+        $mobileInvestor= $investorProfile->isdcode.$investorProfile->mobile;
+        $mobileReferral=$referralProfile->isdcode.$referralProfile->mobile;
+
+        operations::sendSMS($mobileInvestor,'Catcotrade - Investment of USD : '.amount. ' successful!');//send sms to investor
+       
+       
+        operations::sendSMS($mobileReferral,'Catcotrade - Rrferral spot commission USD :  '.$transaction_r->amount. ' from - '.$investorName. 'account - '.auth()->user()->id );//send sms to referral
+
+        //
+        Session::flash('message', 'Investment successful!'); 
+        return redirect('/home');
+
+
+
+
+         }
+else{
+
+        //insufficient funds
+        Session::flash('error', 'Insufficient funds in wallet could not process request!'); 
+        return redirect('/placeorder');
+
+
+}
+
 
 
         //create transaction

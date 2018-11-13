@@ -16,7 +16,7 @@
     <h5>Confirm Wallet payment</h5>
 
 
-<hr/>
+<hr>
 
 
     <table class="table table-bordered text-nowrap" >
@@ -26,11 +26,7 @@
             <tbody>
 
 
-<tr>
 
-    <th>Wallet Balance</th>
-    <td>1000</td>
-</tr>
 <tr> <th>Scheme</th>
     <td>default</td></tr>
    

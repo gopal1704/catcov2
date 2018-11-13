@@ -3,13 +3,22 @@
 
 @section('content')
 <div class="col flex-grow-1" style="overflow-y:scroll;" >
-@if(isset($message))
+
+@if(Session::has('error'))
+<div class="alert alert-danger alert-dismissible">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+
+  <strong>{{ Session::get('error') }}</strong> 
+</div>
+@endif
+@if(Session::has('message'))
 <div class="alert alert-success alert-dismissible">
 <button type="button" class="close" data-dismiss="alert">&times;</button>
 
-  <strong>{{$message}}</strong> 
+  <strong>{{ Session::get('message') }}</strong> 
 </div>
 @endif
+
 
                                 <div class="row   justify-content-between  "  >
 

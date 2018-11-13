@@ -78,7 +78,7 @@
                     <nav id="sidebar">
 <ul class="list-unstyled components sidenav">
     <li>
-        <a class="" href="/"> <i class="fas fa-user-circle fa-lg"></i> Home</a>
+        <a class="" href="/home"> <i class="fas fa-user-circle fa-lg"></i> Home</a>
         
     </li>
     <li>       <a class="" href="/holdings"> <i class="fas fa-money-bill-alt fa-lg"></i> Gold Wallet</a>
