@@ -175,16 +175,19 @@
         if(distance/1000>0){
         //calculate 1second value
         var maturityAmount =  parseFloat(amount*(returnRate/100).toFixed(2));
+    //    console.log('maturity',maturityAmount);
 
     var     maturityPeriodSeconds = (countDownDate - fromdate)/1000;
+  //  console.log('remaining seconds',maturityPeriodSeconds);
+
     var     incrementPerSecond = (maturityAmount/maturityPeriodSeconds).toFixed(5);
 
-        console.log('incsec',incrementPerSecond);
+        //console.log('incsec',incrementPerSecond);
         ////calculate maturity amount .
 //console.log('maturity',maturityAmount);
 var s = Math.floor(amountDistance/1000);
 var m= Math.floor(maturityAmount/s);
-console.log(s,m);
+//console.log(s,m);
 var fv= parseFloat(amount) + parseFloat((s*incrementPerSecond).toFixed(5)) ;
 fv = fv.toFixed(5);
 element.find('td.maturityAmount').html(fv);

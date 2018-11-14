@@ -70,6 +70,7 @@ Route::post('/saveprofile','createprofile@save');
 //withdrawal
 Route::get('/withdraw', 'withdrawController@index');
 Route::post('/withdrawsubmit', 'withdrawController@selectwithdrawalmethod');
+Route::post('/processwithdraw', 'withdrawController@processWithdraw');
 
 
 //profile
