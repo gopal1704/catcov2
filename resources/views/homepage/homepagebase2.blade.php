@@ -165,6 +165,8 @@
                      
                     <!-- {%FOOTER_LINK}-->
                   </p>
+                  <a href="https://ssl.comodo.com">
+                    <img src="https://ssl.comodo.com/images/trusted-site-seal.png" alt="Comodo Trusted Site Seal" width="113" height="59" style="border: 0px;"></a>
                 </div>
               </footer>
 

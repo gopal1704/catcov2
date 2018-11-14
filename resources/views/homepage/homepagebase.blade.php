@@ -194,7 +194,8 @@
                   <p class="small text-darker">Copyrights
                       &copy;  
                       CATCO TRADING INTERNATIONAL INC  - <span id="copyright-year"></span> <br> 
-                     
+                      <a href="https://ssl.comodo.com">
+                    <img src="https://ssl.comodo.com/images/trusted-site-seal.png" alt="Comodo Trusted Site Seal" width="113" height="59" style="border: 0px;"></a>
                     <!-- {%FOOTER_LINK}-->
                   </p>
                 </div>
