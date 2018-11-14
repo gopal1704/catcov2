@@ -48,7 +48,7 @@
             <i class="fa fa-user" aria-hidden="true"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-              <a class="dropdown-item" href="#">Account</a>
+              <a class="dropdown-item" href="/changepassword">Change password</a>
               <a class="dropdown-item" href="/viewprofile">Profile</a>
               <a class="dropdown-item" href="/logout">Logout</a>
             </div>

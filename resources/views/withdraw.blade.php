@@ -16,7 +16,7 @@
 @csrf
   <div class="form-group">
     <label for="formGroupExampleInput">Amount</label>
-    <input name="amount" type="number" class="form-control" id="formGroupExampleInput" placeholder="">
+    <input required name="amount" type="number" class="form-control" id="formGroupExampleInput" placeholder="">
   </div>
  
   <div class="form-group">

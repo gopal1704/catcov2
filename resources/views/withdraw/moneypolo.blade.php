@@ -9,14 +9,14 @@
 <div class="row justify-content-center align-items-center">
 <div class="col-4 text-center">
 
-<h4>Withdrawal Request</h4>
+<h4>Withdrawal Request - Moneypolo</h4>
 
 
-<form method="POST" action="/withdrawsubmit">
+<form method="POST" action="/processwithdraw">
 @csrf
   <div class="form-group">
     <label for="formGroupExampleInput">Amount</label>
-    <input name="amount" type="number" class="form-control" id="formGroupExampleInput" placeholder="">
+    <input name="amount" type="number" value="{{$amount}}" class="form-control" id="formGroupExampleInput" placeholder="">
   </div>
  
  

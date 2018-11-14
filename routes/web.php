@@ -62,7 +62,11 @@ Route::get('/withdraw', function () {
     return view('withdraw');
 });
 
-Route::get('/test', 'homecontroller@testreturns');
+Route::get('/changepassword',      function () {   
+     return view('auth.changepassword');
+    
+    });
+Route::post('/cp','homeController@changePassword');
 
 Route::get('/createprofile', 'createprofile@index');
 Route::post('/saveprofile','createprofile@save');

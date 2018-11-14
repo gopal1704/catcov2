@@ -12,11 +12,11 @@
 <h4> Withdrawal Paypal</h4>
 
 
-<form method="POST" action="/withdrawsubmit">
+<form method="POST" action="/processwithdraw">
 @csrf
   <div class="form-group">
     <label for="formGroupExampleInput">Amount</label>
-    <input name="amount" type="number" class="form-control" id="formGroupExampleInput" placeholder="">
+    <input disabled name="amount" value="{{$amount}}" type="number" class="form-control" id="formGroupExampleInput" placeholder="">
   </div>
  
  

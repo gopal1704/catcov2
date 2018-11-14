@@ -34,6 +34,10 @@ class withdrawController extends Controller
        $withdrawalMethod= $request->input('wmethod');
        $amount= $request->input('amount');
 
+       if($amount){
+
+       
+
        $request->session()->put('amount', $amount);
        $request->session()->put('withdrawalMethod', $withdrawalMethod);
 
@@ -59,7 +63,9 @@ class withdrawController extends Controller
         return '';
     }
 
+       }else{
 
+       }
     }
 
     public function processWithdraw(Request $request){
@@ -67,18 +73,47 @@ class withdrawController extends Controller
 
         $amount=   $request->session()->get('amount');
         $withdrawalMethod=   $request->session()->get('withdrawalMethod');
+        $walletBalance = calculatebalance::getWalletBalance();
+
+        if($walletBalance>=$amount){
+            switch ($withdrawalMethod) {
+                case 'bank':
+                $accDetails=$withdrawalMethod= $request->input('bankname').' - '. $request->input('accountnumber'). ' - '.$request->input('ifsc');
+                $this->wd($amount,$accDetails);
+                break;
+            
+            
+                   case 'paypal':
+                   $accDetails=$withdrawalMethod= $request->input('paypalemail');
+                   $this->wd($amount,$accDetails);
+                   break;
+            
+                   case 'moneypolo':
+                   $accDetails=$withdrawalMethod= $request->input('moneypolo');
+                   $this->wd($amount,$accDetails);
+                   break;
+            
+                   case 'bitcoin':
+                   $accDetails=$withdrawalMethod= $request->input('bitcoin');
+                   $this->wd($amount,$accDetails);
+                   break;
+                    
+                    default:
+                    return '';
+                }
+        }
+        else{
+            //insufficient bal
+            Session::flash('error', 'Insufficient balance -Withdrawal request could not be processed!'); 
+        return redirect('/home');
+        }
+
+ 
+    }
+
+    public function wd($amount,$accountdetails){
 
 
-  switch ($withdrawalMethod) {
-        case 'bank':
-    ///process bank withdrawal request
-    $walletBalance = calculatebalance::getWalletBalance();
-        
-    if($walletBalance>=$amount){//if sufficient wallet balance
-
-
-$accDetails=$withdrawalMethod= $request->input('bankname').' - '. $request->input('accountnumber'). ' - '.$request->input('ifsc');
-    //
     $transaction= new transaction;
     $transaction->userId = auth()->user()->id;
     $transaction->TYPE= 'Dr.';
@@ -96,7 +131,7 @@ $accDetails=$withdrawalMethod= $request->input('bankname').' - '. $request->inpu
     $wrequest = new withdrawalrequest;
     $wrequest->amount=$amount;
     $wrequest->userId=auth()->user()->id;
-    $wrequest->accountDetails=$accDetails;
+    $wrequest->accountDetails=$accountdetails;
     DB::transaction(function () use ($transaction, $transaction_w,$wrequest) {
         $transaction->save();
         $transaction_w->save();
@@ -104,35 +139,9 @@ $accDetails=$withdrawalMethod= $request->input('bankname').' - '. $request->inpu
 
     });
 
-    Session::flash('message', 'Wallet transfer successful!'); 
+    Session::flash('message', 'Withdrawal request successful!'); 
     return redirect('/home');
 
-
-
-    }
-    else{
-        //insufficient bal
-    }
-
-
-    /////
-                   return 'bank';
-       break;
-       case 'paypal':
-       return view('withdraw.paypal')->with('amount',$amount);
-       break;
-
-       case 'moneypolo':
-       return view('withdraw.moneypolo')->with('amount',$amount);
-       break;
-
-       case 'bitcoin':
-       return view('withdraw.bitcoin')->with('amount',$amount);
-       break;
-        
-        default:
-        return '';
-    }
     }
     
 }
