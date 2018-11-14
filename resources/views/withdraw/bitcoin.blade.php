@@ -16,14 +16,14 @@
 @csrf
   <div class="form-group">
     <label for="formGroupExampleInput">Amount</label>
-    <input name="amount" type="number" value="{{$amount}}" class="form-control" id="formGroupExampleInput" placeholder="">
+    <input disabled name="amount" type="number" value="{{$amount}}" class="form-control" id="formGroupExampleInput" placeholder="">
   </div>
  
  
 
 
   <div class="form-group">
-    <label for="moneypolo">Moneypolo Email or Account Number
+    <label for="moneypolo">Bitcoin Address
     </label>
     <input name="moneypolo" type="text" class="form-control" id="moneypolo" placeholder="">
   </div>

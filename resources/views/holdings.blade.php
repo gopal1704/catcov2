@@ -58,7 +58,7 @@
         <th class="col-2">Date</th>
         <th class="col-2">Scheme</th>
 
-        <th class="col-2">Gold Wallet</th>
+        <th class="col-2">Catco Wallet</th>
         <th class="col-2">Maturity date</th>
         <th class="col-2">Maturity value</th>
         <th class="col-2">Maturity status</th>

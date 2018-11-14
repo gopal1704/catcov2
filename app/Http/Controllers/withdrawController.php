@@ -80,22 +80,30 @@ class withdrawController extends Controller
                 case 'bank':
                 $accDetails=$withdrawalMethod= $request->input('bankname').' - '. $request->input('accountnumber'). ' - '.$request->input('ifsc');
                 $this->wd($amount,$accDetails);
+                Session::flash('message', 'Withdrawal request successful!'); 
+                return redirect('/home');
                 break;
             
             
                    case 'paypal':
-                   $accDetails=$withdrawalMethod= $request->input('paypalemail');
+                   $accDetails= 'Paypal Email  '.$request->input('paypalemail');
                    $this->wd($amount,$accDetails);
+                   Session::flash('message', 'Withdrawal request successful!'); 
+                   return redirect('/home');
                    break;
             
                    case 'moneypolo':
-                   $accDetails=$withdrawalMethod= $request->input('moneypolo');
+                   $accDetails= 'Moneypolo email :  '.$request->input('moneypolo');
                    $this->wd($amount,$accDetails);
+                   Session::flash('message', 'Withdrawal request successful!'); 
+                   return redirect('/home');
                    break;
             
                    case 'bitcoin':
-                   $accDetails=$withdrawalMethod= $request->input('bitcoin');
+                   $accDetails='Bitcoin Address :  ' . $request->input('bitcoin');
                    $this->wd($amount,$accDetails);
+                   Session::flash('message', 'Withdrawal request successful!'); 
+                   return redirect('/home');
                    break;
                     
                     default:
@@ -139,8 +147,7 @@ class withdrawController extends Controller
 
     });
 
-    Session::flash('message', 'Withdrawal request successful!'); 
-    return redirect('/home');
+  
 
     }
     

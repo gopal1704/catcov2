@@ -16,7 +16,7 @@
 @csrf
   <div class="form-group">
     <label for="formGroupExampleInput">Amount</label>
-    <input name="amount" type="number" value="{{$amount}}" class="form-control" id="formGroupExampleInput" placeholder="">
+    <input disabled name="amount" type="number" value="{{$amount}}" class="form-control" id="formGroupExampleInput" placeholder="">
   </div>
  
  

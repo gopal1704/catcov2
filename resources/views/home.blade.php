@@ -132,7 +132,7 @@
     <tr class="d-flex">
         <th class="col-3">Date</th>
 
-        <th class="col-3">Gold Wallet</th>
+        <th class="col-3">Catco Wallet</th>
         <th class="col-6">Maturity </th>
 
     </tr>
