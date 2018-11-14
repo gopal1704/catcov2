@@ -20,7 +20,7 @@ class holdingsController extends Controller
 
     $user = User::find(auth()->user()->id);
 
-    $holdings = $user->holdings()->with('schemes')->paginate(8);
+    $holdings = $user->holdings()->orderBy('TIMESTAMP', 'desc')->with('schemes')->paginate(8);
     //return $holdings;
     return view('holdings',compact('holdings'));
 }

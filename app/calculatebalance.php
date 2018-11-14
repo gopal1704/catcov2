@@ -34,6 +34,7 @@ class calculatebalance {
 
             $userId= auth()->user()->id;
             $walletBalance= transaction::where('userId', $userId)->where('account',self::WithdrawalPendingWallet)->where('type', self::Credit)->sum('amount') - transaction::where('userId', $userId)->where('account',self::WithdrawalPendingWallet)->where('type', self::Debit)->sum('amount');
+
             return  round($walletBalance, 2);
          
              }
@@ -60,7 +61,7 @@ class calculatebalance {
     public static function getAllbalances(){
       return  $balances = [
             'mainWallet' => self::getWalletBalance(),
-            'pendingWallet' => self::getPendingWalletBalance(),
+            'pendingWallet' => self::getPendingWalletBalance() +self::getWithdrawalPendingWalletBalance() ,
             'withdrawalPendingBalance'=> self::getWithdrawalPendingWalletBalance(),
             'SpotCommission'=> self::rsc(),
             'ReferralReturns'=>self::rrt(),
