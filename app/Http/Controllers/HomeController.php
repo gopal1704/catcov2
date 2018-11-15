@@ -114,7 +114,7 @@ return redirect('/');
     }
 
 
-  public function  iptest(Request $request){
+  public function  mailtest(Request $request){
     $data = array('name'=>"Virat Gandhi");
 
     Mail::send(['text'=>'mail.mail'], $data, function($message) {
