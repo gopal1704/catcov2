@@ -71,7 +71,7 @@
             </div>
             <div class="form-group row">
                     <div class="col-md-3">
-                            <label for="gender" class="col-sm-6 col-form-label">{{ __('Gender') }}</label>
+                            <label for="gender" class="col col-form-label">{{ __('Gender') }}</label>
 
                         <select id="gender" name="gender" class="form-control">
                             <option value="Male">Male</option>
@@ -81,13 +81,13 @@
                         </select>
                     </div>
                     <div class="col-md-4">
-                            <label for="dob" class="col-sm-6 col-form-label">{{ __('Date of Birth') }}</label>
+                            <label for="dob" class="col col-form-label">{{ __('Date of Birth') }}</label>
 
                         <input type="date" class="form-control" id="dob" name="dateOfBirth">
                         </div>
  
                         <div class="col-md-5">
-                                <label for="timezone" class="col-sm-4 col-form-label text-md-right">{{ __('Time zone') }}</label>
+                                <label for="timezone" class="col col-form-label text-md-right">{{ __('Time zone') }}</label>
                                
                                 <select id="timezone" name="timeZone" class="form-control">
                                         @foreach ( $timezones as $key => $value )

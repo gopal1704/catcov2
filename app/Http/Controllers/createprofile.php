@@ -54,8 +54,9 @@ class createprofile extends Controller
     }
     public function goToEditProfile(){
 
-        return view('profile.editprofile');
-
+        $timezones = operations::timezones;
+    
+        return view('profile.editprofile')->with('timezones',$timezones);
     }
 
 

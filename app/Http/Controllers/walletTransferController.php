@@ -100,12 +100,16 @@ return 0;
         $transaction->save();
         $transaction_r->save();
     });
+    try{
     $fm='Catcotrade - '.$transaction->narration. ' USD : '.$amount;
 
     operations::sendSMS($fromMobile,$fm );
-$tm='Catcotrade - '.$transaction_r->narration. ' USD : '.$amount;
+    $tm='Catcotrade - '.$transaction_r->narration. ' USD : '.$amount;
     operations::sendSMS($tomobile, $tm);
+    }
+    catch(Exception $e) {
 
+    }
     Session::flash('message', 'Wallet transfer successful!'); 
         return redirect('/home');
       

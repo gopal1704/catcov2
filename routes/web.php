@@ -79,7 +79,8 @@ Route::post('/processwithdraw', 'withdrawController@processWithdraw');
 
 //profile
 Route::get('/viewprofile', 'createprofile@viewProfile');
-Route::post('/editprofile', 'createprofile@goToEditProfile');
+
+Route::get('/editprofile', 'createprofile@goToEditProfile');
 
 
 
