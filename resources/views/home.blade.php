@@ -222,7 +222,7 @@
 <tr>
 
      <th>Name</th>   
-     <td>{{$profile->title}}&nbsp{{$profile->firstName}}&nbsp{{$profile->latName}}</td>
+     <td>{{$profile->title}}&nbsp{{$profile->firstName}}&nbsp{{$profile->lastName}}</td>
 
 
 </tr>
