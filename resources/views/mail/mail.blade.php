@@ -11,7 +11,7 @@
 <script src="/js/moment.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
 
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://catcotrade.info/css/styles.css">
 </head>
 
 
