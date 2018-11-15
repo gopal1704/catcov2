@@ -30,7 +30,7 @@
                             <label for="referralid" class="col-md-4 col-form-label text-md-right">{{ __('Referral Id') }}</label>
 
                             <div class="col-md-6">
-                                <input id="referralid" type="number" class="form-control{{ $errors->has('referralid') ? ' is-invalid' : '' }}" name="referralid" value="{{ $referralid }}" required >
+                                <input  id="referralid" type="number" class="form-control{{ $errors->has('referralid') ? ' is-invalid' : '' }}" name="referralid" value="{{ $referralid }}" required >
 
                                 @if ($errors->has('referralid'))
                                     <span class="invalid-feedback" role="alert">
@@ -42,7 +42,7 @@
                         @endif
 
 
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
@@ -54,7 +54,7 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
