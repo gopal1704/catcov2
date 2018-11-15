@@ -55,8 +55,11 @@ class createprofile extends Controller
     public function goToEditProfile(){
 
         $timezones = operations::timezones;
+        $profile =  profile::where('userId',auth()->user()->id)->first();
+
+
     
-        return view('profile.editprofile')->with('timezones',$timezones);
+        return view('profile.editprofile',compact('timezones','profile'));
     }
 
 

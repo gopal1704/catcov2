@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="col-md-5">
-                        <label for="lastName" class="col-sm-5 col-form-label ">{{ __('Last Name') }}</label>
+                        <label for="lastName" class="col-sm-5 col-form-label ">{{ __('Surname') }}</label>
 
                         <input id="lastName" type="text" class="form-control{{ $errors->has('firstName') ? ' is-invalid' : '' }}" name="lastName" value="{{ old('email') }}" required >
     

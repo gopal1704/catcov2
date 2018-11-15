@@ -81,7 +81,7 @@ class Kernel extends ConsoleKernel
                          $transaction->amount = $returnAmount;
                          $transaction->shadowAccount = 'prc';
                          $transaction->ACCOUNT = 'pw';
-                         $transaction->narration= $cycle."rd ". "Referral comission from : " .$fromName. " ". $holding->userId  ;
+                         $transaction->narration= "Month - ".$cycle. "Referral comission from : " .$fromName. " ". $holding->userId  ;
                          //
                         $sms = 'Catcotrade Credit USD:'.$returnAmount. " Month : ". $cycle." ". "Referral comission from : " .$fromName. " ". $holding->userId  ;
                          //save return credit true 
@@ -102,12 +102,16 @@ class Kernel extends ConsoleKernel
                         });
                 
                         //send sms
+                        try{
                         $smsUser = DB::table('users')->where('id', $holding->userId)->first()->referralid;
                         $smsUserProfile =DB::table('profiles')->where('userId', $smsUser)->first();
                         $mobile= $smsUserProfile->isdcode.$smsUserProfile->mobile;
                         operations::sendSMS($mobile,$sms);
                         
-                
+                        }
+                        catch (Exception $e){
+
+                        }
                          exit();
                 
                       } 
