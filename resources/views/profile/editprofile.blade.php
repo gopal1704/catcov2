@@ -21,7 +21,7 @@
                 <div class="">
 <h1>Edit profile</h1>
 
-<form method="POST" action="/saveprofile">
+<form method="POST" action="/editprofiles">
         @csrf
 
         <div class="form-group row">
@@ -29,12 +29,12 @@
                 <div class="col-md-2">
                         <label for="title" class="col-sm-2 col-form-label">{{ __('Title') }}</label>
 
-<select name="title" id="title" class="form-control">
-    <option value="Mr.">Mr.</option>
-    <option value="Ms">Ms</option>
-    <option value="Mrs.">Mrs.</option>
-    <option value="Miss">Misss</option>
-    <option value="Dr">Dr</option>
+<select name="title" id="title" class="form-control" selected="{{$profile->title}}">
+    <option value="Mr."  {{ (  $profile->title=="Mr.") ? 'selected' : '' }}   >Mr.</option>
+    <option value="Ms"   {{ (  $profile->title=="Ms") ? 'selected' : '' }}   >Ms</option>
+    <option value="Mrs."  {{ (  $profile->title=="Mrs.") ? 'selected' : '' }}  >Mrs.</option>
+    <option value="Miss" {{ (  $profile->title=="Miss") ? 'selected' : '' }}   >Misss</option>
+    <option value="Dr"   {{ (  $profile->title=="Dr") ? 'selected' : '' }}   >Dr</option>
 
 </select>
                     @if ($errors->has('firstName'))
@@ -47,7 +47,7 @@
                 <div class="col-md-5">
                         <label for="firstName" class="col-sm-5 col-form-label">{{ __('First Name') }}</label>
 
-                    <input id="firstName" type="text" class="form-control{{ $errors->has('firstName') ? ' is-invalid' : '' }}" name="firstName" value="{{ old('email') }}" required autofocus>
+                    <input id="firstName" type="text" value="{{$profile->firstName}}"  class="form-control{{ $errors->has('firstName') ? ' is-invalid' : '' }}" name="firstName" value="{{ old('email') }}" required autofocus>
 
                     @if ($errors->has('firstName'))
                         <span class="invalid-feedback" role="alert">
@@ -59,7 +59,7 @@
                 <div class="col-md-5">
                         <label for="lastName" class="col-sm-5 col-form-label ">{{ __('Surname') }}</label>
 
-                        <input id="lastName" type="text" class="form-control{{ $errors->has('firstName') ? ' is-invalid' : '' }}" name="lastName" value="{{ old('email') }}" required >
+                        <input id="lastName" value="{{$profile->lastName}}" type="text" class="form-control{{ $errors->has('firstName') ? ' is-invalid' : '' }}" name="lastName" value="{{ old('email') }}" required >
     
                         @if ($errors->has('email'))
                             <span class="invalid-feedback" role="alert">
@@ -73,25 +73,25 @@
                     <div class="col-md-3">
                             <label for="gender" class="col col-form-label">{{ __('Gender') }}</label>
 
-                        <select id="gender" name="gender" class="form-control">
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            <option value="Trans">Trans</option>
+                        <select id="gender" name="gender"  class="form-control">
+                            <option {{ (  $profile->gender=="Male") ? 'selected' : '' }} value="Male">Male</option>
+                            <option {{ ( $profile->gender=="Female") ? 'selected' : '' }} value="Female">Female</option>
+                            <option {{ (  $profile->gender=="Trans") ? 'selected' : '' }} value="Trans">Trans</option>
 
                         </select>
                     </div>
                     <div class="col-md-4">
                             <label for="dob" class="col col-form-label">{{ __('Date of Birth') }}</label>
 
-                        <input type="date" class="form-control" id="dob" name="dateOfBirth">
+                        <input type="date" value="{{$profile->dateOfBirth}}" class="form-control" id="dob" name="dateOfBirth">
                         </div>
  
                         <div class="col-md-5">
                                 <label for="timezone" class="col col-form-label text-md-right">{{ __('Time zone') }}</label>
                                
-                                <select id="timezone" name="timeZone" class="form-control">
+                                <select id="timezone" name="timeZone"  class="form-control">
                                         @foreach ( $timezones as $key => $value )
-                                        <option value="{{$key}}">{{$value}}</option>
+                                        <option  {{ ( $key == $profile->timeZone) ? 'selected' : '' }} value="{{$key}}"   >{{$value}}</option>
                                 @endforeach
 
                                 </select>
@@ -104,7 +104,7 @@
                     <div class="col-md-12">
                             <label for="address" class="col-sm-4 col-form-label">{{ __('Address') }}</label>
     
-                        <input id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" value="{{ old('email') }}" required autofocus>
+                        <input id="address" value="{{$profile->address}}" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" value="{{ old('email') }}" required autofocus>
     
                         @if ($errors->has('address'))
                             <span class="invalid-feedback" role="alert">
@@ -120,7 +120,7 @@
                             <div class="col-md-4">
                                     <label for="city" class="col-sm-4 col-form-label text-md-right">{{ __('City') }}</label>
             
-                                <input id="city" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="city" value="{{ old('email') }}" required autofocus>
+                                <input id="city" value="{{$profile->city}}" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="city" value="{{ old('email') }}" required autofocus>
             
                                 @if ($errors->has('city'))
                                     <span class="invalid-feedback" role="alert">
@@ -130,9 +130,9 @@
                             </div>
 
                             <div class="col-md-4">
-                                    <label for="address" class="col-sm-4 col-form-label text-md-right">{{ __('State') }}</label>
+                                    <label for="state" class="col-sm-4 col-form-label text-md-right">{{ __('State') }}</label>
             
-                                <input id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="state" value="{{ old('email') }}" required autofocus>
+                                <input id="state" value="{{$profile->state}}" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="state" value="{{ old('email') }}" required autofocus>
             
                                 @if ($errors->has('address'))
                                     <span class="invalid-feedback" role="alert">
@@ -141,9 +141,9 @@
                                 @endif
                             </div>
                             <div class="col-md-4">
-                                    <label for="pincode" class="col-sm-4 col-form-label">{{ __('Pincode') }}</label>
+                                    <label for="pincode" value="{{$profile->pincode}}" class="col-sm-4 col-form-label">{{ __('Pincode') }}</label>
             
-                                <input id="pincode" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="pincode" value="{{ old('pincode') }}" required autofocus>
+                                <input id="pincode" value="{{$profile->pincode}}" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="pincode" value="{{ old('pincode') }}" required autofocus>
             
                                 @if ($errors->has('pincode'))
                                     <span class="invalid-feedback" role="alert">
@@ -411,12 +411,12 @@
                                     </div>
                                     <div class="col-md-2">
                                             <label for="isd" class="col-sm-4 col-form-label text-md-right">{{ __('ISD') }}</label>
-<input type="country"  class="form-control" name="isdcode" id="isd">
+<input type="text" value="{{$profile->isdcode}}" class="form-control" name="isdcode" id="isd">
                                     </div>
                                     <div class="col-md-6">
                                             <label for="mobile" class="col-sm-4 col-form-label text-md-right">{{ __('Mobile') }}</label>
 
-                                        <input  class="form-control" type="text" name="mobile" id="mobile">
+                                        <input value="{{$profile->mobile}}" class="form-control" type="text" name="mobile" id="mobile">
                                         </div>
     
 

@@ -82,6 +82,7 @@ Route::get('/viewprofile', 'createprofile@viewProfile');
 
 Route::get('/editprofile', 'createprofile@goToEditProfile');
 
+Route::post('/editprofiles', 'createprofile@processEdit');
 
 
 Auth::routes();
