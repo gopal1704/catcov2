@@ -31,7 +31,7 @@ Route::get('/tc', function () {
 });
 
 
-Route::get('/home', 'homeController@index');
+Route::get('/home', 'homeController@index')->middleware('verified');
 Route::get('/homem/{message}', 'homeController@message')->name('home');
 Route::get('/logout', 'homeController@logout');
 
@@ -89,6 +89,8 @@ Route::post('/editprofiles', 'createprofile@processEdit');
 
 
 Auth::routes();
+Auth::routes(['verify' => true]);
+
 
 //registration routes
 
