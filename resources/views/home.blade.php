@@ -222,7 +222,7 @@
 <tr>
 
      <th>Name</th>   
-     <td>{{$profile->firstName}}</td>
+     <td>{{$profile->title}}&nbsp{{$profile->firstName}}&nbsp{{$profile->latName}}</td>
 
 
 </tr>
@@ -245,7 +245,7 @@
 <tr>
 
         <th>Referral link</th>   
-        <td> https://catcotrade.info/register?referralid={{$profile->userId}}
+        <td>    <a style="font-size:13px;" href="https://catcotrade.info/register?referralid={{$profile->userId}}"> https://catcotrade.info/register?referralid={{$profile->userId}}</a>
             </td>
    
    

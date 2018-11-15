@@ -21,9 +21,9 @@
 
 
 </th>
-<th><button type="button" class="btn btn-primary text-right">Upload Proof</button>
+<th>
 </th>
-<th><button type="button" class="btn btn-primary text-right">Edit Profile</button>
+<th><a type="button" href="/editprofile" class="btn btn-primary text-right">Edit Profile</a>
 </th>
 
 </tr>
@@ -36,7 +36,7 @@
 <tr>
 
 <th>Name</th>   
-<td colspan="3">{{$profile->firstName}}</td>
+<td colspan="3">{{$profile->title}}&nbsp{{$profile->firstName}}&nbsp{{$profile->latName}}</td>
 
 
 </tr>
@@ -51,19 +51,12 @@
 
 <tr>
 
-<th>Wallet Id	</th>   
-<td colspan="3">{{$profile->walletId}}</td>
+<th>Joining Date	</th>   
+<td colspan="3">{{$profile->joiningDate}}</td>
 
 
 </tr>
-<tr>
 
-<th>Referral link</th>   
-<td colspan="3"> https://catcotrade.info/register?referralid={{$profile->userId}}
-</td>
-
-
-</tr>
 
 <tr>
 
@@ -80,16 +73,66 @@
 
 </tr>
 
+
 <tr>
 
-<th>Joining Date</th>   
-<td colspan="3">{{$profile->joiningDate}}</td>
+        <th>Gender	</th>   
+        <td colspan="3">{{$profile->gender}}</td>
+        
+        
+        </tr>
+    
+        <tr>
 
+                <th>Address	</th>   
+                <td colspan="3">{{$profile->address}}</td>
+                
+                
+                </tr>
 
-</tr>
+                <tr>
 
+                        <th>City	</th>   
+                        <td colspan="3">{{$profile->city}}</td>
+                        
+                        
+                        </tr>
 
-    </tbody>
+                        <tr>
+
+                                <th>State	</th>   
+                                <td colspan="3">{{$profile->state}}</td>
+                                
+                                
+                                </tr>
+
+                                <tr>
+
+                                        <th>Pincode	</th>   
+                                        <td colspan="3">{{$profile->pincode}}</td>
+                                        
+                                        
+                                        </tr>
+        
+        
+                                <tr>
+
+                                        <th>Country	</th>   
+                                        <td colspan="3">{{$profile->country}}</td>
+                                        
+                                        
+  
+                                    </tr>                      
+  
+                                    <tr>
+
+                                            <th>Mobile	</th>   
+                                            <td colspan="3">{{$profile->isdcode}}{{$profile->mobile}}</td>
+                                            
+                                            
+                                            </tr>
+  
+                                </tbody>
 </table>
 </div>
 

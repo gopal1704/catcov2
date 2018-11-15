@@ -52,6 +52,9 @@ Route::get('/transactions', 'transactionsController@index');
 Route::get('/wallettransfer', function () {
     return view('wallettransfer');
 });
+Route::get('/bplan', function () {
+    return view('bplan');
+});
 
 ///wallet transfer otp
 Route::post('/wtotp','walletTransferController@sendOtp');

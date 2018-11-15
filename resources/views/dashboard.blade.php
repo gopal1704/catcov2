@@ -78,7 +78,7 @@
      <li> <a class="" href="/wallettransfer"> <i class="fas fa-credit-card
                 fa-lg"></i>Wallet Transfer</a></li>  
      <li> <a class="" href="/withdraw"> <i class="fas fa-money-check-alt fa-lg"></i>Withdraw</a></li>          
-        <li><a class="" href="/home"><i class="fas fa-clipboard fa-lg"></i>Business Plan</a></li>  
+        <li><a class="" href="/bplan"><i class="fas fa-clipboard fa-lg"></i>Business Plan</a></li>  
 
 </ul>
                     </nav>
