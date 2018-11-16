@@ -65,18 +65,24 @@ Export
 </thead>
 <tbody>
     @foreach ($referrals as $referral)
+
+    @if ($referral->profiles)   
     <tr class="d-flex">
         <td class="col-2">{{ $referral->id}}</td>
 
 
-      <td class="col-2">  {{App\operations::displayTime($referral->profiles->joiningDate)}} 
+      <td class="col-2"> 
+      @if ($referral->profiles->joiningDate)   
+      {{App\operations::displayTime($referral->profiles->joiningDate)}} 
+      @endif
       </td>
+
       <td class="col-4">    {{ $referral->name}}
         </td>
        
         <td class="col-4">    {{ $referral->email}}
         </td>
-       
+        @endif
 
 
     </tr>
