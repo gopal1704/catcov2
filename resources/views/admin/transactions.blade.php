@@ -57,7 +57,7 @@ Export
 
 <thead>
     <tr>
-        <th>Id</th>
+        <th>Account</th>
 <th>Date</th>
 <th>Name</th>
 <th>Narration</th>
@@ -68,7 +68,7 @@ Export
 <tbody>
     @foreach ($transactions as $transaction)
     <tr>
-        <td>{{ $transaction->id}}</td>
+        <td>{{ $transaction->userId}}</td>
       <td>  {{App\operations::displayTime($transaction->TIMESTAMP)}} 
       </td>
       <td>    {{ App\operations::getName($transaction->userId)}}

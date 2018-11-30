@@ -35,8 +35,9 @@ return view('admin.transactions',compact('transactions'));
 
    }
    public function  withdrawalrequests(){
+    $wd = \App\withdrawalrequest::orderBy('TIMESTAMP', 'desc')->paginate(10);
 
-    return view('admin.withdrawalrequests');        
+    return view('admin.withdrawalrequests',compact('wd'));        
 
    }
 public function  approvedwithdrawalrequests(){
