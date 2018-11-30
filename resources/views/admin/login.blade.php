@@ -23,7 +23,7 @@
 
                 <div class="card-body">
 
-                    <form method="POST" action="{{ route('admin.login') }}">
+                    <form method="POST" action="admin/login">
                         @csrf
 
                         <div class="form-group row">
@@ -72,7 +72,7 @@
                                     {{ __('Login') }}
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('admin.password.request') }}">
+                                <a class="btn btn-link" href="#">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                             </div>

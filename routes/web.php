@@ -99,3 +99,17 @@ Auth::routes(['verify' => true]);
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
+/////ADMIN ROUTES
+
+Route::get('admin/home', 'adminController@index');
+
+Route::get('admin', 'admin\LoginController@showLoginForm')->name('admin.login');
+
+Route::post('admin/login', 'admin\LoginController@login');
+
+
+
+
+
+
+/////
