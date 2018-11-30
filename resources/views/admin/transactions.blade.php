@@ -2,6 +2,6 @@
 
 
 @section('content')
-<h1>admin home</h1>
+<h1>admin transactions</h1>
 
                             @endsection

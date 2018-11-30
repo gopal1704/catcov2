@@ -108,6 +108,15 @@ Route::get('admin', 'admin\LoginController@showLoginForm')->name('admin.login');
 Route::post('admin/login', 'admin\LoginController@login');
 
 
+Route::get('admin/users', 'adminController@users');
+Route::get('admin/transactions', 'adminController@transactions');
+Route::get('admin/withdrawalrequests', 'adminController@withdrawalrequests');
+Route::get('admin/approvedwithdrawalrequests', 'adminController@approvedwithdrawalrequests');
+
+Route::get('admin/holdings', 'adminController@holdings');
+
+
+
 
 
 
