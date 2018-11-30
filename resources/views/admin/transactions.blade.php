@@ -59,11 +59,10 @@ Export
     <tr>
         <th>Id</th>
 <th>Date</th>
-
+<th>Name</th>
 <th>Narration</th>
 <th>Credit</th>
 <th>Debit</th>
-<th>From</th>
 </tr>
 </thead>
 <tbody>
@@ -72,6 +71,8 @@ Export
         <td>{{ $transaction->id}}</td>
       <td>  {{App\operations::displayTime($transaction->TIMESTAMP)}} 
       </td>
+      <td>    {{ App\operations::getName($transaction->userId)}}
+        </td>
       <td>    {{ $transaction->narration}}
         </td>
         <td class="_green"> 
@@ -85,7 +86,6 @@ Export
                 @endif
                 </td>
 
-                <td>{{ $transaction->from}}</td>
 
     </tr>
 
