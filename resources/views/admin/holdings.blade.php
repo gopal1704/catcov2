@@ -5,7 +5,7 @@
 
 
 
-<div class="col" style="overflow-y:scroll;" >
+<div class="col" >
     <div class="row">
         <div class="col">
 
