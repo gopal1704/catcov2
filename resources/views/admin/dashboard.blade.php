@@ -28,7 +28,7 @@
 
                
 
-                                <a style="font-size:25px; font-weight:bold;" class="navbar-brand goldtextcss" href="">CATCOTRADE ADMIN</a>                       
+                                <a style="font-size:25px; font-weight:bold;" class="navbar-brand goldtextcss" href="">CATCOTRADE</a>                       
                         <ul class="nav navbar-nav mx-auto">
                                 <li class="nav-item ">
 
@@ -48,7 +48,6 @@
             <i class="fa fa-user" aria-hidden="true"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-
               <a class="dropdown-item" href="/logout">Logout</a>
             </div>
             </li>
@@ -66,18 +65,18 @@
                     <nav id="sidebar">
 <ul class="list-unstyled components sidenav">
     <li>
-        <a class="" href="/admin/home"> <i class="fas fa-user-circle fa-lg"></i> Home</a>
+        <a class="" href="/home"> <i class="fas fa-user-circle fa-lg"></i> Home</a>
         
     </li>
-    <li>       <a class="" href="/admin/users"> <i class="fas fa-wallet fa-lg"></i>Users</a>
+    <li>       <a class="" href="/holdings"> <i class="fas fa-wallet fa-lg"></i> Catco Wallet</a>
     </li>
-    <li> <a class="" href="/admin/holdings"><i class="fas fa-shopping-cart fa-lg"></i>Investments</a></li>    
-     <li><a class="" href="/admin/transactions"><i class="fas fa-exchange-alt fa-lg"></i>Transactions</a></li>   
-     <li> <a class="" href="/admin/addwalletbalance"> <i class="fas fa-credit-card
-                fa-lg"></i>Add Wallet Balance</a></li>  
-     <li> <a class="" href="/admin/withdrawalrequests"> <i class="fas fa-money-check-alt fa-lg"></i>Withdrawal Requests</a></li>          
-     <li> <a class="" href="/admin/approvedwithdrawalrequests"> <i class="fas fa-money-check-alt fa-lg"></i>Approved Requests</a></li>          
-
+    <li> <a class="" href="/placeorder"><i class="fas fa-shopping-cart fa-lg"></i>Place Buy Order</a></li>    
+  <li> <a class="" href="/referrals"> <i class="fas fa-users fa-lg"></i>My Referrals</a></li>     
+     <li><a class="" href="/transactions"><i class="fas fa-exchange-alt fa-lg"></i>Transactions</a></li>   
+     <li> <a class="" href="/wallettransfer"> <i class="fas fa-credit-card
+                fa-lg"></i>Wallet Transfer</a></li>  
+     <li> <a class="" href="/withdraw"> <i class="fas fa-money-check-alt fa-lg"></i>Withdraw</a></li>          
+        <li><a class="" href="/bplan"><i class="fas fa-clipboard fa-lg"></i>Business Plan</a></li>  
 
 </ul>
                     </nav>

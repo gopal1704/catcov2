@@ -27,10 +27,15 @@ return view('admin.home');
 
     }
    public function transactions(){
-    return view('admin.transactions');        
+
+    $transactions = \App\transaction::orderBy('TIMESTAMP', 'desc')->paginate(8);
+   
+
+return view('admin.transactions',compact('transactions'));
 
    }
    public function  withdrawalrequests(){
+
     return view('admin.withdrawalrequests');        
 
    }
