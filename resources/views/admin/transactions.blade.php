@@ -3,7 +3,7 @@
 
 @section('content')
 
-<div class="col" >
+<div class="col" style="overflow-y:scroll;">
     <div class="row">
         <div class="col">
 
@@ -51,7 +51,7 @@ Export
                     </div>
                 </div>
 
-<div class="row " style="overflow-y:scroll;">
+<div class="row " >
     <div class="col">
         <table class="table table-striped catco-pannel">
 
