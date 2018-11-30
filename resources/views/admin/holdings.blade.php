@@ -61,7 +61,7 @@ Export
                             <th class="col-2">Date</th>
                             <th class="col-1">Account</th>
                     
-                            <th class="col-2">Scheme</th>
+                            <th class="col-2">Name</th>
                     
                             <th class="col-2">Catco Wallet</th>
                             <th class="col-2">Maturity date</th>
@@ -80,7 +80,7 @@ Export
                     <td class="col-2 fromDate" >{{App\operations::displayTime($holding->TIMESTAMP)}}</td>
                     <td class="col-1 ">{{$holding->userId}} </td> 
                     
-                    <td class="col-2"> {{$holding->schemes->schemeName}}</td> 
+                    <td class="col-2"> {{ App\operations::getName($holding->userId)}}</td> 
                     
                     <td class="col-2 amount">{{$holding->amount}}</td> 
                     <td class="col-2 date">{{ App\operations::calculateMaturity($holding->TIMESTAMP,$holding->schemes->duration)}}</td>
