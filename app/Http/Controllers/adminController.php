@@ -39,7 +39,11 @@ public function  approvedwithdrawalrequests(){
 
 }
 public function  holdings(){
-    return view('admin.holdings');        
+
+   
+    $holdings = \App\holding::orderBy('TIMESTAMP', 'desc')->with('schemes')->paginate(10);
+    //return $holdings;
+    return view('admin.holdings',compact('holdings'));    
 
 }
     //

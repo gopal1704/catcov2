@@ -152,9 +152,25 @@ public static function walletTransfer(){
 public static function sendWithdrawalRequest(){
 
 }
+
+public static function getName($id){
+    $profile =  profile::where('userId',$id)->first();
+    if($profile){
+        return $profile->title.' '.$profile->firstName.' '.$profile->lastName;
+    }
+    else
+    return ' ';
+
+}
 public static function getTimeZone(){
-    $profile =  profile::where('userId',auth()->user()->id)->first();
+    $profile=null;
+    if(auth()->user()){
+    $profile =  profile::where('userId',auth()->user()->id)->first();}
+    if($profile){
     return $profile->timeZone;
+    }
+    else
+    return 'Asia/Kolkata';
 }
 public static function displayTime($t){
 $time =  Carbon::createFromFormat('Y-m-d H:i:s', $t);
