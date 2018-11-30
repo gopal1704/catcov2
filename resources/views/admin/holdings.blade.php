@@ -77,7 +77,7 @@
 <tr class="d-flex holding">
 
 <td class="col-2 fromDate" >{{App\operations::displayTime($holding->TIMESTAMP)}}</td>
-<td class="col-1 ">{{$holding->userId}}</br> {{App\operations::getName($holding->userId)}}</td> 
+<td class="col-1 ">{{$holding->userId}} {{App\operations::getName($holding->userId)}}</td> 
 
 <td class="col-2"> {{$holding->schemes->schemeName}}</td> 
 
