@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\scheme;
+use DB;
+use App\coinbasepayment;
+use Illuminate\Support\Facades\Redirect;
+
 class placeorderController extends Controller
 {
     public function __construct()
@@ -36,9 +40,75 @@ return view('walletpayment' ,compact('amount','schemeId'));
         $schemeId = $request->input('schemeId');
 
         
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, "https://api.commerce.coinbase.com/charges/");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $post = array(
+        "name" => "Catcotrade",
+        "description" => "payment",
+        "local_price" => array(
+            'amount' => $amount,
+            'currency' => 'USD'
+        ),
+        "pricing_type" => "fixed_price",
+        "metadata" => array(
+            'customer_id' => auth()->user()->id,
+            'name' => auth()->user()->email
+        )
+    );
+    
+    $post = json_encode($post);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    $coinbaseKey= env('COINBASE_KEY');
+    $headers = array();
+    $headers[] = "Content-Type: application/json";
+    $headers[] = "X-Cc-Api-Key: ".$coinbaseKey;
+    $headers[] = "X-Cc-Version: 2018-03-22";
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    
+    $result = curl_exec($ch);
+    curl_close ($ch);
+    $response = json_decode($result);
+    
+    // echo "<pre>";
+    // print_r($response->data);
+
+
+   $code= $response->data->code;
+   $id =$response->data->id;
+   $hosted_url= $response->data->hosted_url;
+
+
+   if($code!=null && $id!=null){
+    $coinbasepayment= new coinbasepayment;
+    $coinbasepayment->userId = auth()->user()->id;
+    $coinbasepayment->code= $code;
+    $coinbasepayment->coinbaseId=$id;
+    $coinbasepayment->status=0;
+
+    DB::transaction(function () use ($coinbasepayment) {
+        $coinbasepayment->save();
+       
+
+    });
+
+return Redirect::to($hosted_url);
+   }
+
+
+
+
+
+
+        
     }
 
+    
 
+  }
 
+  public function  cb(Request $request){
+      
   }
 }

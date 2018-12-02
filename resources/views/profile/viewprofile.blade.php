@@ -139,7 +139,39 @@
 
 
 </div>
+<div class="col-6">
+                <table class="table table-striped catco-pannel text-nowrap" >
+                        <thead>
+<th colspan="4">Proof upload</th>
+                        </thead>
+                        <tbody>
+                                <tr>
+                                        <td>Id Proof</td>
+                                        <td>
+                                                        <button type="submit" href="/editprofile" class="btn btn-primary text-right">upload</button>
 
+
+                                                        <button type="submit" href="/editprofile" class="btn btn-primary text-right">upload</button>
+                                        </td>
+                                        <td><a href="">view</a></td>
+                                </tr>
+                                <tr>
+
+                                                <td>Address Proof</td>
+                                                <td>select file
+
+                                                                <button type="submit" href="/editprofile" class="btn btn-primary text-right">upload</button>
+
+                                                </td>
+
+                                                <td><a href="">view</a></td>
+
+                                        </tr>
+
+                        </tbody>
+                </table>
+
+</div>
 
 </div>
 

@@ -133,7 +133,7 @@ return redirect('/');
         "name" => "Catcotrade",
         "description" => "payment",
         "local_price" => array(
-            'amount' => '0.4',
+            'amount' => 0.4,
             'currency' => 'USD'
         ),
         "pricing_type" => "fixed_price",
