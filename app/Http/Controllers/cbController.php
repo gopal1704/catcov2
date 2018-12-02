@@ -9,6 +9,6 @@ class cbController extends Controller
     //
 
     public function  cb(Request $request){
-        return 'ok';
+        
     }
 }
