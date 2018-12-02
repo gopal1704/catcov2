@@ -47,7 +47,7 @@ return view('walletpayment' ,compact('amount','schemeId'));
         "name" => "Catcotrade",
         "description" => "payment",
         "local_price" => array(
-            'amount' => 0.5,
+            'amount' => 0.29,
             'currency' => 'USD'
         ),
         "pricing_type" => "fixed_price",
