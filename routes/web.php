@@ -121,7 +121,7 @@ Route::get('admin/holdings', 'adminController@holdings');
 //COINBASE ROUTES
 Route::get('/coinbasetest', 'homeController@test1');
 //webhook
-Route::post('/cb', 'placeorderController@cb');
+Route::post('/cb', 'cbController@cb');
 
 
 
