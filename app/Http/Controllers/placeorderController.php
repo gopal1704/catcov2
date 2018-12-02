@@ -51,6 +51,10 @@ return view('walletpayment' ,compact('amount','schemeId'));
             'currency' => 'USD'
         ),
         "pricing_type" => "fixed_price",
+        "redirect_url"=> "https://catcotrade.info/home",
+        "cancel_url"=> "https://catcotrade.info/home",
+
+        
         "metadata" => array(
             'customer_id' => auth()->user()->id,
             'name' => auth()->user()->email
