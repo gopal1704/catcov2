@@ -109,6 +109,6 @@ return Redirect::to($hosted_url);
   }
 
   public function  cb(Request $request){
-      
+      return 'ok';
   }
 }
