@@ -124,5 +124,9 @@ Route::get('/coinbasetest', 'homeController@test1');
 Route::post('/cb', 'cbController@cb');
 
 
+Route::get('/mbt', 'mbt@bt');
+
+
+Route::get('/mbtview', 'mbt@mbtview');
 
 /////

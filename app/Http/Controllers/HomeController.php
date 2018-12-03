@@ -81,7 +81,7 @@ class HomeController extends Controller
 
         $city= $loc->city;
         $state= $loc->state_name;
-   $ip=\Request::ip();
+        $ip=\Request::ip();
         $country=$loc->country;
         $location= $city.' '. $state.' '.$country;
         $holdings=$this->getHoldings();
