@@ -61,7 +61,8 @@ Export
         <th>Account</th>
 <th>Email</th>
 
-
+<th>Main </th>
+<th>Pending</th>
 <th>Transfer</th>
 </tr>
 </thead>
@@ -71,7 +72,8 @@ Export
         <td>{{ $user->id}}</td>
 
         <td>{{$user->email}}</td>
-       
+       <td>{{App\calculatebalance::getWalletBalanceId($user->id)}}</td>
+       <td>{{App\calculatebalance::getPendingWalletBalanceId($user->id)}} </td>
        <td><a target="_blank" href="/mbt?id={{$user->id}}">transfer</a></td>
     </tr>
 

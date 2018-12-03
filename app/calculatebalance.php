@@ -23,6 +23,13 @@ class calculatebalance {
    return  round($walletBalance, 2);
 
     }
+    public static function getWalletBalanceId($id){
+
+      $userId= $id;
+      $walletBalance= transaction::where('userId', $userId)->where('account',self::MainWallet)->where('type', self::Credit)->sum('amount') - transaction::where('userId', $userId)->where('account',self::MainWallet)->where('type', self::Debit)->sum('amount');
+      return  round($walletBalance, 2);
+   
+       }
     public static function getPendingWalletBalance(){
 
         $userId= auth()->user()->id;
