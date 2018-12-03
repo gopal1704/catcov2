@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\transaction;
 use App\holding;
 use DB;
+use App\User;
 use App\operations;
 use App\calculatebalance;
 use Session;
@@ -63,7 +64,39 @@ class createInvestment extends Controller
         $transaction_r->amount = $amount*(5/100);
         $transaction_r->shadowAccount = 'src';
         $transaction_r->ACCOUNT = self::PendingWallet;
-        $transaction_r->narration= "Credit Referral Spot Commission";
+        $transaction_r->narration= "Credit Referral Spot Commission From - ". auth()->user()->id . ' '.operations::getName(auth()->user()->id) ;
+
+
+// SECOND LEVEL
+
+$secondLevelUser = User::where('id', auth()->user()->referralid)->first()->referralid;
+
+
+$transaction_l2= new transaction;
+        $transaction_l2->userId = $secondLevelUser;
+        $transaction_l2->TYPE= self::Credit;
+        $transaction_l2->amount = $amount*(3/100);
+        $transaction_l2->shadowAccount = 'src';
+        $transaction_l2->ACCOUNT = self::PendingWallet;
+        $transaction_l2->narration= "Credit Referral Spot Commission Level - 2 From - ". auth()->user()->referralid . ' '.operations::getName(auth()->user()->referralid) ;
+
+
+
+// THIRD LEVEL 
+$thirdLevelUser = User::where('id', $secondLevelUser)->first()->referralid;
+
+
+$transaction_l3= new transaction;
+        $transaction_l3->userId =$thirdLevelUser ;
+        $transaction_l3->TYPE= self::Credit;
+        $transaction_l3->amount = $amount*(2/100);
+        $transaction_l3->shadowAccount = 'src';
+        $transaction_l3->ACCOUNT = self::PendingWallet;
+        $transaction_l3->narration= "Credit Referral Spot Commission Level - 3 From -".$secondLevelUser. ' '.operations::getName($secondLevelUser)  ;
+
+
+
+
 
 
 //
@@ -75,11 +108,13 @@ class createInvestment extends Controller
         $holding->paymentDetails="Wallet Payment";
 
       
-        DB::transaction(function () use ($transaction, $holding,$transaction_r) {
+        DB::transaction(function () use ($transaction, $holding,$transaction_r,$transaction_l3,$transaction_l2) {
             $transaction->save();
             $holding->transactionId= $transaction->id;
             $holding->save();
             $transaction_r->save();
+            $transaction_l3->save();
+            $transaction_l2->save();
 
         });
 
