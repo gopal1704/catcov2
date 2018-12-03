@@ -77,7 +77,9 @@ Export
       @endif
       </td>
 
-      <td class="col-4">    {{ $referral->name}}
+      <td class="col-4">      @if ($referral->profiles)   
+      {{$referral->profiles->title}}&nbsp{{$referral->profiles->firstName}}&nbsp{{$referral->profiles->lastName}}
+      @endif
         </td>
        
         <td class="col-4">    {{ $referral->email}}
