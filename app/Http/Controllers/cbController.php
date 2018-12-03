@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Log;
 
 use Illuminate\Http\Request;
 use DB;
