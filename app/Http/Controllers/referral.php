@@ -23,4 +23,11 @@ class referral extends Controller
         
 
     }
+    public function viewlevel(Request $request){
+        $id=$request->input('id');
+        $referrals =  User::where('referralid',$id)->with('profiles')->get();
+
+        return view('referrals',compact('referrals'));
+
+    }
 }

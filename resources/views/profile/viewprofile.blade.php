@@ -148,7 +148,7 @@
                                 <tr>
                                         <td>Id Proof</td>
                                         <td>
-                                                        <button type="submit" href="/editprofile" class="btn btn-primary text-right">upload</button>
+                                                        <button type="submit" href="/editprofile" class="btn btn-primary text-right">select file</button>
 
 
                                                         <button type="submit" href="/editprofile" class="btn btn-primary text-right">upload</button>
@@ -158,7 +158,8 @@
                                 <tr>
 
                                                 <td>Address Proof</td>
-                                                <td>select file
+                                                <td>
+                                                <button type="submit" href="/editprofile" class="btn btn-primary text-right">select file</button>
 
                                                                 <button type="submit" href="/editprofile" class="btn btn-primary text-right">upload</button>
 

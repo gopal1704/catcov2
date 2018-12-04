@@ -34,7 +34,7 @@
   <div class="form-group">
     <label for="formGroupExampleInput2">Scheme</label>
     <select  class="form-control" id="formGroupExampleInput2" name="schemeId" placeholder="">
-        <option value="1">default</option>
+        <option value="1">Gold scheme</option>
 </select>
   </div>
   <div class="form-group">

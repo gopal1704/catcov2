@@ -3,7 +3,7 @@
 
 @section('content')
 
-<div class="col" >
+<div class="col"style="overflow-y:scroll;" >
     <div class="row">
         <div class="col">
 
@@ -50,7 +50,7 @@ Export
                     </div>
                 </div>
 
-<div class="row " style="overflow-y:scroll;">
+<div class="row " >
     <div class="col">
         <table class="table table-striped catco-pannel">
 
@@ -59,11 +59,17 @@ Export
         <th class="col-2">Account</th>
 <th class="col-2">Joining Date</th>
 
-<th class="col-4">Name</th>
-<th class="col-4">Email</th>
+<th class="col-3">Name</th>
+<th class="col-3">Email</th>
+<th class="col-2">View Level</th>
 </tr>
 </thead>
 <tbody>
+
+        @if($referrals->isEmpty())
+        <tr><td colspan="5">No referrals under this account</td></tr>
+        @endif
+
     @foreach ($referrals as $referral)
 
     @if ($referral->profiles)   
@@ -77,15 +83,19 @@ Export
       @endif
       </td>
 
-      <td class="col-4">      @if ($referral->profiles)   
+      <td class="col-3">      @if ($referral->profiles)   
       {{$referral->profiles->title}}&nbsp{{$referral->profiles->firstName}}&nbsp{{$referral->profiles->lastName}}
       @endif
         </td>
        
-        <td class="col-4">    {{ $referral->email}}
+        <td class="col-3">    {{ $referral->email}}
         </td>
+        <td class="col-2">
+            <a href="referralsviewlevel?id={{$referral->id}}" class="btn btn-block btn-primary">view</a>
+            
+            </td>
         @endif
-
+       
 
     </tr>
 
