@@ -5,8 +5,22 @@
 
 
 <div class="col">
+@if(Session::has('error'))
+<div class="alert alert-danger alert-dismissible">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
 
+  <strong>{{ Session::get('error') }}</strong> 
+</div>
+@endif
+@if(Session::has('message'))
+<div class="alert alert-success alert-dismissible">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+
+  <strong>{{ Session::get('message') }}</strong> 
+</div>
+@endif
 <div class="row justify-content-center align-items-center">
+
 <div class="col-6 text-center">
 
 
@@ -156,7 +170,14 @@
                                         </form>
                                         </td>
 
-                                        <td><a href="">view</a></td>
+                                                <td>
+                                                @if($profile->idProof)
+                                                <a target=”_blank” href="storage/{{$profile->idProof}}">view</a>
+                                                @else
+                                             <p>unavailable</p>
+                                                @endif
+                                                
+                                                </td>
                                 </tr>
                                 <tr colspan="4">
                                
@@ -167,12 +188,23 @@
                                              <td>  <form enctype="multipart/form-data" method="post" action="/uploadadproof">
                                              @csrf
 
-                                        <input type="file" name="idproof">
+                                        <input type="file" name="adproof">
                                         <input type="submit" value="Upload">
                                         </form>
                                         </td> 
-                                                <td><a href="">view</a></td>
 
+
+
+
+
+                                                <td>
+                                                @if($profile->proofUrl)
+                                                <a target=”_blank” href="storage/{{$profile->proofUrl}}">view</a>
+                                                @else
+                                             <p>unavailable</p>
+                                                @endif
+                                                
+                                                </td>
                                         </tr>
                                         <tr colspan="4">
                                      
@@ -194,7 +226,7 @@
                                    <ul>
 
 <li>Bank Statement</li>
-<li>Eb Bill</li>
+<li>Utility Bill</li>
 </ul>
 
 </div>

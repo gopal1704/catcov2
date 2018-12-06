@@ -7,6 +7,8 @@ use App\profile;
 use App\operations;
 use HomeController;
 use Session;
+use Illuminate\Support\Facades\Storage;
+
 
 class createprofile extends Controller
 {
@@ -85,12 +87,94 @@ public function processEdit(Request $request){
 
 
 public function uploadidproof(Request $request){
-return 'aa';
+  
+
+
+
+if($request->hasFile('idproof')){
+
+    //check for size
+    if($request->idproof->getSize() > 6291456){
+        Session::flash('error', ' max file size 5MB kindly upload file size less than 5MB'); 
+        return redirect('/viewprofile');
+    
+    }
+//check extension
+if( $request->idproof->extension() == 'jpeg' || $request->idproof->extension() == 'jpg'){
+    $fileName= auth()->user()->id.'idProof'.'.jpeg';
+    $url=$request->idproof->store('/');
+    $profile =  profile::where('userId',auth()->user()->id)->first();
+    $profile->idProof=$url;
+    $profile->save();
+    
+    Session::flash('message', 'Id proof uploaded successfully!'); 
+    return redirect('/viewprofile');
+}
+else if( $request->idproof->extension() == 'pdf'){
+    $fileName= auth()->user()->id.'idProof'.'.pdf';
+    $url=$request->idproof->store('public');
+    $profile =  profile::where('userId',auth()->user()->id)->first();
+    $profile->idProof=$url;
+    $profile->save();
+    
+    Session::flash('message', 'Id proof uploaded successfully!'); 
+    return redirect('/viewprofile');
+}
+else{
+    Session::flash('error', 'Error - please upload only jpeg,jpg or pdf files max size 5MB'); 
+    return redirect('/viewprofile');
+  
+}
+ 
+
+}
+    else{
+
+        Session::flash('error', 'Error - No file selected'); 
+        return redirect('/viewprofile');
+    }
+
+   
 }
 
 public function uploadadproof(Request $request){
-    return 'bb';
+   
 
+
+
+    
+    //check for size
+    if($request->idproof->getSize() > 6291456){
+        Session::flash('error', ' max file size 5MB kindly upload file size less than 5MB'); 
+        return redirect('/viewprofile');
+    
+    }
+//check extension
+if( $request->idproof->extension() == 'jpeg' || $request->idproof->extension() == 'jpg'){
+    $fileName= auth()->user()->id.'idProof'.'.jpeg';
+    $url=$request->idproof->store('/');
+    $profile =  profile::where('userId',auth()->user()->id)->first();
+    $profile->idProof=$url;
+    $profile->save();
+    
+    Session::flash('message', 'Id proof uploaded successfully!'); 
+    return redirect('/viewprofile');
+}
+else if( $request->idproof->extension() == 'pdf'){
+    $fileName= auth()->user()->id.'idProof'.'.pdf';
+    $url=$request->idproof->store('public');
+    $profile =  profile::where('userId',auth()->user()->id)->first();
+    $profile->idProof=$url;
+    $profile->save();
+    
+    Session::flash('message', 'Id proof uploaded successfully!'); 
+    return redirect('/viewprofile');
+}
+else{
+    Session::flash('error', 'Error - please upload only jpeg,jpg or pdf files max size 5MB'); 
+    return redirect('/viewprofile');
+  
+}
 }
 
 
