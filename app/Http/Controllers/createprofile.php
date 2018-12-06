@@ -153,7 +153,7 @@ public function uploadadproof(Request $request){
     
     }
 //check extension
-if( $request->adproof->extension() == 'jpeg' || $request->idproof->extension() == 'jpg'){
+if( $request->adproof->extension() == 'jpeg' || $request->adproof->extension() == 'jpg'){
     $url=$request->adproof->store('/');
     $profile =  profile::where('userId',auth()->user()->id)->first();
     $profile->proofUrl=$url;
