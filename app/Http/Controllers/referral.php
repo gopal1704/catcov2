@@ -36,8 +36,8 @@ class referral extends Controller
     public function  viewinv(Request $request){
         $id=$request->input('id');
         
-        $holdings = holding::where('userId',$id)->orderBy('TIMESTAMP', 'desc')->with('schemes')->paginate(8);
+        $holdings = holding::where('userId',$id)->orderBy('TIMESTAMP', 'desc')->with('schemes')->take(1)->get();
     //return $holdings;
-    return view('holdings',compact('holdings'));
+    return view('holdingslevel',compact('holdings'));
     }
 }
