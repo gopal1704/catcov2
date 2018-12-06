@@ -140,7 +140,7 @@ else{
 public function uploadadproof(Request $request){
    
 
-    if(!$request->hasFile('idproof')){
+    if(!$request->hasFile('adproof')){
         Session::flash('error', 'Error - No file selected'); 
         return redirect('/viewprofile');
     }
