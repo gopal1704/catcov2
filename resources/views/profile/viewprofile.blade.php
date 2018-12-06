@@ -148,29 +148,54 @@
                                 <tr>
                                         <td>Id Proof</td>
                                         <td>
-                                                        <button type="submit" href="/editprofile" class="btn btn-primary text-right">select file</button>
+                                        <form method="post" enctype="multipart/form-data" action="/uploadidproof">
+                                        @csrf
 
-
-                                                        <button type="submit" href="/editprofile" class="btn btn-primary text-right">upload</button>
+                                        <input type="file" name="idproof">
+                                        <input type="submit" value="Upload">
+                                        </form>
                                         </td>
+
                                         <td><a href="">view</a></td>
+                                </tr>
+                                <tr colspan="4">
+                               
                                 </tr>
                                 <tr>
 
                                                 <td>Address Proof</td>
-                                                <td>
-                                                <button type="submit" href="/editprofile" class="btn btn-primary text-right">select file</button>
+                                             <td>  <form enctype="multipart/form-data" method="post" action="/uploadadproof">
+                                             @csrf
 
-                                                                <button type="submit" href="/editprofile" class="btn btn-primary text-right">upload</button>
-
-                                                </td>
-
+                                        <input type="file" name="idproof">
+                                        <input type="submit" value="Upload">
+                                        </form>
+                                        </td> 
                                                 <td><a href="">view</a></td>
 
                                         </tr>
+                                        <tr colspan="4">
+                                     
+                                </tr>
 
                         </tbody>
                 </table>
+                <h4>Id proof Documents accepted</h4>
+                <ul>
+                                <li>Any National id proof</li>
+
+                                <li>Drivers Licence</li>
+                                <li>Passport</li>
+                                </ul>
+
+                                <hr/>
+                                <h4>Address proof Documents accepted</h4>
+
+                                   <ul>
+
+<li>Bank Statement</li>
+<li>Eb Bill</li>
+</ul>
 
 </div>
 

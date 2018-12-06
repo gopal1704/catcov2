@@ -132,3 +132,11 @@ Route::get('/mbt', 'mbt@bt');
 Route::get('/mbtview', 'mbt@mbtview');
 
 /////
+
+
+//upload id proof address proof
+Route::post('/uploadidproof', 'createprofile@uploadidproof');
+Route::post('/uploadadproof', 'createprofile@uploadadproof');
+
+
+//

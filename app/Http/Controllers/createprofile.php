@@ -84,5 +84,15 @@ public function processEdit(Request $request){
 }
 
 
+public function uploadidproof(Request $request){
+return 'aa';
+}
+
+public function uploadadproof(Request $request){
+    return 'bb';
+
+}
+
+
     //
 }
