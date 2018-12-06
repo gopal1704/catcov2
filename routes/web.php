@@ -46,8 +46,8 @@ Route::post('/gotopayment','placeorderController@selectPayment');
 
 
 Route::get('/referrals', 'referral@index');
-Route::get('/referralsviewlevel', 'referral@viewlevel');
 
+Route::get('/referralsviewinv', 'referral@viewinv');
 
 Route::get('/transactions', 'transactionsController@index');
 

@@ -105,10 +105,12 @@
                               <address class="contact-info">
                                 <dl>
                                   <dt class="text-white font-weight-bold">Address:</dt>  
-                                  <dd class="text-dark d-xl-block">Unit 102, 16 A Street,<br>Belize City,<br>Belize.</dd>
-                                   <!-- <dd class="text-dark"><a href="tel:#">+91 917-6454-024</a></dd> -->
+                                  <dd class="text-dark d-xl-block">New Horizon Building Ground floor<br>3 1/2 Miles Philip S.W Goldson Highway,<br>Belize City, Belize <br/> Central America</dd>
+
                                   <dt class="text-white offset-top-10 font-weight-bold">E-mail:</dt>
                                   <dd class="text-dark"><a href="mailto:#">mail@catcotrade.info</a></dd>
+                                  <dd class="text-dark"><a href="mailto:#">support@catcotrade.info</a></dd>
+
                                 </dl>
                               </address>
                             </div>

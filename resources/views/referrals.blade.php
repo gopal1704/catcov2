@@ -56,12 +56,13 @@ Export
 
 <thead>
     <tr class="d-flex">
-        <th class="col-2">Account</th>
+        <th class="col-1">Account</th>
 <th class="col-2">Joining Date</th>
 
-<th class="col-3">Name</th>
+<th class="col-4">Name</th>
 <th class="col-3">Email</th>
-<th class="col-2">View Level</th>
+<th class="col-1"> Level</th>
+<th  class="col-1">Investment</th>
 </tr>
 </thead>
 <tbody>
@@ -74,7 +75,7 @@ Export
 
     @if ($referral->profiles)   
     <tr class="d-flex">
-        <td class="col-2">{{ $referral->id}}</td>
+        <td class="col-1">{{ $referral->id}}</td>
 
 
       <td class="col-2"> 
@@ -83,16 +84,21 @@ Export
       @endif
       </td>
 
-      <td class="col-3">      @if ($referral->profiles)   
+      <td class="col-4">      @if ($referral->profiles)   
       {{$referral->profiles->title}}&nbsp{{$referral->profiles->firstName}}&nbsp{{$referral->profiles->lastName}}
       @endif
         </td>
        
         <td class="col-3">    {{ $referral->email}}
         </td>
-        <td class="col-2">
+        <td class="col-1">
             <a href="referralsviewlevel?id={{$referral->id}}" class="btn btn-block btn-primary">view</a>
             
+            </td>
+            <td class="col-1">
+                <a href="referralsviewinv?id={{$referral->id}}" class="btn btn-block btn-primary">view</a>
+
+
             </td>
         @endif
        
