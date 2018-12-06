@@ -112,7 +112,7 @@ if( $request->idproof->extension() == 'jpeg' || $request->idproof->extension() =
 }
 else if( $request->idproof->extension() == 'pdf'){
     $fileName= auth()->user()->id.'idProof'.'.pdf';
-    $url=$request->idproof->store('public');
+    $url=$request->idproof->store('/');
     $profile =  profile::where('userId',auth()->user()->id)->first();
     $profile->idProof=$url;
     $profile->save();
@@ -144,30 +144,29 @@ public function uploadadproof(Request $request){
 
     
     //check for size
-    if($request->idproof->getSize() > 6291456){
+    if($request->adproof->getSize() > 6291456){
         Session::flash('error', ' max file size 5MB kindly upload file size less than 5MB'); 
         return redirect('/viewprofile');
     
     }
 //check extension
-if( $request->idproof->extension() == 'jpeg' || $request->idproof->extension() == 'jpg'){
-    $fileName= auth()->user()->id.'idProof'.'.jpeg';
-    $url=$request->idproof->store('/');
+if( $request->adproof->extension() == 'jpeg' || $request->idproof->extension() == 'jpg'){
+    $url=$request->adproof->store('/');
     $profile =  profile::where('userId',auth()->user()->id)->first();
-    $profile->idProof=$url;
+    $profile->proofUrl=$url;
     $profile->save();
     
-    Session::flash('message', 'Id proof uploaded successfully!'); 
+    Session::flash('message', 'Address proof uploaded successfully!'); 
     return redirect('/viewprofile');
 }
-else if( $request->idproof->extension() == 'pdf'){
+else if( $request->adproof->extension() == 'pdf'){
     $fileName= auth()->user()->id.'idProof'.'.pdf';
-    $url=$request->idproof->store('public');
+    $url=$request->adproof->store('/');
     $profile =  profile::where('userId',auth()->user()->id)->first();
-    $profile->idProof=$url;
+    $profile->proofUrl=$url;
     $profile->save();
     
-    Session::flash('message', 'Id proof uploaded successfully!'); 
+    Session::flash('message', 'Address proof uploaded successfully!'); 
     return redirect('/viewprofile');
 }
 else{
