@@ -140,7 +140,10 @@ else{
 public function uploadadproof(Request $request){
    
 
-
+    if(!$request->hasFile('idproof')){
+        Session::flash('error', 'Error - No file selected'); 
+        return redirect('/viewprofile');
+    }
 
     
     //check for size
