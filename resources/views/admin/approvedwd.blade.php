@@ -78,7 +78,7 @@ Export
 <th>Name</th>
 <th>Account Details</th>
 <th>Amount</th>
-<th>Approval</th>
+<th>Approval Details</th>
 </tr>
 </thead>
 <tbody>
@@ -97,7 +97,7 @@ Export
           
           </td>
          <td>
-         <a href="approvewd?id={{$w->id}}" class="btn btn-success" style="color:#FFF;">Approve</a>
+         {{ $w->approvalDetails}}
 
          </td>
 

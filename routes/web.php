@@ -113,12 +113,13 @@ Route::post('admin/login', 'admin\LoginController@login');
 
 Route::get('admin/users', 'adminController@users');
 Route::get('admin/transactions', 'adminController@transactions');
-Route::get('admin/withdrawalrequests', 'adminController@withdrawalrequests');
+Route::get('admin/withdrawalrequests', 'adminController@withdrawalrequests')->name('wd');
 Route::get('admin/approvedwithdrawalrequests', 'adminController@approvedwithdrawalrequests');
 
 Route::get('admin/holdings', 'adminController@holdings');
 
 
+Route::get('admin/addwalletbalance', 'adminController@holdings');
 
 
 //COINBASE ROUTES
@@ -141,3 +142,6 @@ Route::post('/uploadadproof', 'createprofile@uploadadproof');
 
 
 //
+
+Route::get('admin/approvewd', 'approvewithdrawal@approve');
+Route::post('admin/confirmwdapproval', 'approvewithdrawal@confirm');

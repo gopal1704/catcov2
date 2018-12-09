@@ -35,13 +35,16 @@ return view('admin.transactions',compact('transactions'));
 
    }
    public function  withdrawalrequests(){
-    $wd = \App\withdrawalrequest::orderBy('TIMESTAMP', 'desc')->paginate(10);
+    $wd = \App\withdrawalrequest::where('status',1)->orderBy('TIMESTAMP', 'desc')->paginate(10);
 
     return view('admin.withdrawalrequests',compact('wd'));        
 
    }
 public function  approvedwithdrawalrequests(){
-    return view('admin.approvedwithdrawalrequests');        
+    $wd = \App\withdrawalrequest::where('status',0)->orderBy('TIMESTAMP', 'desc')->paginate(10);
+
+
+    return view('admin.approvedwd',compact('wd'));        
 
 }
 public function  holdings(){
