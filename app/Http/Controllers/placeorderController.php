@@ -7,6 +7,7 @@ use App\scheme;
 use DB;
 use App\coinbasepayment;
 use Illuminate\Support\Facades\Redirect;
+use Session;
 
 class placeorderController extends Controller
 {
@@ -38,7 +39,10 @@ return view('walletpayment' ,compact('amount','schemeId'));
     if($request->input('paymentMethod')=='btc'){
         $amount = $request->input('amount');
         $schemeId = $request->input('schemeId');
-
+        if($amount<500){
+            Session::flash('error', 'Minimum amount is 500 USD kindly enter amount above 500 USD'); 
+            return redirect('/placeorder');
+    }
         
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "https://api.commerce.coinbase.com/charges/");
