@@ -104,7 +104,7 @@ Route::post('register', 'Auth\RegisterController@register');
 
 /////ADMIN ROUTES
 
-Route::get('admin/home', 'adminController@index');
+Route::get('admin/home', 'adminController@index')->name('adminhome');
 
 Route::get('admin', 'admin\LoginController@showLoginForm')->name('admin.login');
 
@@ -116,10 +116,16 @@ Route::get('admin/transactions', 'adminController@transactions');
 Route::get('admin/withdrawalrequests', 'adminController@withdrawalrequests')->name('wd');
 Route::get('admin/approvedwithdrawalrequests', 'adminController@approvedwithdrawalrequests');
 
+Route::get('admin/approveuser', 'adminController@approveuser');
+Route::post('admin/approveuserconfirm', 'adminController@approveuserconfirm');
+
+
+
 Route::get('admin/holdings', 'adminController@holdings');
 
 
-Route::get('admin/addwalletbalance', 'adminController@holdings');
+Route::get('admin/addwalletbalance', 'adminController@addwalletbalance');
+Route::post('admin/addwalletbalanceconfirm', 'adminController@addwalletbalanceconfirm');
 
 
 //COINBASE ROUTES

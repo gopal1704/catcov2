@@ -64,12 +64,19 @@ Export
 
 <th>Joining Date</th>
 <th>Approval </th>
+
+<th>Id Proof</th>
+<th>Add. Proof</th>
+<th>Approve</th>
 </tr>
 </thead>
 <tbody>
     @foreach ($users as $user)
     <tr>
-        <td>{{ $user->id}}</td>
+        <td>{{ $user->id}}
+        <br>
+        {{$user->profiles->walletId}}
+        </td>
 
         <td>{{$user->email}}</td>
        
@@ -90,6 +97,15 @@ Export
             </td>
            
 @endif
+<td>
+<a target="_blank" href=" /storage/{{$user->profiles->idProof}}">view</a>
+</td>
+<td>
+<a href="  {{$user->profiles->proofUrl}}">view</a>
+</td>
+<td>
+<a href="approveuser?userId={{$user->profiles->userId}}"  class="btn btn-success">Approve Now</a>
+</td>
     </tr>
 
 

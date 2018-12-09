@@ -44,7 +44,7 @@
 
     </div>
     <div class="col-2">
-            <div class="dropdown ">
+            <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 Export
                     </button>
