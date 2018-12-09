@@ -73,6 +73,8 @@ Export
 <tbody>
     @foreach ($users as $user)
     <tr>
+    @if ($user->profiles)   
+
         <td>{{ $user->id}}
         <br>
         {{$user->profiles->walletId}}
@@ -80,7 +82,6 @@ Export
 
         <td>{{$user->email}}</td>
        
-        @if ($user->profiles)   
         <td>
             {{$user->profiles->title}} {{$user->profiles->firstName}} {{$user->profiles->lastName}}
         </td>
@@ -96,7 +97,7 @@ Export
             
             </td>
            
-@endif
+
 <td>
 @if($user->profiles->idProof)
 <a target="_blank" href=" /storage/{{$user->profiles->idProof}}">view</a>
@@ -121,6 +122,7 @@ Export
 <td>
 <a href="approveuser?userId={{$user->profiles->userId}}"  class="btn btn-success">Approve Now</a>
 </td>
+@endif
     </tr>
 
 
