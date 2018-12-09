@@ -3,6 +3,7 @@
 
 @section('content')
 
+<div class="col">
 @if(Session::has('error'))
 <div class="alert alert-danger alert-dismissible">
 <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -18,5 +19,5 @@
 </div>
 @endif
 <h1>admin home</h1>
-
+</div>
                             @endsection

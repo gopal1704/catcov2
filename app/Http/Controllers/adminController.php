@@ -59,14 +59,15 @@ public function approveuser(Request $request){
     $userId= $request->input('userId');
     
     $user = profile::where('userId',$userId)->first();
+  
     return view('admin.approveuser',compact('user'));
 }
 public function approveuserconfirm(Request $request){
+     
     $userId= $request->input('userId');
-    
     $user = profile::where('userId',$userId)->first();
 
-    if(approvalStatus==0){
+    if($user->approvalStatus==0){
     $user->approvalStatus=1;
     $user->save();
     Session::flash('message', 'User approval success!'); 

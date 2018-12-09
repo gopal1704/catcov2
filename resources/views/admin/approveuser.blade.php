@@ -35,7 +35,7 @@
 
 <form action="approveuserconfirm" method="POST">
 @csrf
-<input  type="hidden" class="form-control" id="id"  placeholder="" name="id" value="{{}}">
+<input  type="hidden" class="form-control" id="userId"  placeholder="" name="userId" value="{{$user->userId}}">
 
  
 
