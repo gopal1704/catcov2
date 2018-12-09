@@ -98,10 +98,25 @@ Export
            
 @endif
 <td>
+@if($user->profiles->idProof)
 <a target="_blank" href=" /storage/{{$user->profiles->idProof}}">view</a>
+    
+                @else
+    <span class="badge badge-danger">No proof</span>
+                @endif
+
+
+
 </td>
 <td>
-<a href="  {{$user->profiles->proofUrl}}">view</a>
+@if($user->profiles->proofUrl)
+<a target="_blank" href=" /storage/{{$user->profiles->proofUrl}}">view</a>
+    
+                @else
+    <span class="badge badge-danger">No proof</span>
+                @endif
+
+
 </td>
 <td>
 <a href="approveuser?userId={{$user->profiles->userId}}"  class="btn btn-success">Approve Now</a>
