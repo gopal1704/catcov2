@@ -78,7 +78,7 @@ $transaction_l2= new transaction;
         $transaction_l2->amount = $amount*(3/100);
         $transaction_l2->shadowAccount = 'src';
         $transaction_l2->ACCOUNT = self::PendingWallet;
-        $transaction_l2->narration= "Credit Referral Spot Commission Level - 2 From - ". auth()->user()->referralid . ' '.operations::getName(auth()->user()->referralid) ;
+        $transaction_l2->narration= "Credit Referral Spot Commission 3% - Level - 2  From - ". auth()->user()->referralid . ' '.operations::getName(auth()->user()->referralid) ;
 
 
 
@@ -92,7 +92,7 @@ $transaction_l3= new transaction;
         $transaction_l3->amount = $amount*(2/100);
         $transaction_l3->shadowAccount = 'src';
         $transaction_l3->ACCOUNT = self::PendingWallet;
-        $transaction_l3->narration= "Credit Referral Spot Commission Level - 3 From -".$secondLevelUser. ' '.operations::getName($secondLevelUser)  ;
+        $transaction_l3->narration= "Credit Referral Spot Commission  2% - Level - 3 From -".$secondLevelUser. ' '.operations::getName($secondLevelUser)  ;
 
 
 
