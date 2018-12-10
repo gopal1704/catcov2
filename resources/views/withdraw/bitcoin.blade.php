@@ -16,7 +16,7 @@
 @csrf
   <div class="form-group">
     <label for="formGroupExampleInput">Amount</label>
-    <input disabled name="amount" type="number" value="{{$amount}}" class="form-control" id="formGroupExampleInput" placeholder="">
+    <input disabled name="amount" type="number" value="{{$amount}}" class="form-control" id="formGroupExampleInput" required>
   </div>
  
  
@@ -25,7 +25,7 @@
   <div class="form-group">
     <label for="moneypolo">Bitcoin Address
     </label>
-    <input name="moneypolo" type="text" class="form-control" id="moneypolo" placeholder="">
+    <input name="moneypolo" type="text" class="form-control" id="moneypolo" required>
   </div>
 
   

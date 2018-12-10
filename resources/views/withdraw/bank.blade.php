@@ -16,23 +16,23 @@
 @csrf
   <div class="form-group">
     <label for="formGroupExampleInput">Amount</label>
-    <input  disabled name="amount" value="{{$amount}}" type="number" class="form-control" id="formGroupExampleInput" placeholder="">
+    <input  disabled name="amount" value="{{$amount}}" type="number" class="form-control" id="formGroupExampleInput" required>
   </div>
  
  
   <div class="form-group">
     <label for="bankname">Bank Name</label>
-    <input name="bankname" type="text" class="form-control" id="bankname" placeholder="">
+    <input name="bankname" type="text" class="form-control" id="bankname" required>
   </div>
 
   <div class="form-group">
     <label for="accountnumber">Account Number</label>
-    <input name="accountnumber" type="text" class="form-control" id="accountnumber" placeholder="">
+    <input name="accountnumber" type="text" class="form-control" id="accountnumber" required>
   </div>
 
   <div class="form-group">
     <label for="ifsc">IFSC Code</label>
-    <input name="ifsc" type="text" class="form-control" id="ifsc" placeholder="">
+    <input name="ifsc" type="text" class="form-control" id="ifsc" required>
   </div>
 
   <div class="form-group">

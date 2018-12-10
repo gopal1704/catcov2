@@ -16,13 +16,13 @@
 @csrf
   <div class="form-group">
     <label for="formGroupExampleInput">Amount</label>
-    <input disabled name="amount" value="{{$amount}}" type="number" class="form-control" id="formGroupExampleInput" placeholder="">
+    <input disabled name="amount" value="{{$amount}}" type="number" class="form-control" id="formGroupExampleInput" required>
   </div>
  
  
   <div class="form-group">
     <label for="paypalemail">Paypal Email</label>
-    <input name="paypalemail" type="text" class="form-control" id="paypalemail" placeholder="">
+    <input name="paypalemail" type="text" class="form-control" id="paypalemail" required>
   </div>
   <div class="form-group">
         <button type="submit" class="btn btn-block btn-primary">Submit request</button>
