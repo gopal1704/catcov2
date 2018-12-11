@@ -21,7 +21,11 @@ class createprofile extends Controller
     public function index(){
         $timezones = operations::timezones;
     
-        return view('createprofile')->with('timezones',$timezones);
+
+
+        $countries=operations::countries;
+
+        return view('createprofile',compact('timezones','countries'));
     }
     public function save(Request $request){
 
@@ -59,9 +63,8 @@ class createprofile extends Controller
 
         $timezones = operations::timezones;
         $profile =  profile::where('userId',auth()->user()->id)->first();
-
-    
-        return view('profile.editprofile',compact('timezones','profile'));
+         $countries=operations::countries;
+     return view('profile.editprofile',compact('timezones','profile','countries'));
     }
 public function processEdit(Request $request){
 

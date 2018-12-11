@@ -68,6 +68,7 @@ Export
 <th>Id Proof</th>
 <th>Add. Proof</th>
 <th>Approve</th>
+<th>Edit</th>
 </tr>
 </thead>
 <tbody>
@@ -121,6 +122,11 @@ Export
 </td>
 <td>
 <a href="approveuser?userId={{$user->profiles->userId}}"  class="btn btn-success">Approve Now</a>
+</td>
+
+<td>
+<a href="editprofile?userId={{$user->profiles->userId}}"  class="btn btn-success">edit</a>
+
 </td>
 @endif
     </tr>

@@ -92,6 +92,36 @@ return view('admin.addwalletbalance');
 
 }
 
+public function editprofile(Request $request){
+    $userId= $request->input('userId');
+    $timezones = operations::timezones;
+        $profile =  profile::where('userId',$userId)->first();
+         $countries=operations::countries;
+     return view('admin.editprofile',compact('timezones','profile','countries','userId'));
+
+}
+public function processEdit(Request $request){
+    $userId= $request->input('userId');
+
+    $profile =  profile::where('userId',auth()->user()->id)->first();
+    $profile->firstName= $request->input('firstName');
+    $profile->lastName= $request->input('lastName');
+    $profile->title =$request->input('title');
+    $profile->gender = $request->input('gender');
+    $profile->address = $request->input('address');
+    $profile->city= $request->input('city');
+    $profile->state=$request->input('state');
+    $profile->country=$request->input('country');
+    $profile->isdcode =$request->input('isdcode');
+    $profile->mobile=$request->input('mobile');
+    $profile->pincode = $request->input('pincode');
+    $profile->dateOfBirth = $request->input('dateOfBirth');
+    $profile->timeZone = $request->input('timeZone');
+    $profile->save();
+
+    Session::flash('message', 'Profile updated!'); 
+    return redirect()->route('adminhome');
+}
 public function addwalletbalanceconfirm(Request $request){
 
     $walletId= $request->input('walletId');

@@ -90,6 +90,7 @@ Route::get('/editprofile', 'createprofile@goToEditProfile');
 Route::get('/mailtest', 'homeController@mailtest');
 
 Route::post('/editprofiles', 'createprofile@processEdit');
+Route::post('/editprofileadmin', 'adminController@processEdit');
 
 
 Auth::routes();
@@ -126,6 +127,7 @@ Route::get('admin/holdings', 'adminController@holdings');
 
 Route::get('admin/addwalletbalance', 'adminController@addwalletbalance');
 Route::post('admin/addwalletbalanceconfirm', 'adminController@addwalletbalanceconfirm');
+Route::get('admin/editprofile', 'adminController@editprofile');
 
 
 //COINBASE ROUTES

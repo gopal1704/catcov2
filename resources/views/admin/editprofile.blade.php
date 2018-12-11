@@ -22,9 +22,9 @@
                 <div class="">
 <h1>Edit profile</h1>
 
-<form method="POST" action="/editprofiles">
+<form method="POST" action="/editprofileadmin">
         @csrf
-
+<input type="hidden"  name="userId" value="{{$userId}}">
         <div class="form-group row">
 
                 <div class="col-md-2">
