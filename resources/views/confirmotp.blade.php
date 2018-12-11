@@ -10,7 +10,7 @@
 <div class="row justify-content-center align-items-center">
 <div class="col-4 text-center">
 
-<h4>wallet transfer</h4>
+<h4>wallet transfer to - account: {{$account->userId}} &nbsp {{$account->title}}&nbsp{{$account->firstName}}&nbsp{{$account->lastName}} </h4>
 
 
 <form action="/wtprocess" method="POST">

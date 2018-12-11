@@ -42,7 +42,7 @@ class walletTransferController extends Controller
          $request->session()->put('walletId', $account->walletId);
          $request->session()->put('amount', $amount);
 
-           return view('confirmotp');
+           return view('confirmotp',compact('account'));
 
         }
         else{

@@ -103,7 +103,7 @@ public function editprofile(Request $request){
 public function processEdit(Request $request){
     $userId= $request->input('userId');
 
-    $profile =  profile::where('userId',auth()->user()->id)->first();
+    $profile =  profile::where('userId',$userId)->first();
     $profile->firstName= $request->input('firstName');
     $profile->lastName= $request->input('lastName');
     $profile->title =$request->input('title');
