@@ -245,9 +245,7 @@
             <script src="homepage/js/core.min.js"></script>
             <script src="homepage/js/script.js"></script>
             <script>
-            window.addEventListener('load', function() {
-              alert('Site will be offline from 10.00 PM IST 12-12-2018 to 10.00 AM IST 13-12-2018  for scheduled maintenance.');
-});
+      
            
             </script>
           </body>
