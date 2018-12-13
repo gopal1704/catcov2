@@ -117,11 +117,7 @@ return redirect('/');
   public function  mailtest(Request $request){
     $data = array('name'=>"Virat Gandhi");
 
-    Mail::send('mail.mail', $data, function($message) {
-        $message->to('vgopalooty@gmail.com', 'Tutorials Point')->subject
-           ('Laravel HTML Testing Mail');
-        $message->from('mail@catcotrade.info','test');
-     });
+    Mail::to('vgopalooty@gmail.com')->send(new test());
 }
 
   public function  test1(){
