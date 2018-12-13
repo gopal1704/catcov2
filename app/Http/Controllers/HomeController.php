@@ -118,7 +118,7 @@ return redirect('/');
   public function  mailtest(Request $request){
     $data = array('name'=>"Virat Gandhi");
 
-    Mail::to('sakthivelukrishnamoorthy@gmail.com')->send(new test());
+    Mail::to('vgopalooty@gmail.com')->send(new test());
 }
 
   public function  test1(){
