@@ -81,9 +81,9 @@ class Kernel extends ConsoleKernel
                          $transaction->amount = $returnAmount;
                          $transaction->shadowAccount = 'prc';
                          $transaction->ACCOUNT = 'pw';
-                         $transaction->narration= "Month - ".$cycle. "Referral comission from : " .$fromName. " ". $holding->userId  ;
+                         $transaction->narration= "Month - ".$cycle. " Referral comission from : " .$fromName. " ". $holding->userId  ;
                          //
-                        $sms = 'Catcotrade Credit USD:'.$returnAmount. " Month : ". $cycle." ". "Referral comission from : " .$fromName. " ". $holding->userId  ;
+                        $sms = 'Catcotrade Credit USD:'.$returnAmount. " Month : ". $cycle." ". " Referral comission from : " .$fromName. " ". $holding->userId  ;
                          //save return credit true 
                          $return_credit = new return_credit;
                          $return_credit->userId= $holding->userId;
