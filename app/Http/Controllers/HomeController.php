@@ -20,6 +20,7 @@ use DB;
 use App\transaction;
 use Hash;
 use Session;
+use App\Mail\test;
 
 class HomeController extends Controller
 {
@@ -117,7 +118,7 @@ return redirect('/');
   public function  mailtest(Request $request){
     $data = array('name'=>"Virat Gandhi");
 
-    Mail::to('vgopalooty@gmail.com')->send(new test());
+    Mail::to('sakthivelukrishnamoorthy@gmail.com')->send(new test());
 }
 
   public function  test1(){

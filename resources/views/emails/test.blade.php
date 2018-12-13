@@ -1,10 +1,10 @@
 @component('mail::message')
-# Introduction
+# This is a test mail from catcotrade.info
 
-The body of your message.
+
 
 @component('mail::button', ['url' => ''])
-Button Text
+Catcotrade
 @endcomponent
 
 Thanks,<br>
