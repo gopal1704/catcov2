@@ -28,7 +28,7 @@
 
 
 <tr> <th>Scheme</th>
-    <td>default</td></tr>
+    <td>Gold Scheme</td></tr>
    
    
     <tr> <th>Amount</th>
