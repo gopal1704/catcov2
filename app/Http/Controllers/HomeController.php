@@ -62,8 +62,9 @@ class HomeController extends Controller
 
         if(!$profile){
             $timezones = operations::timezones;
-    
-            return view('createprofile')->with('timezones',$timezones);
+            $countries=operations::countries;
+
+            return view('createprofile',compact('timezones','countries'));
 
         }
 
