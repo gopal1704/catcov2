@@ -55,7 +55,7 @@
                   
               </tr>
               <tr _ngcontent-c5="">
-                <th _ngcontent-c5="">Durect Sponsor Referral Comm.</th>
+                <th _ngcontent-c5="">Direct Sponsor Referral Comm.</th>
                 <td _ngcontent-c5="">5% on Investment / One time
                 </td>
         
@@ -63,7 +63,7 @@
             </tr>
             </tr>
               <tr _ngcontent-c5="">
-                <th _ngcontent-c5="">Durect Sponsor Monthly Income.</th>
+                <th _ngcontent-c5="">Direct Sponsor Monthly Income.</th>
                 <td _ngcontent-c5="">5% on Investment / One time
                 </td>
         
