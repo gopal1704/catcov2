@@ -153,3 +153,6 @@ Route::post('/uploadadproof', 'createprofile@uploadadproof');
 
 Route::get('admin/approvewd', 'approvewithdrawal@approve');
 Route::post('admin/confirmwdapproval', 'approvewithdrawal@confirm');
+
+
+Route::get('gp', 'globepay@index');
