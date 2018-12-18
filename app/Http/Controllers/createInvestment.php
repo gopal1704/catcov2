@@ -36,8 +36,8 @@ class createInvestment extends Controller
         $schemeId =$request->input('schemeId') ;
         $walletBalance = calculatebalance::getWalletBalance();
 
-        if($amount<500){
-                Session::flash('error', 'Minimum amount is 500 USD kindly enter amount above 500 USD'); 
+        if($amount<100){
+                Session::flash('error', 'Minimum amount is 100 USD kindly enter amount above 500 USD'); 
                 return redirect('/placeorder');
         }
         

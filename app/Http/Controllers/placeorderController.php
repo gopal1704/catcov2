@@ -39,8 +39,8 @@ return view('walletpayment' ,compact('amount','schemeId'));
     if($request->input('paymentMethod')=='btc'){
         $amount = $request->input('amount');
         $schemeId = $request->input('schemeId');
-        if($amount<500){
-            Session::flash('error', 'Minimum amount is 500 USD kindly enter amount above 500 USD'); 
+        if($amount<100){
+            Session::flash('error', 'Minimum amount is 100 USD kindly enter amount above 500 USD'); 
             return redirect('/placeorder');
     }
         
