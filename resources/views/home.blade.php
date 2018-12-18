@@ -332,7 +332,18 @@ var m= Math.floor(maturityAmount/s);
 console.log(s,m);
 var fv= parseFloat(amount) + parseFloat((s*incrementPerSecond).toFixed(5)) ;
 fv = fv.toFixed(5);
-element.find('.ma .maturityAmount').html(fv);
+
+if(amount>=500){
+    element.find('td.maturityAmount').html(fv);
+
+}
+else
+{
+    var maturityAmount=amount+ amount*(returnRate/100);
+    element.find('td.maturityAmount').html(maturityAmount);
+  
+}
+
     }
     /////
 
