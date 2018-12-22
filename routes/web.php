@@ -156,3 +156,9 @@ Route::post('admin/confirmwdapproval', 'approvewithdrawal@confirm');
 
 
 Route::get('gp', 'globepay@index');
+
+
+
+Route::get('gpsuccess','globepay@successredirect');
+
+Route::get('gperror','globepay@errorredirect');
