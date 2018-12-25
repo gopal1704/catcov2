@@ -117,9 +117,28 @@ return redirect('/');
 
 
   public function  mailtest(Request $request){
-    $data = array('name'=>"Virat Gandhi");
+    // $data = array('name'=>"Virat Gandhi");
 
-    Mail::to('sakthivelukrishnamoorthy@gmail.com')->send(new test());
+    // Mail::to('sakthivelukrishnamoorthy@gmail.com')->send(new test());
+
+
+
+
+    $endpoint = "http://catcotrade.info/gpcallback";
+$client = new \GuzzleHttp\Client();
+$id = 5;
+$value = "ABC";
+
+$client->request('POST', $endpoint, ['query' => [
+    'key1' => '$id', 
+    'key2' => 'Test'
+]]);
+
+// url will be: http://my.domain.com/test.php?key1=5&key2=ABC;
+
+$statusCode = $response->getStatusCode();
+$content = $response->getBody();
+echo $statusCode.$content;
 }
 
   public function  test1(){
