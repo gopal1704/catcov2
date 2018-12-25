@@ -20,6 +20,9 @@
 <input type="hidden" name="currency" id="currency" value="USD"  />
 <input type="hidden" name="callback_url" id="callback_url" value="https://catcotrade.info/gpcallback"  />
 <input type="hidden" name="email_address" id="email_address" value="catcotradeinfo@gmail.com"  />
+
+
+
 <a href="#" ><img src="https://www.globepayinc.com/images/pay_with_globepay.PNG" style="border:2px solid #020"  onClick="javascript:document.getElementById('pay_with_globepay').submit();" style="border:none" /></a>
 </form>
 
