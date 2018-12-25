@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Session;
+use Log;
 class globepay extends Controller
 {
     //
@@ -16,7 +17,9 @@ class globepay extends Controller
     public function index(){
         return view('globepay');
     }
-
+    public function ewallet(){
+      return view('ewallet');
+  }
   public function  successredirect(){
     Session::flash('message', 'Payment Successful!'); 
     return redirect('/home');
@@ -25,6 +28,14 @@ class globepay extends Controller
   public function  errorredirect(){
     Session::flash('error', 'Payment cancelled!'); 
     return redirect('/home');
+  }
+
+  public function callback(Request $request){
+    Log::info(['Request'=>$request]);
+
+  }
+  public function process(Request $request){
+
   }
 
 }

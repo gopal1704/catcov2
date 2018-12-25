@@ -72,7 +72,9 @@
     </li>
     <li>       <a class="" href="/holdings"> <i class="fas fa-wallet fa-lg"></i> Catco Wallet</a>
     </li>
-    <li> <a class="" href="/placeorder"><i class="fas fa-shopping-cart fa-lg"></i>Place Buy Order</a></li>    
+    <li> <a class="" href="/placeorder"><i class="fas fa-shopping-cart fa-lg"></i>Place Buy Order</a></li>   
+    <li> <a class="" href="/ewallet"><i class="fas fa-wallet fa-lg"></i>Add E-Wallet</a></li>   
+
   <li> <a class="" href="/referrals"> <i class="fas fa-users fa-lg"></i>My Referrals</a></li>     
      <li><a class="" href="/transactions"><i class="fas fa-exchange-alt fa-lg"></i>Transactions</a></li>   
      <li> <a class="" href="/wallettransfer"> <i class="fas fa-credit-card
