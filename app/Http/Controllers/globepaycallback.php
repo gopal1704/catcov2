@@ -12,7 +12,9 @@ class globepaycallback extends Controller
 
 
     public function callback(Request $request){
-        Log::info(['Request'=>$request]);
+        Log::info($request->input('mes'));
+
+
         return 'ok';
     
       }
