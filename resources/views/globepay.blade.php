@@ -1,11 +1,52 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>test payment</title>
-</head>
+@extends('dashboard')
 
-<body>
+
+@section('content')
+
+
+
+<div class="col">
+
+@if(Session::has('error'))
+<div class="alert alert-danger alert-dismissible">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+
+  <strong>{{ Session::get('error') }}</strong> 
+</div>
+@endif
+@if(Session::has('message'))
+<div class="alert alert-success alert-dismissible">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+
+  <strong>{{ Session::get('message') }}</strong> 
+</div>
+@endif
+<div class="row justify-content-center align-items-center">
+<div class="col-4 text-center">
+
+<h4>Confirm Payment  </h4>
+
+
+<table class="table table-striped catco-pannel">
+
+    <thead>
+        <tr>
+            <th>Payment Id</th>
+    
+    <th>Amount</th>
+   
+    </tr>
+    </thead>
+    <tbody>
+<tr>
+
+    <td>{{$gp}}</td>
+    <td>{{$amount}}</td>
+</tr>
+        </tbody>
+
+        </table>
+
 <form name="pay_with_globepay" id="pay_with_globepay" action="https://www.globepayinc.com/make_payment.php" target="_blank" method="post">
 <input type="hidden" name="cancel_url" id="cancel_url" value="https://catcotrade.info/gperror" />
 <input type="hidden" name="success_url" id="success_url" value="https://catcotrade.info/gpsuccess">
@@ -23,11 +64,15 @@
 
 
 
-<a href="#" ><img src="https://www.globepayinc.com/images/pay_with_globepay.PNG" style="border:2px solid #020"  onClick="javascript:document.getElementById('pay_with_globepay').submit();" style="border:none" /></a>
+<button onClick="javascript:document.getElementById('pay_with_globepay').submit();"  > Proceed to pay </button>
 </form>
 
+</div>
 
 
+</div>
 
-</body>
-</html>
+
+</div>
+
+@endsection
