@@ -18,7 +18,7 @@
 <input type="hidden" name="postage" id="postage" value=""  />
 <input type="hidden" name="tax_rate" id="tax_rate" value=""  />
 <input type="hidden" name="currency" id="currency" value="USD"  />
-<input type="hidden" name="callback_url" id="callback_url" value="https://us-central1-investment-3327a.cloudfunctions.net/function-1"  />
+<input type="hidden" name="callback_url" id="callback_url" value="https://catcotrade.info/gpcallback"  />
 <input type="hidden" name="email_address" id="email_address" value="catcotradeinfo@gmail.com"  />
 
 
