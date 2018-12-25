@@ -166,7 +166,7 @@ Route::get('gpsuccess','globepay@successredirect');
 
 Route::get('gperror','globepay@errorredirect');
 
-Route::post('gpcallback','globepay@callback');
+Route::post('gpcallback','globepaycallback@callback');
 
 
 Route::post('ewalletprocess','globepay@process');

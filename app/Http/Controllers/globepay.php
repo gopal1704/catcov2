@@ -30,10 +30,7 @@ class globepay extends Controller
     return redirect('/home');
   }
 
-  public function callback(Request $request){
-    Log::info(['Request'=>$request]);
 
-  }
   public function process(Request $request){
 
   }
