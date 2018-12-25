@@ -157,16 +157,16 @@ Route::post('admin/confirmwdapproval', 'approvewithdrawal@confirm');
 
 
 
-Route::get('gp', 'globepay@index');
+Route::get('gp', 'globepayc@index');
 
-Route::get('ewallet', 'globepay@ewallet');
+Route::get('ewallet', 'globepayc@ewallet');
 
 
-Route::get('gpsuccess','globepay@successredirect');
+Route::get('gpsuccess','globepayc@successredirect');
 
-Route::get('gperror','globepay@errorredirect');
+Route::get('gperror','globepayc@errorredirect');
 
 Route::post('gpcallback','globepaycallback@callback');
 
 
-Route::post('ewalletprocess','globepay@process');
+Route::post('ewalletprocess','globepayc@process');

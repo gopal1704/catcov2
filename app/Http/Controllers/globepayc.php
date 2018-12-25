@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Session;
+use App\globepay;
+use DB;
 use Log;
-class globepay extends Controller
+
+class globepayc extends Controller
 {
     //
 
@@ -32,6 +35,34 @@ class globepay extends Controller
 
 
   public function process(Request $request){
+$amount= $request->input('amount');
+$userid=auth()->user()->id;
+if($amount>=1){
+  $globepay = new globepay;
+  $globepay->userId=$userid;
+  $globepay->amount=$amount;
+
+
+
+  
+  DB::transaction(function () use ($globepay) {
+    $globepay->save();
+
+   
+
+});
+
+$gp=$globepay->id;
+  return view('globepay',compact('amount','gp'));
+
+}
+else{
+  return 0;
+}
+
+
+
+
 
   }
 

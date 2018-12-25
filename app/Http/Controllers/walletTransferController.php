@@ -96,8 +96,7 @@ return 0;
       $transaction_r->narration= 'Credit wallet transfer from '.$fromName . ' '.$fromWallet; 
 
       //
-      DB::transaction(function () use ($transaction, $transaction_r) {
-        $transaction->save();
+      DB::transaction(function () use ($transaction_r) {
         $transaction_r->save();
     });
     $fm='Catcotrade - '.$transaction->narration. ' USD : '.$amount;
