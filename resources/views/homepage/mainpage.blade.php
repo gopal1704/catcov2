@@ -9,11 +9,15 @@
               <div class="container">
                 <div class="row align-items-center justify-content-center section-cover section-66 text-lg-left context-dark">
                   <div class="col-sm-12" style="background-color:rgba(84, 167, 69, 0.52); padding: 20px;">
-                  <!-- <div class="alert alert-danger alert-dismissible">
+          
+               <div class="alert alert-success alert-dismissible">
 <button type="button" class="close" data-dismiss="alert">&times;</button>
 
-  <strong>Site will be offline from 10.00 PM IST 12-12-2018 to 10.00 AM IST 13-12-2018  for scheduled maintenance.</strong> 
-</div> -->
+  <strong>Catco Trading wishes you happy new year 2019!</strong> 
+</div>
+
+
+
                     <div class="offset-top-4 offset-xxl-top-24">
                       <h1 class="text-capitalize"><span class="big">Master Your Money </span></h1>
                     </div>

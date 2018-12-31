@@ -35,7 +35,7 @@ return view('admin.home');
     }
    public function transactions(){
 
-    $transactions = \App\transaction::orderBy('TIMESTAMP', 'desc')->paginate(8);
+    $transactions = \App\transaction::orderBy('TIMESTAMP', 'desc')->paginate(15);
    
 
 return view('admin.transactions',compact('transactions'));
