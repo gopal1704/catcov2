@@ -87,6 +87,13 @@ public function  holdings(){
 
 }
 
+public function logout(){
+    
+Auth::logout();
+
+return redirect('/');
+}
+
 public function addwalletbalance(){
 return view('admin.addwalletbalance');
 

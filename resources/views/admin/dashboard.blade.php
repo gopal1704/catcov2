@@ -49,7 +49,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right">
 
-              <a class="dropdown-item" href="/logout">Logout</a>
+              <a class="dropdown-item" href="/adminlogout">Logout</a>
             </div>
             </li>
 

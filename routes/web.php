@@ -34,6 +34,7 @@ Route::get('/tc', function () {
 Route::get('/home', 'homeController@index')->middleware('verified');
 Route::get('/homem/{message}', 'homeController@message')->name('home');
 Route::get('/logout', 'homeController@logout');
+Route::get('/adminlogout', 'adminController@logout');
 
 
 Route::get('/holdings','holdingsController@index');

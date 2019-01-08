@@ -113,7 +113,7 @@
                     <div class="col-6">
                     <a href="https://ssl.comodo.com">
                     <img src="https://ssl.comodo.com/images/trusted-site-seal.png" alt="Comodo Trusted Site Seal" width="113" height="59" style="border: 0px;"></a>                    
-                <span style="display:inline-block mb-auto mt-auto">	Copyrights &copy;  Catco Trading International Inc - 2018 
+                <span style="display:inline-block mb-auto mt-auto">	Copyrights &copy;  Catco Trading International Inc - 2018-2019
 </span>   
                 </div>
                   
