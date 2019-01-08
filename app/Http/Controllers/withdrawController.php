@@ -126,22 +126,17 @@ class withdrawController extends Controller
      
                     }
                     else{
-                        $previous_approved_request = withdrawalrequest::orderBy('TIMESTAMP', 'desc')->where('userId', auth()->user()->id)->where('status', 0)->first();
+                       // $previous_approved_request = withdrawalrequest::orderBy('TIMESTAMP', 'desc')->where('userId', auth()->user()->id)->where('status', 0)->first();
                        // dd($previous_approved_request->timestamp);
-                        $currentTime = Carbon::now();
-                        $previous_approved_request_time =  Carbon::createFromFormat('Y-m-d H:i:s',$previous_approved_request->timestamp);
+                        // $currentTime = Carbon::now();
+                        // $previous_approved_request_time =  Carbon::createFromFormat('Y-m-d H:i:s',$previous_approved_request->timestamp);
                         
-                        if($currentTime->greaterThan($previous_approved_request_time->addDays(30))){
                             Session::flash('message', 'Withdrawal request successful!'); 
-                                                    $this->wd($amount,$accDetails);
+                            $this->wd($amount,$accDetails);
 
                             return redirect('/home');
-                        }
-                        else{
-                            Session::flash('error', 'Withdrawal failed - only one request can be sent for 30 days !'); 
-                            return redirect('/home');
-         
-                        }
+                        
+                      
 
 
                         
