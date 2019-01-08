@@ -23,13 +23,16 @@
     <label for="formGroupExampleInput2">Select withdrawal method.</label>
     <select name="wmethod"  class="form-control" id="formGroupExampleInput2" placeholder="">
     @if($countryIndia==true)  
-    <option value="bank">Bank</option>
+    <option value="globepay">Globepay</option>
+
     @endif
+    @if($countryIndia==false)  
+
     <option value="paypal">Paypal</option>
 
         <option value="moneypolo">Moneypolo</option>
         <option value="bitcoin">Bitcoin</option>
-
+        @endif
 </select>
   </div>
   <div class="form-group">

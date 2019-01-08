@@ -10,6 +10,8 @@ use DB;
 use App\operations;
 use App\calculatebalance;
 use Session;
+use App\globepay;
+use Carbon\Carbon;
 class withdrawController extends Controller
 {
 
@@ -58,6 +60,12 @@ class withdrawController extends Controller
        case 'bitcoin':
        return view('withdraw.bitcoin')->with('amount',$amount);
        break;
+       
+       
+       case 'globepay':
+       return view('withdraw.globepay')->with('amount',$amount);
+       break;
+       
         
         default:
         return '';
@@ -104,6 +112,51 @@ class withdrawController extends Controller
                    $this->wd($amount,$accDetails);
                    Session::flash('message', 'Withdrawal request successful!'); 
                    return redirect('/home');
+                   break;
+
+                   case 'globepay':
+                   $accDetails= 'Globepay email :  '.$request->input('globepayemail');
+
+                   if($amount<=1500){
+                   
+                    $previous_request = withdrawalrequest::where('userId', auth()->user()->id)->where('status', 1)->first();
+                    if( $previous_request){
+                        Session::flash('error', 'Withdrawal failed - previous request pending!'); 
+                        return redirect('/home');
+     
+                    }
+                    else{
+                        $previous_approved_request = withdrawalrequest::orderBy('TIMESTAMP', 'desc')->where('userId', auth()->user()->id)->where('status', 0)->first();
+                       // dd($previous_approved_request->timestamp);
+                        $currentTime = Carbon::now();
+                        $previous_approved_request_time =  Carbon::createFromFormat('Y-m-d H:i:s',$previous_approved_request->timestamp);
+                        
+                        if($currentTime->greaterThan($previous_approved_request_time->addDays(30))){
+                            Session::flash('message', 'Withdrawal request successful!'); 
+                                                    $this->wd($amount,$accDetails);
+
+                            return redirect('/home');
+                        }
+                        else{
+                            Session::flash('error', 'Withdrawal failed - only one request can be sent for 30 days !'); 
+                            return redirect('/home');
+         
+                        }
+
+
+                        
+     
+                    }
+
+
+                  
+
+
+                    } else{
+                        Session::flash('error', 'Withdraw failed maximul withdrawal limit 1500 USD'); 
+                        return redirect('/home');    
+                    }
+                
                    break;
                     
                     default:
