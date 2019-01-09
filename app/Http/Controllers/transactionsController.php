@@ -40,7 +40,7 @@ return view('transactions',compact('transactions'));
         $to=    Carbon::createFromFormat('Y-m-d',$request->input('to'))->addDay();
 
 
-        $transactions = DB::table('transactions')->whereBetween('TIMESTAMP', [$from, $to])->paginate(10);
+        $transactions = DB::table('transactions')->where('userId',auth()->user()->id)->whereBetween('TIMESTAMP', [$from, $to])->paginate(10);
 
                     return view('transactions',compact('transactions'));
        }
@@ -48,7 +48,7 @@ return view('transactions',compact('transactions'));
         $from=  Carbon::createFromFormat('Y-m-d',$request->session()->get('from'))->subDay();
         $to=    Carbon::createFromFormat('Y-m-d',$request->session()->get('to'))->addDay();
 
-        $transactions = DB::table('transactions')->whereBetween('TIMESTAMP', [$from, $to])->paginate(10);
+        $transactions = DB::table('transactions')->where('userId',auth()->user()->id)->whereBetween('TIMESTAMP', [$from, $to])->paginate(10);
 
                     return view('transactions',compact('transactions'));
        }
