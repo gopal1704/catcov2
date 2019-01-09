@@ -171,3 +171,7 @@ Route::post('gpcallback','globepaycallback@callback');
 
 
 Route::post('ewalletprocess','globepayc@process');
+
+
+
+Route::get('transactionsq','transactionsController@dateRange');

@@ -10,20 +10,27 @@
 <div class="row">
     <div class="col-10">
          
-            <form>
+            <form method="GET" action="transactionsq">
+            @csrf
                     <div class="form-row">
                       <div class="col-3">
-                        <input type="date" class="form-control" placeholder="from">
+                        <input type="date" name="from" class="form-control" placeholder="from" 
+                      
+                        >
                       </div>
                       <div class="col-3">
-                        <input type="date" class="form-control" placeholder="to">
+                        <input type="date" name="to" class="form-control" placeholder="to">
                       </div>
-                      <div class="col-3">
+                      <div class="col-1">
                             <button class="btn" type="submit" class="form-control">
                               Search  </button>
                           </div>
+                          <div class="col-3">
+                          <a href="transactions" class="btn btn-secondary" > clear</a>
+</div>
                     </div>
                   </form>
+
 
 
     </div>
@@ -63,7 +70,7 @@ Export
 <th>Narration</th>
 <th>Credit</th>
 <th>Debit</th>
-<th>From</th>
+
 </tr>
 </thead>
 <tbody>
@@ -85,7 +92,7 @@ Export
                 @endif
                 </td>
 
-                <td>{{ $transaction->from}}</td>
+                
 
     </tr>
 
