@@ -43,8 +43,22 @@
 </select>
   </div>
   <div class="form-group">
-        <button type="submit" class="btn btn-block btn-primary" disabled>Submit request</button>
+      
+  @if($countryIndia==false)  
 
+<option value="paypal">Paypal</option>
+
+    <option value="moneypolo">Moneypolo</option>
+    <option value="bitcoin">Bitcoin</option>
+    @endif
+
+    @if($countryIndia==false)  
+        <button type="submit" class="btn btn-block btn-primary" >Submit request</button>
+        @endif
+
+        @if($countryIndia==true)  
+        <button type="submit" class="btn btn-block btn-primary" disabled >Submit request</button>
+        @endif
   </div>
 </form>
 </div>
