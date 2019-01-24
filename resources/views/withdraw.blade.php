@@ -12,11 +12,11 @@
 <h4>Withdrawal Request</h4>
 @if($countryIndia==true)  
 
-<div class="alert alert-danger alert-dismissible">
+<!-- <div class="alert alert-danger alert-dismissible">
 <button type="button" class="close" data-dismiss="alert">&times;</button>
 
   <strong>All  withdrawal request will be processed only after 25th January 2019 </strong> 
-</div>
+</div> -->
 @endif
 
 <form method="POST" action="/withdrawsubmit">
@@ -44,20 +44,14 @@
   </div>
   <div class="form-group">
       
-  @if($countryIndia==false)  
-
-<option value="paypal">Paypal</option>
-
-    <option value="moneypolo">Moneypolo</option>
-    <option value="bitcoin">Bitcoin</option>
-    @endif
+  
 
     @if($countryIndia==false)  
         <button type="submit" class="btn btn-block btn-primary" >Submit request</button>
         @endif
 
         @if($countryIndia==true)  
-        <button type="submit" class="btn btn-block btn-primary" disabled >Submit request</button>
+        <button type="submit" class="btn btn-block btn-primary"  >Submit request</button>
         @endif
   </div>
 </form>

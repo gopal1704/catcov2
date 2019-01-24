@@ -18,6 +18,18 @@
   <strong>{{ Session::get('message') }}</strong> 
 </div>
 @endif
+@if($countryIndia==true)  
+
+<div class="alert alert-success alert-dismissible">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+
+  <strong>Dear customers, 
+Withdrawal through GlobePay is opened now.  
+Customers can apply for  withdrawal which will be processed within 10 working days. Thus processing time will be reduced gradually. 
+Since it is a new payment gateway, withdrawal amount is restricted to USD 1500 for every transaction.  This limit will be enhanced  gradually.
+Thank you for your continues support.</strong> 
+</div>
+@endif
 
 
                                 <div class="row   justify-content-between  "  >

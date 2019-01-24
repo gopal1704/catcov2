@@ -21,6 +21,7 @@ use App\transaction;
 use Hash;
 use Session;
 use App\Mail\test;
+use App\Jobs\SendEmailJob;
 
 class HomeController extends Controller
 {
@@ -48,9 +49,13 @@ class HomeController extends Controller
     public function index()
     {   
         $profile =  profile::where('userId',auth()->user()->id)->first();
+        $countryIndia=false;
+        $country=$profile->country;
         $balance = calculatebalance::getAllbalances();
         $loc = geoip()->getLocation( \Request::ip());
-
+        if( $profile->country=='India'){
+            $countryIndia=true;
+        }
        $city= $loc->city;
        $state= $loc->state_name;
        $ip=\Request::ip();
@@ -69,7 +74,7 @@ class HomeController extends Controller
         }
 
       
-        return view('home',compact('profile','balance','ip','holdings','location'));
+        return view('home',compact('profile','balance','ip','holdings','location','countryIndia'));
     }
   
 
@@ -119,10 +124,13 @@ return redirect('/');
   public function  mailtest(Request $request){
 
 
-    phpinfo();
-    // $data = array('name'=>"Virat Gandhi");
+   // phpinfo();
+    $data = array('name'=>"Virat Gandhi");
 
-    // Mail::to('sakthivelukrishnamoorthy@gmail.com')->send(new test());
+
+
+   $job= (new SendEmailJob())->delay(Carbon::now()->addSeconds(2));
+   dispatch($job);
 
 
 
