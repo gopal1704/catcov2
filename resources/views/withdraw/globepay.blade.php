@@ -9,7 +9,7 @@
 <div class="row justify-content-center align-items-center">
 <div class="col-4 text-center">
 
-<h4>Withdrawal Request - Moneypolo</h4>
+<h4>Withdrawal Request - Globepay</h4>
 
 
 <form method="POST" action="/processwithdraw">

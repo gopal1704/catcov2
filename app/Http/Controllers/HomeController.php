@@ -50,12 +50,15 @@ class HomeController extends Controller
     {   
         $profile =  profile::where('userId',auth()->user()->id)->first();
         $countryIndia=false;
-        $country=$profile->country;
+        if($profile){
+            $country=$profile->country;
+            if( $profile->country=='India'){
+                $countryIndia=true;
+            }
+        }
         $balance = calculatebalance::getAllbalances();
         $loc = geoip()->getLocation( \Request::ip());
-        if( $profile->country=='India'){
-            $countryIndia=true;
-        }
+       
        $city= $loc->city;
        $state= $loc->state_name;
        $ip=\Request::ip();

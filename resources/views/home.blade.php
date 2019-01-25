@@ -18,6 +18,8 @@
   <strong>{{ Session::get('message') }}</strong> 
 </div>
 @endif
+@isset($countryIndia)
+
 @if($countryIndia==true)  
 
 <div class="alert alert-success alert-dismissible">
@@ -30,6 +32,7 @@ Since it is a new payment gateway, withdrawal amount is restricted to USD 1500 f
 Thank you for your continues support.</strong> 
 </div>
 @endif
+@endisset
 
 
                                 <div class="row   justify-content-between  "  >
