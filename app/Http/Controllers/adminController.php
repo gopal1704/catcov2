@@ -12,6 +12,8 @@ use App\calculatebalance;
 use App\operations;
 use App\transaction;
 use Session;
+use Hash;
+
 use DB;
 class adminController extends Controller
 {
@@ -168,4 +170,26 @@ try{
 
 }
     //
+    public function changePasswordAdmin(Request $request){
+//dd(Auth::user()->password);
+
+        if (!(Hash::check($request->get('password'), Auth::user()->password))) {
+            // The passwords matches
+            return redirect()->back()->with("error","Your current password does not matches with the password you provided. Please try again.");
+        }
+        if(strcmp($request->get('password'), $request->get('newpassword')) == 0){
+            //Current password and new password are same
+            return redirect()->back()->with("error","New Password cannot be same as your current password. Please choose a different password.");
+        }
+        $validatedData = $request->validate([
+            'password' => 'required',
+            'newpassword' => 'required|string|min:6',
+        ]);
+        //Change Password
+        $user = Auth::user();
+        $user->password = bcrypt($request->get('newpassword'));
+        $user->save();
+        Session::flash('message', 'Password changed successfully!'); 
+        return redirect('/admin/home');
+    }
 }

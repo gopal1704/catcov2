@@ -36,11 +36,11 @@
         <div class="col-md-8 align-self-center">
 
             <div class="catco-pannel p-0 ">
-            <div class="tth m-0" style="padding:10px; text-align:center;">{{ __('Change password') }}</div>
+            <div class="tth m-0" style="padding:10px; text-align:center;">{{ __('Change Admin password') }}</div>
 
                 <div class="card-body">
 
-                    <form method="POST" action="/cp">
+                    <form method="POST" action="/admin/changePasswordAdmin">
                         @csrf
 
     

@@ -73,6 +73,7 @@ Route::get('/changepassword',      function () {
      return view('auth.changepassword');
     
     });
+
 Route::post('/cp','homeController@changePassword');
 
 Route::get('/createprofile', 'createprofile@index');
@@ -117,6 +118,15 @@ Route::get('admin/users', 'adminController@users');
 Route::get('admin/transactions', 'adminController@transactions');
 Route::get('admin/withdrawalrequests', 'adminController@withdrawalrequests')->name('wd');
 Route::get('admin/approvedwithdrawalrequests', 'adminController@approvedwithdrawalrequests');
+
+
+Route::post('admin/changePasswordAdmin', 'adminController@changePasswordAdmin');
+Route::get('admin/showpasswd', 'adminController@changePasswordAdmin');
+Route::get('admin/cpadmin',    function () {   
+    return view('admin.changepassword');
+   
+   });
+
 
 Route::get('admin/approveuser', 'adminController@approveuser');
 Route::post('admin/approveuserconfirm', 'adminController@approveuserconfirm');
