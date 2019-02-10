@@ -7,7 +7,29 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use App\Mail\test;
+use App\Mail\walletTransferCredit;
 use Mail;
+
+/**
+ *      email types   
+ *      WTC - Wallet transfer credit
+ *      WTD - Wallet transfer debit
+ *      INVWP - Investment wallet
+ *      INVBTC - Investment  bitcoin
+ *      INVGP -Investment globepay
+ *      IR - Investment return
+ *      MRC - Monthly referral comission.
+ *      SRC - Spot referral commission
+ *      WD - Withdrawal request.
+ *      WDAP - Withdrawal 
+ *      
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ *  **/
 class SendEmailJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -17,9 +39,15 @@ class SendEmailJob implements ShouldQueue
      *
      * @return void
      */
-    public function __construct()
+    protected $type;
+    protected $data;
+
+    public function __construct($type,$data)
     {
         //
+    $this->type=$type;
+    $this->data=$data;
+
     }
 
     /**
@@ -30,8 +58,20 @@ class SendEmailJob implements ShouldQueue
     public function handle()
     {
         //
+        switch($this->type){
+            case 'WTC':
+            Mail::to('vgopalooty@gmail.com')->send(new walletTransferCredit($this->data));
+
+            break;
+            case 'WTD':
+            break;
+            case 'INVWP':
+            break;
+            default:
+            echo '';
+        }
         
-        Mail::to('nilgiriorganics@gmail.com')->send(new test());
+     //   Mail::to('vgopalooty@gmail.com')->send(new walletTransferCredit());
 
 
 

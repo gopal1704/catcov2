@@ -1,11 +1,9 @@
 @component('mail::message')
-# Introduction
+# Wallet Transfer Credit
 
-The body of your message.
+Dear Customer your wallet  has been credited by USD {{$transaction['amount']}} from {{$transaction['fromName']}}
+Wallet Id : {{$transaction['fromId']}} / Admin.
 
-@component('mail::button', ['url' => ''])
-Button Text
-@endcomponent
 
 Thanks,<br>
 {{ config('app.name') }}

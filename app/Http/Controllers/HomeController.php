@@ -128,11 +128,11 @@ return redirect('/');
 
 
    // phpinfo();
-    $data = array('name'=>"Virat Gandhi");
+    $data = array('name'=>"gopal");
 
 
 
-   $job= (new SendEmailJob())->delay(Carbon::now()->addSeconds(2));
+   $job= (new SendEmailJob('WTC',$data))->delay(Carbon::now()->addSeconds(2));
    dispatch($job);
 
 

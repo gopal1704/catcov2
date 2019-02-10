@@ -11,6 +11,9 @@ use App\operations;
 use App\transaction;
 use Session;
 use DB;
+use App\Jobs\SendEmailJob;
+use Carbon\Carbon;
+
 
 class walletTransferController extends Controller
 {
@@ -115,6 +118,18 @@ return 0;
 //     catch(Exception $e) {
 // return 'exception';
 //     }
+
+//email job credit
+    $data = array('fromName'=>$fromName,'amount'=> $amount,'fromId'=>$fromWallet);
+    $job= (new SendEmailJob('WTC',$data,auth()->user()->email))->delay(Carbon::now()->addSeconds(2));
+    dispatch($job);
+//
+
+
+//email job debit
+
+//
+
     Session::flash('message', 'Wallet transfer successful!'); 
         return redirect('/home');
       
