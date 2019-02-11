@@ -10,11 +10,11 @@
                 <div class="row align-items-center justify-content-center section-cover section-66 text-lg-left context-dark">
                   <div class="col-sm-12" style="background-color:rgba(84, 167, 69, 0.52); padding: 20px;">
           
-               <div class="alert alert-success alert-dismissible">
+               <!-- <div class="alert alert-success alert-dismissible">
 <button type="button" class="close" data-dismiss="alert">&times;</button>
 
   <strong>Catco Trading wishes you happy new year 2019!</strong> 
-</div>
+</div> -->
 
 
 

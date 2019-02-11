@@ -8,6 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use App\Mail\test;
 use App\Mail\walletTransferCredit;
+use App\Mail\walletTransferDebit;
 use Mail;
 
 /**
@@ -41,12 +42,13 @@ class SendEmailJob implements ShouldQueue
      */
     protected $type;
     protected $data;
-
-    public function __construct($type,$data)
+    protected $email;
+    public function __construct($type,$data,$email)
     {
-        //
+        
     $this->type=$type;
     $this->data=$data;
+    $this->email=$email;
 
     }
 
@@ -60,10 +62,12 @@ class SendEmailJob implements ShouldQueue
         //
         switch($this->type){
             case 'WTC':
-            Mail::to('vgopalooty@gmail.com')->send(new walletTransferCredit($this->data));
+            Mail::to($this->email)->send(new walletTransferCredit($this->data));
 
             break;
             case 'WTD':
+            Mail::to($this->email)->send(new walletTransferDebit($this->data));
+
             break;
             case 'INVWP':
             break;

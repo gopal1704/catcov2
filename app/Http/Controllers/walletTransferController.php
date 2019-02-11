@@ -9,6 +9,8 @@ use AWS;
 use App\calculatebalance;
 use App\operations;
 use App\transaction;
+use App\User;
+
 use Session;
 use DB;
 use App\Jobs\SendEmailJob;
@@ -120,14 +122,18 @@ return 0;
 //     }
 
 //email job credit
+$toEmail = User::where('id',$toAccount)->first()->email;
+
     $data = array('fromName'=>$fromName,'amount'=> $amount,'fromId'=>$fromWallet);
-    $job= (new SendEmailJob('WTC',$data,auth()->user()->email))->delay(Carbon::now()->addSeconds(2));
+    $job= (new SendEmailJob('WTC',$data,$toEmail))->delay(Carbon::now()->addSeconds(2));
     dispatch($job);
 //
 
 
 //email job debit
-
+$data = array('toName'=> $toName,'amount'=> $amount,'toId'=>$walletId);
+$job= (new SendEmailJob('WTD',$data,auth()->user()->email))->delay(Carbon::now()->addSeconds(2));
+dispatch($job);
 //
 
     Session::flash('message', 'Wallet transfer successful!'); 
