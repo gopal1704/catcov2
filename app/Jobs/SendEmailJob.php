@@ -21,7 +21,7 @@ use Mail;
  *      MRC - Monthly referral comission.
  *      SRC - Spot referral commission
  *      WD - Withdrawal request.
- *      WDAP - Withdrawal 
+ *      WDAP - Withdrawal approved
  *      
  * 
  * 
