@@ -26,10 +26,11 @@
 <button type="button" class="close" data-dismiss="alert">&times;</button>
 
   <strong>Dear customers, 
-Withdrawal through GlobePay is opened now.  
-Customers can apply for  withdrawal which will be processed within 10 working days. Thus processing time will be reduced gradually. 
-Since it is a new payment gateway, withdrawal amount is restricted to USD 1500 for every transaction.  This limit will be enhanced  gradually.
-Thank you for your continues support.</strong> 
+  Please buy Catco wallet for the  minimum amount of USD50 through GlobePay  , this is required for fulfilling statutory compliance requested by GlobePay Authorities. Please do the same to receive further payouts through GlobePay. 
+Thanking you for your continues support.
+
+Catco Support Team
+</strong> 
 </div>
 @endif
 @endisset
