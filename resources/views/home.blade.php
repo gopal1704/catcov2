@@ -312,7 +312,7 @@ Catco Support Team
 function remainingTime(date,fromdate,element,amt,rtRate){
 
       // Set the date we're counting down to
-
+      
       var countDownDate = Date.parse(date);
       var amount =parseFloat(amt);
       var returnRate = parseFloat(rtRate);
@@ -325,7 +325,7 @@ function remainingTime(date,fromdate,element,amt,rtRate){
       // Find the distance between now and the count down date
       var distance = countDownDate - now;
       var amountDistance= now - fromdate;
-    
+      console.log('s',distance,amountDistance);
       // Time calculations for days, hours, minutes and seconds
       var days = Math.floor(distance / (1000 * 60 * 60 * 24));
       var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -336,16 +336,19 @@ function remainingTime(date,fromdate,element,amt,rtRate){
     if(distance/1000>0){
     //calculate 1second value
     var maturityAmount =  parseFloat(amount*(returnRate/100).toFixed(2));
+//console.log('Maturity amount',maturityAmount);
 
 var     maturityPeriodSeconds = (countDownDate - fromdate)/1000;
-var     incrementPerSecond = (maturityAmount/maturityPeriodSeconds).toFixed(5);
 
+//console.log('Maturity seconds',  maturityPeriodSeconds);
+var     incrementPerSecond = (maturityAmount/maturityPeriodSeconds).toFixed(7);
+//console.log('increment per second', incrementPerSecond);
    // console.log('incsec',incrementPerSecond);
     ////calculate maturity amount .
 //console.log('maturity',maturityAmount);
 var s = Math.floor(amountDistance/1000);
 var m= Math.floor(maturityAmount/s);
-console.log(s,m);
+//console.log(s,m);
 var fv= parseFloat(amount) + parseFloat((s*incrementPerSecond).toFixed(5)) ;
 fv = fv.toFixed(5);
 //element.find('.ma .maturityAmount').html(fv);
@@ -383,7 +386,7 @@ else
 }
   
     $("tr.holding").each(function() {
-      var  $this= $(this);
+       var  $this= $(this);
        var dt = $(this).find("td.date").html();
        var amount =$(this).find("td.amount").html();
        var returnRate = $(this).find("td.returnRate").html();
