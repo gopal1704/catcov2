@@ -147,75 +147,81 @@
 </div>
 </div>
 <script>
+function remainingTime(date,fromdate,element,amt,rtRate){
 
-    function remainingTime(date,fromdate,element,amt,rtRate){
+// Set the date we're counting down to
 
-          // Set the date we're counting down to
+var countDownDate = Date.parse(date);
+var amount =parseFloat(amt);
+var returnRate = parseFloat(rtRate);
+var fromdate = Date.parse(fromdate);
 
-          var countDownDate = Date.parse(date);
-          var amount =parseFloat(amt);
-          var returnRate = parseFloat(rtRate);
-          var fromdate = Date.parse(fromdate);
+// Update the count down every 1 second
+var x = setInterval(function() {
+// Get todays date and time
+var now = new Date().getTime();
+// Find the distance between now and the count down date
+var distance = countDownDate - now;
+var amountDistance= now - fromdate;
+//    console.log('s',distance,amountDistance);
+// Time calculations for days, hours, minutes and seconds
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Update the count down every 1 second
-        var x = setInterval(function() {
-          // Get todays date and time
-          var now = new Date().getTime();
-          // Find the distance between now and the count down date
-          var distance = countDownDate - now;
-          var amountDistance= now - fromdate;
-        
-          // Time calculations for days, hours, minutes and seconds
-          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
 
-        if(distance/1000>0){
-        //calculate 1second value
-        var maturityAmount =  parseFloat(amount*(returnRate/100).toFixed(2));
-    //    console.log('maturity',maturityAmount);
+if(distance/1000>0){
+//calculate 1second value
+var maturityAmount =  parseFloat(amount*(returnRate/100).toFixed(2));
+//console.log('Maturity amount',maturityAmount);
 
-    var     maturityPeriodSeconds = (countDownDate - fromdate)/1000;
-  //  console.log('remaining seconds',maturityPeriodSeconds);
+var     maturityPeriodSeconds = (countDownDate - fromdate)/1000;
 
-    var     incrementPerSecond = (maturityAmount/maturityPeriodSeconds).toFixed(5);
-
-        //console.log('incsec',incrementPerSecond);
-        ////calculate maturity amount .
+//console.log('Maturity seconds',  maturityPeriodSeconds);
+var     incrementPerSecond = (maturityAmount/maturityPeriodSeconds).toFixed(7);
+//console.log('increment per second', incrementPerSecond);
+// console.log('incsec',incrementPerSecond);
+////calculate maturity amount .
 //console.log('maturity',maturityAmount);
 var s = Math.floor(amountDistance/1000);
 var m= Math.floor(maturityAmount/s);
 //console.log(s,m);
 var fv= parseFloat(amount) + parseFloat((s*incrementPerSecond).toFixed(5)) ;
 fv = fv.toFixed(5);
+//element.find('.ma .maturityAmount').html(fv);
+
 if(amount>=500){
-    element.find('td.maturityAmount').html(fv);
+element.find('td.maturityAmount').html(fv);
 
 }
 else
 {
-    var maturityAmount=amount+ amount*(returnRate/100);
-    element.find('td.maturityAmount').html(maturityAmount);
-  
+var maturityAmount=amount+ amount*(returnRate/100);
+element.find('td.maturityAmount').html(maturityAmount);
+
 }
-        }
-        /////
 
 
 
-          // Display the result in the element with id="demo"
-          element.find('.rt .rtt').html( days + "d " + hours + "h "
-          + minutes + "m " + seconds + "s ");
-          // If the count down is finished, write some text 
-          if (distance < 0) {
-            clearInterval(x);
-            element.find('.rt .rtt').html("MATURED");
-          }
-        }, 1000);
 
-    }
+
+}
+/////
+
+
+
+// Display the result in the element with id="demo"
+element.find('.rt .rtt').html( days + "d " + hours + "h "
++ minutes + "m " + seconds + "s ");
+// If the count down is finished, write some text 
+if (distance < 0) {
+  clearInterval(x);
+  element.find('.rt .rtt').html("MATURED");
+}
+}, 1000);
+
+}
       
         $("tr.holding").each(function() {
           var  $this= $(this);
